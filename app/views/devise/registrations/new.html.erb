@@ -1,11 +1,16 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_with model: @user,url: user_registration_path do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :planner_name %><br />
+    <%= f.text_field :planner_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secret_word %><br />
+    <%= f.text_field :secret_word, autofocus: true %>
   </div>
 
   <div class="field">
@@ -25,5 +30,3 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
