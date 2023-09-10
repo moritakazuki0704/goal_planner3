@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_08_044900) do
+ActiveRecord::Schema.define(version: 2023_09_10_162949) do
+
+  create_table "keywords", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "keyword_1"
+    t.string "keyword_2"
+    t.string "keyword_3"
+    t.string "keyword_4"
+    t.string "keyword_5"
+    t.string "keyword_6"
+    t.string "keyword_7"
+    t.string "keyword_8"
+    t.string "keyword_9"
+    t.string "keyword_10"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "secret_word", default: "", null: false

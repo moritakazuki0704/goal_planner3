@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :keyword
+
   validates_uniqueness_of :secret_word
   validates_presence_of :secret_word
 
