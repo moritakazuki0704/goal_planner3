@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_10_162949) do
+ActiveRecord::Schema.define(version: 2023_09_10_164038) do
+
+  create_table "ideals", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "ideal_status"
+    t.text "text_1"
+    t.text "text_2"
+    t.text "text_3"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "keywords", force: :cascade do |t|
     t.integer "user_id", null: false

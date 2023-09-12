@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :keyword
+  has_many :ideals
 
   validates_uniqueness_of :secret_word
   validates_presence_of :secret_word
