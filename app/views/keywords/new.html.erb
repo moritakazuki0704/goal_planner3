@@ -1,0 +1,45 @@
+<h3>あなたの理想を示すキーワードを10個教えて下さい</h3>
+<br>
+<p>どんなものでも構いません<br>
+  性格、生き方、価値観、人生観<br>
+  <br>
+  ただ思いつくままに教えて下さい
+</p>
+
+<ul>
+  <%= form_with model: @keyword,url: keywords_path do |f| %>
+    <li>
+      <%= f.text_field :keyword_1, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_2, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_3, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_4, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_5, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_6, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_7, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_8, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_9, autofocus: true %>
+    </li>
+    <li>
+      <%= f.text_field :keyword_10, autofocus: true %>
+    </li>
+    <li>
+      <%= f.submit "次に進む" %>
+    </li>
+  <% end %>
+</ul>
