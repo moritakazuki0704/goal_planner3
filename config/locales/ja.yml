@@ -1,0 +1,13 @@
+ja:
+  enums:
+    ideal: # モデル名
+      ideal_status: # カラム名
+        personality: '性格' # enumの値
+        appearance: '姿' # enumの値
+        lifestyle: '生活' # enumの値
+        time: '時間' # enumの値
+        working: '働き方' # enumの値
+        residence: '住まい' # enumの値
+        relationship: '仕事' # enumの値
+        partner: 'パートナー' # enumの値
+        role_model: 'ロールモデル' # enumの値
