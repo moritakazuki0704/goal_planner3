@@ -2,6 +2,12 @@
 <p>Find me in app/views/users/dash_board.html.erb</p>
 
 <div>
+  <%= @user.planner_name %>
+</div>
+<div>
+  <%= @user.secret_word %>
+</div>
+<div>
   <%= @keyword.keyword_1 %>
 </div>
 <div>
@@ -30,4 +36,20 @@
 </div>
 <div>
   <%= @keyword.keyword_10 %>
+</div>
+<div>
+  <% @ideals.each do |ideal| %>
+    <div>
+      <%= ideal.ideal_status %>
+    </div>
+    <div>
+      <%= ideal.text_1 %>
+    </div>
+    <div>
+      <%= ideal.text_2 %>
+    </div>
+    <div>
+      <%= ideal.text_3 %>
+    </div>
+  <% end %>
 </div>

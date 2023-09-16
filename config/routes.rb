@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'ideals/new'
-  get 'ideals/show'
-  get 'ideals/edit'
   devise_for :users,skip:[:passwords]
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
@@ -13,5 +10,6 @@ Rails.application.routes.draw do
       get 'introduction'
     end
   end
+  resource :ideals,except: [:index,:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
