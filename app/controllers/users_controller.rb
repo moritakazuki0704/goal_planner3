@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def dash_board
+    @keyword = Keyword.find_by(user_id: current_user.id)
   end
 
   def withdrawal

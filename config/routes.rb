@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'ideals/new'
+  get 'ideals/show'
+  get 'ideals/edit'
   devise_for :users,skip:[:passwords]
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
