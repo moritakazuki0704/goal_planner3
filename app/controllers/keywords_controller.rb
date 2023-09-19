@@ -10,7 +10,7 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.new(keyword_params)
     @keyword.user_id = current_user.id
     @keyword.save
-    redirect_to dash_board_path
+    redirect_to new_ideals
   end
 
   private
