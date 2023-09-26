@@ -60,7 +60,7 @@ class IdealsController < ApplicationController
     elsif params[:ideal][:ideal_section] == "8"
       @ideal.ideal_status = "model"
       @ideal.save
-      redirect_to dash_board_path
+      redirect_to new_mission_path(goal: "true")
     end
   end
 

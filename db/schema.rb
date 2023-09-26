@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2023_09_26_062430) do
 
   create_table "schedules", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "schedule_status", default: 0
+    t.integer "schedule_status", default: 1
     t.string "title"
     t.text "body"
     t.datetime "start_time"
