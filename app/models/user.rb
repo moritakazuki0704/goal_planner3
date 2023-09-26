@@ -3,9 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+# 後でhas_oneに変更
   has_many :keywords,dependent: :destroy
+  # 後でhas_oneに変更
+  has_many :missions,dependent: :destroy
   has_many :ideals,dependent: :destroy
+  has_many :schedules,dependent: :destroy
 
   validates_uniqueness_of :secret_word
   validates_presence_of :secret_word

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_10_164038) do
+ActiveRecord::Schema.define(version: 2023_09_26_062430) do
 
   create_table "ideals", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -34,6 +34,34 @@ ActiveRecord::Schema.define(version: 2023_09_10_164038) do
     t.string "keyword_8"
     t.string "keyword_9"
     t.string "keyword_10"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "mission_statement"
+    t.text "mission_detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.integer "schedule_id", null: false
+    t.string "task"
+    t.integer "priority_status"
+    t.integer "progress_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "schedule_status"
+    t.string "title"
+    t.text "body"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
