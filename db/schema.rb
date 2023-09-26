@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_26_062430) do
+ActiveRecord::Schema.define(version: 2023_09_26_140917) do
 
   create_table "ideals", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2023_09_26_062430) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "motivations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "motivation_status"
+    t.text "motivation_body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "plans", force: :cascade do |t|
     t.integer "schedule_id", null: false
     t.string "task"
@@ -77,6 +85,13 @@ ActiveRecord::Schema.define(version: 2023_09_26_062430) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["secret_word"], name: "index_users_on_secret_word", unique: true
+  end
+
+  create_table "values", force: :cascade do |t|
+    t.integer "motivation_id", null: false
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
