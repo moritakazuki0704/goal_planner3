@@ -2,7 +2,7 @@ ja:
   enums:
     ideal: # モデル名
       ideal_status: # カラム名
-        personality: '性格' # enumの値
+        personality: "性格" # enumの値
         appearance: '姿' # enumの値
         lifestyle: '生活' # enumの値
         time: '時間' # enumの値

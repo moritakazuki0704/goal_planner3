@@ -1,0 +1,25 @@
+<h1>あなたの理想のパートナー像・家族像・友人像を教えて下さい</h1>
+<p>
+  パートナーは夫婦像としてみるのでもいいです<br>
+  相棒のような存在でもいいです
+</p>
+<p>
+  あなたにとっての理想はきっと</br>
+  理想を想像、妄想<br>
+  いっぱい考えていれば
+</p>
+<p>
+  きっとその理想はあなたの手の届くところに寄ってきます
+</p>
+<div>
+  <%= form_with model: ideal do |f| %>
+    <%= f.hidden_field :ideal_section, :value => 8 %>
+    <p>パートナー像</p>
+    <div><%= f.text_area :text_1 %></div>
+    <p>家族像</p>
+    <div><%= f.text_area :text_2 %></div>
+    <p>友人像</p>
+    <div><%= f.text_area :text_3 %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

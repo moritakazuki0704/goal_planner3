@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   def dash_board
-    @keyword = Keyword.find_by(user_id: current_user.id)
-    @user = User.find_by(user_id: current_user.id)
-    @ideals = Ideal.find_by(user_id: current_user.id)
+    @user = current_user
+    @keywords = current_user.keywords.all
+    @ideals = current_user.ideals.all
   end
 
   def withdrawal

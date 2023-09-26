@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'introduction'
     end
   end
-  resource :ideals,except: [:show,:destroy]
+  resources :ideals,except: [:show,:destroy]
+  resources :ideal_steps, only: [:index, :show, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

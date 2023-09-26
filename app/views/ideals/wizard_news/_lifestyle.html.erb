@@ -1,0 +1,23 @@
+<h1>あなたの理想のライフスタイルを3つ教えて下さい</h1>
+<p>
+  どうしてそのライフスタイルの憧れているのか<br>
+  理由も教えて下さい
+</p>
+<p>
+  他人を納得させる生き方、生活ではなく</br>
+  自分が納得いく生き方、生活です
+</p>
+<p>
+  やりたいこと、憧れていること<br>
+  今の生活と比べてどうなりたいのか
+</p>
+<h3>ただそれだけです</h3>
+<div>
+  <%= form_with model: ideal do |f| %>
+    <%= f.hidden_field :ideal_section, :value => 2 %>
+    <div><%= f.text_area :text_1 %></div>
+    <div><%= f.text_area :text_2 %></div>
+    <div><%= f.text_area :text_3 %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

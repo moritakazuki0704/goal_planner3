@@ -1,23 +1,33 @@
 <h1>Ideals#new</h1>
 <p>Find me in app/views/ideals/show.html.erb</p>
 
-<h1>あなたの理想の性格を3つ教えてください</h1>
-<p>
-  どうしてその性格になりたいのか<br>
-  その理由も教えて下さい
-</p>
-<br>
-<p>
-  理由を知ることで</br>
-  どうしてそう思ったのか<br>
-  どうしてそうなりたいのか
-</p>
-<h3>詳しく理解することができます</h3>
-<div>
-  <%= form_with model: @ideal do |f| %>
-    <div><%= f.text_area :text_1 %></div>
-    <div><%= f.text_area :text_2 %></div>
-    <div><%= f.text_area :text_3 %></div>
-    <div><%= f.submit '次に進む' %></div>
-  <% end %>
-</div>
+
+
+  <!--理想の性格入力フォーム-->
+<% if params[:personality] %>
+  <%= render 'ideals/wizard_news/personality', ideal: @ideal %>
+  <!--理想の姿入力フォーム-->
+<% elsif params[:appearance] %>
+  <%= render 'ideals/wizard_news/appearance', ideal: @ideal %>
+  <!--理想のライフスタイル入力フォーム-->
+<% elsif params[:lifestyle] %>
+  <%= render 'ideals/wizard_news/lifestyle', ideal: @ideal %>
+  <!--理想の時間入力フォーム-->
+<% elsif params[:time] %>
+  <%= render 'ideals/wizard_news/time', ideal: @ideal %>
+  <!--理想の住まい入力フォーム-->
+<% elsif params[:working] %>
+  <%= render 'ideals/wizard_news/working', ideal: @ideal %>
+  <!--理想の働き方入力フォーム-->
+<% elsif params[:residence] %>
+  <%= render 'ideals/wizard_news/residence', ideal: @ideal %>
+  <!--理想の人間関係入力フォーム-->
+<% elsif params[:relationship] %>
+  <%= render 'ideals/wizard_news/relationship', ideal: @ideal %>
+  <!--理想のパートナー入力フォーム-->
+<% elsif params[:partner] %>
+  <%= render 'ideals/wizard_news/partner', ideal: @ideal %>
+  <!--理想のロールモデル入力フォーム-->
+<% elsif params[:model] %>
+  <%= render 'ideals/wizard_news/model', ideal: @ideal %>
+<% end %>

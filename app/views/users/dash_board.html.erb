@@ -7,40 +7,44 @@
 <div>
   <%= @user.secret_word %>
 </div>
-<div>
-  <%= @keyword.keyword_1 %>
-</div>
-<div>
-  <%= @keyword.keyword_2 %>
-</div>
-<div>
-  <%= @keyword.keyword_3 %>
-</div>
-<div>
-  <%= @keyword.keyword_4 %>
-</div>
-<div>
-  <%= @keyword.keyword_5 %>
-</div>
-<div>
-  <%= @keyword.keyword_6 %>
-</div>
-<div>
-  <%= @keyword.keyword_7 %>
-</div>
-<div>
-  <%= @keyword.keyword_8 %>
-</div>
-<div>
-  <%= @keyword.keyword_9 %>
-</div>
-<div>
-  <%= @keyword.keyword_10 %>
-</div>
+  <% @keywords.each do |keyword| %>
+<ol>
+<li>
+  <%= keyword.keyword_1 %>
+</li>
+<li>
+  <%= keyword.keyword_2 %>
+</li>
+<li>
+  <%= keyword.keyword_3 %>
+</li>
+<li>
+  <%= keyword.keyword_4 %>
+</li>
+<li>
+  <%= keyword.keyword_5 %>
+</li>
+<li>
+  <%= keyword.keyword_6 %>
+</li>
+<li>
+  <%= keyword.keyword_7 %>
+</li>
+<li>
+  <%= keyword.keyword_8 %>
+</li>
+<li>
+  <%= keyword.keyword_9 %>
+</li>
+<li>
+  <%= keyword.keyword_10 %>
+</li>
+</ol>
+<% end %>
 <div>
   <% @ideals.each do |ideal| %>
     <div>
-      <%= ideal.ideal_status %>
+      <%= ideal.ideal_status_i18n %>
     </div>
     <div>
       <%= ideal.text_1 %>

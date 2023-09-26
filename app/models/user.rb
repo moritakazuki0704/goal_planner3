@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :keyword,dependent: :destroy
+  has_many :keywords,dependent: :destroy
   has_many :ideals,dependent: :destroy
 
   validates_uniqueness_of :secret_word
