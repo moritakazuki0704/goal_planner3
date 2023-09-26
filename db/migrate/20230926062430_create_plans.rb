@@ -3,8 +3,8 @@ class CreatePlans < ActiveRecord::Migration[6.1]
     create_table :plans do |t|
       t.integer :schedule_id , null: false
       t.string :task
-      t.integer :priority_status
-      t.integer :progress_status
+      t.integer :priority_status, default: "0"
+      t.integer :progress_status, default: "0"
       t.timestamps
     end
   end

@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 2023_09_26_062430) do
   create_table "plans", force: :cascade do |t|
     t.integer "schedule_id", null: false
     t.string "task"
-    t.integer "priority_status"
-    t.integer "progress_status"
+    t.integer "priority_status", default: 0
+    t.integer "progress_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "schedules", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "schedule_status"
+    t.integer "schedule_status", default: 0
     t.string "title"
     t.text "body"
     t.datetime "start_time"
