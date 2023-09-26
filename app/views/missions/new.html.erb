@@ -1,0 +1,11 @@
+<h1>Missions#new</h1>
+<p>Find me in app/views/missions/new.html.erb</p>
+
+
+<% if params[:goal] %>
+  <%= render 'ideals/wizard_news/goal', schedule: @schedule %>
+<% elsif params[:plan] %>
+  <%= render 'ideals/wizard_news/plan', plan: @plan %>
+<% elsif params[:mission] %>
+  <%= render 'ideals/wizard_news/mission', mission: @mission %>
+<% end %>
