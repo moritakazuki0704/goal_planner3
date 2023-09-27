@@ -12,7 +12,7 @@
 </p>
 <h3>それはあなたの中にあります</h3>
 <div>
-  <%= form_with model: mission do |f| %>
+  <%= form_with model: mission, url: missions_path, method: :post do |f| %>
     <p>人生の指針</p>
     <div><%= f.text_field :mission_statement %></div>
     <p>理由、詳細</p>

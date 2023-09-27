@@ -3,13 +3,13 @@
 
 <!--目標設定作成フォーム-->
 <% if params[:goal] %>
-  <%= render 'ideals/wizard_news/goal', schedule: @schedule %>
-  
+  <%= render 'missions/wizard_news/goal', schedule: @schedule %>
+
 <!--目標タスク作成フォーム-->
 <% elsif params[:plan] %>
-  <%= render 'ideals/wizard_news/plan', plan: @plan %>
+  <%= render 'missions/wizard_news/plan', form: @form %>
 
 <!--ミッションステートメント作成フォーム-->
 <% elsif params[:mission] %>
-  <%= render 'ideals/wizard_news/mission', mission: @mission %>
+  <%= render 'missions/wizard_news/mission', mission: @mission %>
 <% end %>

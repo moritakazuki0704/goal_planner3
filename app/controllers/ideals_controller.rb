@@ -58,7 +58,7 @@ class IdealsController < ApplicationController
 
     # <!--理想のロールモデル入力フォーム-->
     elsif params[:ideal][:ideal_section] == "8"
-      @ideal.ideal_status = "model"
+      @ideal.ideal_status = "role_model"
       @ideal.save
       redirect_to new_mission_path(goal: "true")
     end
@@ -69,7 +69,7 @@ class IdealsController < ApplicationController
 
   def edit
   end
-  
+
   def update
   end
 

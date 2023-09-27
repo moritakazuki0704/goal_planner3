@@ -1,6 +1,6 @@
 <h1>あなたの目標を教えて下さい</h1>
 <div>
-  <%= form_with model: schedule do |f| %>
+  <%= form_with model: schedule, url: missions_path, method: :post do |f| %>
     <p>タイトル</p>
     <div><%= f.text_field :title %></div>
     <p>いつまでに達成する</p>

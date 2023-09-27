@@ -4,4 +4,5 @@ class Plan < ApplicationRecord
   enum priority_status: { emergency: 0, important: 1, mission: 2 }
   enum progress_status: { start: 0, finish: 1, process: 2, postpone: 3, cancel: 4 }
 
+  validates :availability, inclusion: { in: [true, false] }
 end

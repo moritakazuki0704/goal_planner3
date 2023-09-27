@@ -57,3 +57,34 @@
     </div>
   <% end %>
 </div>
+<div>
+  <% @missions.each do |mission| %>
+    <div>
+      <span>
+        <%= mission.mission_statement %>
+      </span>
+      <span>
+        <%= mission.mission_detail %>
+      </span>
+    </div>
+  <% end %>
+</div>
+<div>
+  <% @schedules.each do |schedule| %>
+    <div>
+      <span>
+        <%= schedule.schedule_status_i18n %><br>
+        <%= schedule.title %>
+      </span>
+      <span>
+        <%= schedule.body %>
+      </span>
+    </div>
+    <span>
+      <%= schedule.start_time %>
+    </span>
+    <span>
+      <%= schedule.end_time %>
+    </span>
+  <% end %>
+</div>
