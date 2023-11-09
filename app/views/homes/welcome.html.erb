@@ -1,6 +1,15 @@
 <h1>Homes#welcome</h1>
 <p>Find me in app/views/homes/welcome.html.erb</p>
 
+<div class="bookshelf">
+  <div class="spine">
+    <% if current_user.missions.present? %>
+      <%= render 'homes/wizard_welcomes/welcome' %>
+    <% else %>
+      <%= render 'homes/wizard_welcomes/introduction' %>
+    <% end %>
+  </div>
+</div>
 <div>
   <%= link_to "登録", introduction_keywords_path %>
 </div>

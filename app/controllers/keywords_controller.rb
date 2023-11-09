@@ -1,5 +1,5 @@
 class KeywordsController < ApplicationController
-  
+
   def introduction
   end
 
@@ -12,6 +12,12 @@ class KeywordsController < ApplicationController
     @keyword.user_id = current_user.id
     @keyword.save
     redirect_to new_ideal_path(personality: "true")
+  end
+
+  def destroy
+    keyword = current_user.keywords
+    keyword.destroy
+    redirect_to new_keywords_path
   end
 
   private

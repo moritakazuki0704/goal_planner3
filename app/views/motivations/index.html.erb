@@ -1,3 +1,49 @@
 <h1>Motivations#index</h1>
 <p>Find me in app/views/motivations/index.html.erb</p>
 
+<% if current_user.motivations.present? %>
+  <div>
+    <%= @motivations.where(mission_statement: "positive").each do |positive_motivation| %>
+      <%= positive_motivation.motivation_1 %>
+      <%= positive_motivation.motivation_2 %>
+      <%= positive_motivation.motivation_3 %>
+      <%= positive_motivation.motivation_4 %>
+      <%= positive_motivation.motivation_5 %>
+    <% end %>
+  </div>
+  <div>
+    <%= @motivations.where(mission_statement: "negative").each do |negative_motivation| %>
+      <%= negative_motivation.motivation_1 %>
+      <%= negative_motivation.motivation_2 %>
+      <%= negative_motivation.motivation_3 %>
+      <%= negative_motivation.motivation_4 %>
+      <%= negative_motivation.motivation_5 %>
+    <% end %>
+  </div>
+  <div>
+    <%= @motivations.where(mission_statement: "to_do").each do |to_do_motivation| %>
+      <%= to_do_motivation.motivation_1 %>
+      <%= to_do_motivation.motivation_2 %>
+      <%= to_do_motivation.motivation_3 %>
+      <%= to_do_motivation.motivation_4 %>
+      <%= to_do_motivation.motivation_5 %>
+    <% end %>
+  </div>
+  <div>
+    <%= @motivations.where(mission_statement: "want").each do |want_motivation| %>
+      <%= want_motivation.motivation_1 %>
+      <%= want_motivation.motivation_2 %>
+      <%= want_motivation.motivation_3 %>
+      <%= want_motivation.motivation_4 %>
+      <%= want_motivation.motivation_5 %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to "編集", edit_motivation_path %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "新規作成", new_motivation_path %>
+  </div>
+<% end %>

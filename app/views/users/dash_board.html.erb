@@ -80,11 +80,43 @@
         <%= schedule.body %>
       </span>
     </div>
-    <span>
+    <div>
       <%= schedule.start_time %>
+    </div>
+    <div>
+      <%= schedule.end_time %>
+    </div>
+  <% end %>
+</div>
+<div>
+  <% @plans.each do |plan| %>
+    <div>
+      <span>
+        <%= plan.schedule_id %><br>
+        <%= plan.task %>
+      </span>
+      <span>
+        <%= plan.priority_status_i18n %>
+      </span>
+    </div>
+    <span>
+      <%= plan.progress_status_i18n %>
     </span>
     <span>
-      <%= schedule.end_time %>
+      <%= plan.availability %>
     </span>
+  <% end %>
+</div>
+<div>
+  <% @missions.each do |mission| %>
+    <div>
+      <span>
+        <%= mission.user_id %><br>
+        <%= mission.mission_statement %>
+      </span>
+      <span>
+        <%= mission.mission_detail %>
+      </span>
+    </div>
   <% end %>
 </div>

@@ -30,6 +30,5 @@ ja:
       motivation_status: # カラム名
         positive: 'ポジティブ' # enumの値
         negative: 'ネガティブ' # enumの値
-        unpleasant: '嫌なこと' # enumの値
         to_do: 'したいこと' # enumの値
         want: 'ほしいもの' # enumの値

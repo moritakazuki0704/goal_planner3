@@ -49,7 +49,11 @@ ActiveRecord::Schema.define(version: 2023_09_26_140917) do
   create_table "motivations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "motivation_status"
-    t.text "motivation_body"
+    t.text "motivation_1"
+    t.text "motivation_2"
+    t.text "motivation_3"
+    t.text "motivation_4"
+    t.text "motivation_5"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

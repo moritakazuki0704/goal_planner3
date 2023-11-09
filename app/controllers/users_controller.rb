@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @ideals = current_user.ideals.all
     @missions = current_user.missions.all
     @schedules = current_user.schedules.all
+    @plans = Plan.all
+    @missions = current_user.missions.all
   end
 
   def withdrawal

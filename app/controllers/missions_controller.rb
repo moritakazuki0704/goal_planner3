@@ -12,16 +12,9 @@ class MissionsController < ApplicationController
       @schedule = Schedule.new(schedule_params)
       @schedule.user_id = current_user.id
       @schedule.schedule_status = "goal"
-      @schedule.start_time = @schedule.end_time
+      @schedule.start_time = @schedule.created_at
       @schedule.save
       redirect_to new_mission_path(plan: "true")
-
-    # 目標タスク入力フォーム
-    elsif params[:form]
-      @form = Form::PlanCollection.new(plan_collection_params)
-
-      @form.save
-      redirect_to new_mission_path(mission: "true")
 
     # ミッションステートメント入力フォーム
     elsif params[:mission]
@@ -29,17 +22,24 @@ class MissionsController < ApplicationController
       @mission.user_id = current_user.id
       @mission.save
       redirect_to dash_board_path
+
+    # 目標タスク入力フォーム
+    else
+      @form = Form::PlanCollection.new(plan_collection_params)
+      @form.save
+      redirect_to new_mission_path(mission: "true")
+
     end
   end
 
   private
 
   def schedule_params
-    params.require(:schedule).permit(:schedule_status,:title,:body,:start_time,:end_time)
+    params.require(:schedule).permit(:title,:body,:start_time,:end_time)
   end
 
   def plan_collection_params
-    params.require(:form_plan_collection).permit(plans_attributes: Form::Plan::REGISTRABLE_ATTRIBUTES)
+    params.require(:form_plan_collection).permit(plans_attributes: [:schedule_id, :task, :availability])
   end
 
   def mission_params

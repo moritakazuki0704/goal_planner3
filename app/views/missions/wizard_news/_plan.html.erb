@@ -2,7 +2,7 @@
 
   <!--一括レコード保存方法で作成する-->
 <div>
-  <%= form_with( model: form ,url: missions_path, method: :post) do |form| %>
+  <%= form_with model: form, url: missions_path, method: :post do |form| %>
     <%= form.fields_for :plans do |f| %>
       <div>
         <span>
@@ -13,7 +13,6 @@
         </span>
       </div>
     <% end %>
-    <%= form.hidden_field :plan_section, :value => 0 %>
     <div>
       <%= form.submit '次に進む' %>
     </div>

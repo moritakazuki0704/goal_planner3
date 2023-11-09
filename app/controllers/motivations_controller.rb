@@ -7,6 +7,7 @@ class MotivationsController < ApplicationController
   end
 
   def index
+    @motivations = current_user.motivations.all
   end
 
   def edit

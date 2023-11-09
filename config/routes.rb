@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'dash_board' => 'users#dash_board', as: 'dash_board'
   get 'withdrawal' => 'users#withdrawal', as: 'withdrawal'
   delete 'users' => 'users#destroy',as: 'user_destroy'
-  resource :keywords,only: [:new,:create] do
+  resource :keywords,only: [:new,:create,:destroy] do
     collection do
       get 'introduction'
     end

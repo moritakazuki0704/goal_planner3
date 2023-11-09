@@ -7,6 +7,7 @@ class Form::PlanCollection < Form::Base
     self.plans = FORM_COUNT.times.map { Plan.new() } unless self.plans.present?
   end
 
+  # 上でsuper attributesとしているので必要
   def plans_attributes=(attributes)
     self.plans = attributes.map { |_, v| Plan.new(v) }
   end
@@ -21,8 +22,9 @@ class Form::PlanCollection < Form::Base
         end
       end
     end
-      return true
-    rescue => e
-      return false
+    return true
+      rescue => e
+    return false
   end
 end
+
