@@ -1,0 +1,51 @@
+<ol>
+<li>
+  <%= session[:keyword_1] %>
+</li>
+<li>
+  <%= session[:keyword_2] %>
+</li>
+<li>
+  <%= session[:keyword_3] %>
+</li>
+<li>
+  <%= session[:keyword_4] %>
+</li>
+<li>
+  <%= session[:keyword_5] %>
+</li>
+<li>
+  <%= session[:keyword_6] %>
+</li>
+<li>
+  <%= session[:keyword_7] %>
+</li>
+<li>
+  <%= session[:keyword_8] %>
+</li>
+<li>
+  <%= session[:keyword_9] %>
+</li>
+<li>
+  <%= session[:keyword_10] %>
+</li>
+</ol>
+
+<h1>あなたの理想のパートナーとの関係を教えて下さい</h1>
+<p>
+  あなたが望んでいるパートナーとの関係性はなんですか<br>
+  あなたが望んでいるパートナーとの関わり方はなんですか<br>
+  どうしてパートナーが必要と思いますか
+</p>
+<p>
+  あなたの将来を考えた時に<br>
+  一緒にいる人がきっとその人です
+</p>
+<div>
+  <%= form_with model: @ideal,url: role_model_new_ideal_path, method: :get do |f| %>
+    <div><%= f.text_area :partner_1 %></div>
+    <div><%= f.text_area :partner_2 %></div>
+    <div><%= f.text_area :partner_3 %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

@@ -1,0 +1,57 @@
+<ol>
+<li>
+  <%= session[:keyword_1] %>
+</li>
+<li>
+  <%= session[:keyword_2] %>
+</li>
+<li>
+  <%= session[:keyword_3] %>
+</li>
+<li>
+  <%= session[:keyword_4] %>
+</li>
+<li>
+  <%= session[:keyword_5] %>
+</li>
+<li>
+  <%= session[:keyword_6] %>
+</li>
+<li>
+  <%= session[:keyword_7] %>
+</li>
+<li>
+  <%= session[:keyword_8] %>
+</li>
+<li>
+  <%= session[:keyword_9] %>
+</li>
+<li>
+  <%= session[:keyword_10] %>
+</li>
+</ol>
+
+<h1>あなたの理想のパートナー像・家族像・親友像を教えて下さい</h1>
+<p>
+  パートナーは夫婦像としてみるのでもいいです<br>
+  相棒のような存在でもいいです
+</p>
+<p>
+  あなたにとっての理想はきっと</br>
+  理想を想像、妄想<br>
+  いっぱい考えていれば
+</p>
+<p>
+  きっとその理想はあなたの手の届くところに寄ってきます
+</p>
+<div>
+  <%= form_with model: @ideal,url: comfirm_ideal_path, method: :get do |f| %>
+    <p>パートナー像</p>
+    <div><%= f.text_area :partner_model %></div>
+    <p>家族像</p>
+    <div><%= f.text_area :family_model %></div>
+    <p>親友像</p>
+    <div><%= f.text_area :friend_model %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

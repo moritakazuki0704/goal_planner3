@@ -1,2 +1,5 @@
-<h1>Motivations#edit</h1>
-<p>Find me in app/views/motivations/edit.html.erb</p>
+<% if @user_motivation.present? %>
+  <%= render '_motivation_form.html.erb', motivation: @motivation %>
+<% else %>
+  <%= link_to "新規作成", new_motivation_path %>
+<% end %>

@@ -1,0 +1,55 @@
+<ol>
+<li>
+  <%= session[:keyword_1] %>
+</li>
+<li>
+  <%= session[:keyword_2] %>
+</li>
+<li>
+  <%= session[:keyword_3] %>
+</li>
+<li>
+  <%= session[:keyword_4] %>
+</li>
+<li>
+  <%= session[:keyword_5] %>
+</li>
+<li>
+  <%= session[:keyword_6] %>
+</li>
+<li>
+  <%= session[:keyword_7] %>
+</li>
+<li>
+  <%= session[:keyword_8] %>
+</li>
+<li>
+  <%= session[:keyword_9] %>
+</li>
+<li>
+  <%= session[:keyword_10] %>
+</li>
+</ol>
+
+<h1>あなたがなりたいと思う理想の姿を教えて下さい</h1>
+<p>
+  憧れる人<br>
+  尊敬する人
+</p>
+
+<p>
+  あなたの中にあるイメージをそのまま教えて下さい</br>
+  すでに体現している人がいるなら
+</p>
+<h3>その人も教えて下さい</h3>
+<div>
+  <%= form_with model: @ideal,url: lifestyle_new_ideal_path, method: :get do |f| %>
+    <p>髪型、メイク</p>
+    <div><%= f.text_area :hair_make %></div>
+    <p>体型</p>
+    <div><%= f.text_area :body_make %></div>
+    <p>ファッション</p>
+    <div><%= f.text_area :fashion_make %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

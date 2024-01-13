@@ -1,0 +1,168 @@
+<div>
+  <div>
+    <h4>理想を示すキーワード</h4>
+  </div>
+  <div>
+    <ol>
+      <li>
+        <%= session[:keyword_1] %>
+      </li>
+      <li>
+        <%= session[:keyword_2] %>
+      </li>
+      <li>
+        <%= session[:keyword_3] %>
+      </li>
+      <li>
+        <%= session[:keyword_4] %>
+      </li>
+      <li>
+        <%= session[:keyword_5] %>
+      </li>
+      <li>
+        <%= session[:keyword_6] %>
+      </li>
+      <li>
+        <%= session[:keyword_7] %>
+      </li>
+      <li>
+        <%= session[:keyword_8] %>
+      </li>
+      <li>
+        <%= session[:keyword_9] %>
+      </li>
+      <li>
+        <%= session[:keyword_10] %>
+      </li>
+    </ol>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想の性格</h3>
+  </div>
+  <div>
+    <%= session[:personality_1] %>
+  </div>
+  <div>
+    <%= session[:personality_2] %>
+  </div>
+  <div>
+    <%= session[:personality_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想の姿</h3>
+  </div>
+  <div>
+    <%= session[:hair_make] %>
+  </div>
+  <div>
+    <%= session[:body_make] %>
+  </div>
+  <div>
+    <%= session[:fashion_make] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想のライフスタイル</h3>
+  </div>
+  <div>
+    <%= session[:lifestyle_1] %>
+  </div>
+  <div>
+    <%= session[:lifestyle_2] %>
+  </div>
+  <div>
+    <%= session[:lifestyle_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想の時間</h3>
+  </div>
+  <div>
+    <%= session[:time_1] %>
+  </div>
+  <div>
+    <%= session[:time_2] %>
+  </div>
+  <div>
+    <%= session[:time_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想の働き方</h3>
+  </div>
+  <div>
+    <%= session[:residence_1] %>
+  </div>
+  <div>
+    <%= session[:residence_2] %>
+  </div>
+  <div>
+    <%= session[:residence_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想の住まい</h3>
+  </div>
+  <div>
+    <%= session[:personality_1] %>
+  </div>
+  <div>
+    <%= session[:personality_2] %>
+  </div>
+  <div>
+    <%= session[:personality_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想の人間関係</h3>
+  </div>
+  <div>
+    <%= session[:relationship_1] %>
+  </div>
+  <div>
+    <%= session[:relationship_2] %>
+  </div>
+  <div>
+    <%= session[:relationship_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想のパートナー</h3>
+  </div>
+  <div>
+    <%= session[:partner_1] %>
+  </div>
+  <div>
+    <%= session[:partner_2] %>
+  </div>
+  <div>
+    <%= session[:partner_3] %>
+  </div>
+</div>
+<div>
+  <div>
+    <h3>理想のロールモデル</h3>
+  </div>
+  <div>
+    <%= session[:partner_model] %>
+  </div>
+  <div>
+    <%= session[:family_model] %>
+  </div>
+  <div>
+    <%= session[:friend_model] %>
+  </div>
+</div>
+<%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
+  <div><%= f.submit '次に進む' %></div>
+<% end %>

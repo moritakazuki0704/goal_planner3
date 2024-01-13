@@ -1,0 +1,54 @@
+<ol>
+<li>
+  <%= session[:keyword_1] %>
+</li>
+<li>
+  <%= session[:keyword_2] %>
+</li>
+<li>
+  <%= session[:keyword_3] %>
+</li>
+<li>
+  <%= session[:keyword_4] %>
+</li>
+<li>
+  <%= session[:keyword_5] %>
+</li>
+<li>
+  <%= session[:keyword_6] %>
+</li>
+<li>
+  <%= session[:keyword_7] %>
+</li>
+<li>
+  <%= session[:keyword_8] %>
+</li>
+<li>
+  <%= session[:keyword_9] %>
+</li>
+<li>
+  <%= session[:keyword_10] %>
+</li>
+</ol>
+
+
+<h1>あなたの理想の性格を3つ教えてください</h1>
+<p>
+  どうしてその性格になりたいのか<br>
+  その理由も教えて下さい
+</p>
+
+<p>
+  理由を知ることで</br>
+  どうしてそう思ったのか<br>
+  どうしてそうなりたいのか
+</p>
+<h3>詳しく理解することができます</h3>
+<div>
+  <%= form_with model: @ideal,url: appearance_new_ideal_path, method: :get do |f| %>
+    <div><%= f.text_area :personality_1 %></div>
+    <div><%= f.text_area :personality_2 %></div>
+    <div><%= f.text_area :personality_3 %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

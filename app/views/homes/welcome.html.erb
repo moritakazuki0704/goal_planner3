@@ -3,21 +3,10 @@
 
 <div class="bookshelf">
   <div class="spine">
-    <% if current_user.missions.present? %>
+    <% if current_user.mission.present? %>
       <%= render 'homes/wizard_welcomes/welcome' %>
     <% else %>
       <%= render 'homes/wizard_welcomes/introduction' %>
     <% end %>
   </div>
-</div>
-<div>
-  <%= link_to "登録", introduction_keywords_path %>
-</div>
-<div>
-  <%= link_to "ログイン", new_user_session_path %>
-</div>
-
-
-<div>
-  <%= link_to "次へ", introduction_keywords_path %>
 </div>

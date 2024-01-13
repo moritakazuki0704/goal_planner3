@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_26_140917) do
+ActiveRecord::Schema.define(version: 2023_09_26_140908) do
 
   create_table "ideals", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "ideal_status"
-    t.text "text_1"
-    t.text "text_2"
-    t.text "text_3"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "keywords", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "keyword_1"
     t.string "keyword_2"
@@ -34,6 +24,33 @@ ActiveRecord::Schema.define(version: 2023_09_26_140917) do
     t.string "keyword_8"
     t.string "keyword_9"
     t.string "keyword_10"
+    t.text "personality_1"
+    t.text "personality_2"
+    t.text "personality_3"
+    t.text "hair_make"
+    t.text "body_make"
+    t.text "fashion_make"
+    t.text "lifestyle_1"
+    t.text "lifestyle_2"
+    t.text "lifestyle_3"
+    t.text "time_1"
+    t.text "time_2"
+    t.text "time_3"
+    t.text "working_1"
+    t.text "working_2"
+    t.text "working_3"
+    t.text "residence_1"
+    t.text "residence_2"
+    t.text "residence_3"
+    t.text "relationship_1"
+    t.text "relationship_2"
+    t.text "relationship_3"
+    t.text "partner_1"
+    t.text "partner_2"
+    t.text "partner_3"
+    t.text "partner_model"
+    t.text "family_model"
+    t.text "friend_model"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,12 +65,26 @@ ActiveRecord::Schema.define(version: 2023_09_26_140917) do
 
   create_table "motivations", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "motivation_status"
-    t.text "motivation_1"
-    t.text "motivation_2"
-    t.text "motivation_3"
-    t.text "motivation_4"
-    t.text "motivation_5"
+    t.text "positive_motivation_1"
+    t.text "positive_motivation_2"
+    t.text "positive_motivation_3"
+    t.text "positive_motivation_4"
+    t.text "positive_motivation_5"
+    t.text "negative_motivation_1"
+    t.text "negative_motivation_2"
+    t.text "negative_motivation_3"
+    t.text "negative_motivation_4"
+    t.text "negative_motivation_5"
+    t.text "to_do_motivation_1"
+    t.text "to_do_motivation_2"
+    t.text "to_do_motivation_3"
+    t.text "to_do_motivation_4"
+    t.text "to_do_motivation_5"
+    t.text "want_motivation_1"
+    t.text "want_motivation_2"
+    t.text "want_motivation_3"
+    t.text "want_motivation_4"
+    t.text "want_motivation_5"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -90,13 +121,6 @@ ActiveRecord::Schema.define(version: 2023_09_26_140917) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["secret_word"], name: "index_users_on_secret_word", unique: true
-  end
-
-  create_table "values", force: :cascade do |t|
-    t.integer "motivation_id", null: false
-    t.integer "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

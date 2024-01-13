@@ -1,0 +1,197 @@
+<% if @user_motivation.present? %>
+  <div>
+    <div>
+      <p>
+        ポジティブモチベーション
+      </p>
+    </div>
+    <div>
+      <p>
+        モチベーションレベル1
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.positive_motivation_1 %>
+    </div>
+    <div>
+      <p>
+        モチベーションレベル2
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.positive_motivation_2 %>
+    </div>
+    <div>
+      <p>
+        モチベーションレベル3
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.positive_motivation_3 %>
+    </div>
+    <div>
+      <p>
+        モチベーションレベル4
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.positive_motivation_4 %>
+    </div>
+    <div>
+      <p>
+        モチベーションレベル5
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.positive_motivation_5 %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>
+        ネガティブモチベーション
+      </p>
+    </div>
+    <div>
+      <p>
+        嫌なライフスタイル
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.negative_motivation_1 %>
+    </div>
+    <div>
+      <p>
+        嫌な時間の使い方
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.negative_motivation_2 %>
+    </div>
+    <div>
+      <p>
+        住みたくない住まい
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.negative_motivation_3 %>
+    </div>
+    <div>
+      <p>
+        嫌な働き方
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.negative_motivation_4 %>
+    </div>
+    <div>
+      <p>
+        嫌な人間関係
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.negative_motivation_5 %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>
+        やりたいことリスト
+      </p>
+    </div>
+    <div>
+      <p>
+        一番やりたいこと
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.to_do_motivation_1 %>
+    </div>
+    <div>
+      <p>
+        二番目にやりたいこと
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.to_do_motivation_2 %>
+    </div>
+    <div>
+      <p>
+        三番目にやりたいこと
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.to_do_motivation_3 %>
+    </div>
+    <div>
+      <p>
+        四番目にやりたいこと
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.to_do_motivation_4 %>
+    </div>
+    <div>
+      <p>
+        五番目にやりたいこと
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.to_do_motivation_5 %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>
+        欲しいものリスト
+      </p>
+    </div>
+    <div>
+      <p>
+        一番欲しいもの
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.want_motivation_1 %>
+    </div>
+    <div>
+      <p>
+        二番目に欲しいもの
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.want_motivation_2 %>
+    </div>
+    <div>
+      <p>
+        三番目に欲しいもの
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.want_motivation_3 %>
+    </div>
+    <div>
+      <p>
+        四番目に欲しいもの
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.want_motivation_4 %>
+    </div>
+    <div>
+      <p>
+        五番目に欲しいもの
+      </p>
+    </div>
+    <div>
+      <%= @user_motivation.want_motivation_5 %>
+    </div>
+  </div>
+  <div>
+    <%= link_to "編集",edit_motivation_path %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "新規作成", new_motivation_path %>
+  </div>
+<% end %>

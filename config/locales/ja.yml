@@ -1,16 +1,5 @@
 ja:
   enums:
-    ideal: # モデル名
-      ideal_status: # カラム名
-        personality: '性格' # enumの値
-        appearance: '姿' # enumの値
-        lifestyle: '生活' # enumの値
-        time: '時間' # enumの値
-        working: '働き方' # enumの値
-        residence: '住まい' # enumの値
-        relationship: '仕事' # enumの値
-        partner: 'パートナー' # enumの値
-        role_model: 'ロールモデル' # enumの値
     schedule: # モデル名
       schedule_status: # カラム名
         goal: '目標' # enumの値
@@ -26,9 +15,3 @@ ja:
         progress: '進行中' # enumの値
         postpone: '先送り' # enumの値
         cancel: '削除' # enumの値
-    motivation: # モデル名
-      motivation_status: # カラム名
-        positive: 'ポジティブ' # enumの値
-        negative: 'ネガティブ' # enumの値
-        to_do: 'したいこと' # enumの値
-        want: 'ほしいもの' # enumの値
