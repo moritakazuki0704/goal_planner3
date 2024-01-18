@@ -45,7 +45,7 @@
   きっとその理想はあなたの手の届くところに寄ってきます
 </p>
 <div>
-  <%= form_with model: @ideal,url: comfirm_ideal_path, method: :get do |f| %>
+  <%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
     <p>パートナー像</p>
     <div><%= f.text_area :partner_model %></div>
     <p>家族像</p>

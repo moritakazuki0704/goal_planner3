@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'scrap_books/new'
+  get 'scrap_books/index'
+  get 'scrap_books/show'
   devise_for :users,skip:[:passwords]
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
   get 'withdrawal' => 'users#withdrawal', as: 'withdrawal'
   delete 'users' => 'users#destroy',as: 'user_destroy'
 
-  resource :ideal,only: [:show,:create] do
+  resource :ideal,only: [:show,:create,:destroy] do
     collection do
       get 'keyword_new'
       get 'personality_new'
@@ -22,13 +25,13 @@ Rails.application.routes.draw do
       get 'comfirm'
     end
   end
-  resource :mission,only: [:new,:create,:show] do
+  resource :mission,except: [:edit,:update] do
     collection do
       get 'new_detail'
       get 'confirm'
     end
   end
-  
   resource :motivation,except: [:destroy]
+  resources :scrap_books,except: [:new,:edit,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

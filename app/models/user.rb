@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :ideal,dependent: :destroy
   has_one :motivation,dependent: :destroy
   has_many :schedules,dependent: :destroy
+  has_many :scrap_books,dependent: :destroy
 
 
   validates_uniqueness_of :secret_word

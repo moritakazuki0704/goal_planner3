@@ -1,0 +1,21 @@
+<div>
+  <% @scrap_books.each do |scrap_book| %>
+    <div>
+      <%= link_to scrap_book_path(scrap_book.id) do %>
+        <%= scrap_book.photo %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
+    <h3>タイトル</h3>
+    <%= f.text.field :photo_title %>
+    <%= f.file.field :photo,accept: "image/*" %>
+    <h3>説明</h3>
+    <%= f.text.area :photo_comment %>
+    <%= f.submit "保存" %>
+  <% end %>
+</div>
+<%= paginate @scrap_books 

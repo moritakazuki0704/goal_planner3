@@ -1,7 +1,6 @@
-<h1>Users#withdrawal</h1>
-<p>Find me in app/views/users/withdrawal.html.erb</p>
-<%= link_to "退会しない",welcome_path %><br>
-<%= link_to "退会する",user_destroy_path,method: :delete,"data-confirm" =>"本当によろしいですか?" %>
 <div>
-      
+  <%= link_to "退会しない",welcome_path %>
+</div>
+<div>
+  <%= link_to "退会する",user_destroy_path,method: :delete,"data-confirm" =>"本当によろしいですか?" %>
 </div>
