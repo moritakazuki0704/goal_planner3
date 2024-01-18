@@ -1,15 +1,22 @@
-<h1>Missions#new</h1>
-<p>Find me in app/views/missions/new.html.erb</p>
-
-<!--目標設定作成フォーム-->
-<% if params[:goal] %>
-  <%= render 'missions/wizard_news/goal', schedule: @schedule %>
-
-<!--目標タスク作成フォーム-->
-<% elsif params[:plan] %>
-  <%= render 'missions/wizard_news/plan', form: @form %>
-
-<!--ミッションステートメント作成フォーム-->
-<% elsif params[:mission] %>
-  <%= render 'missions/wizard_news/mission', mission: @mission %>
-<% end %>
+<h1>あなたの人生の指針を教えて下さい</h1>
+<p>
+  これまでの生き方<br>
+  これまでの考え方
+</p>
+<p>
+  どういう性格でどういう生き方をしてきたのか
+</p>
+<p>
+  そしてそれは</br>
+  どういう考えを持っていたのか
+</p>
+<h3>それはあなたの中にあります</h3>
+<div>
+  <%= form_with model: @mission, url: new_detail_mission_path, method: :get do |f| %>
+    <p>人生の指針</p>
+    <div><%= f.text_field :mission_statement %></div>
+    <p>理由、詳細</p>
+    <div><%= f.text_area :mission_detail %></div>
+    <div><%= f.submit '次に進む' %></div>
+  <% end %>
+</div>

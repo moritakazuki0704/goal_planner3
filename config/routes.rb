@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete 'users' => 'users#destroy',as: 'user_destroy'
 
   resource :ideal,only: [:show,:create] do
-      collection do
+    collection do
       get 'keyword_new'
       get 'personality_new'
       get 'appearance_new'
@@ -22,8 +22,13 @@ Rails.application.routes.draw do
       get 'comfirm'
     end
   end
-
-  resource :mission,only: [:new,:create]
+  resource :mission,only: [:new,:create,:show] do
+    collection do
+      get 'new_detail'
+      get 'confirm'
+    end
+  end
+  
   resource :motivation,except: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
