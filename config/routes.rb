@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'scrap_books/new'
-  get 'scrap_books/index'
-  get 'scrap_books/show'
   devise_for :users,skip:[:passwords]
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
