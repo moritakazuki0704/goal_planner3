@@ -1,0 +1,84 @@
+<% if @user_motivation.present? %>
+  <p>
+    ポジティブなことでモチベーションを維持する<br>
+    これだけは嫌と思うネガティブなことでモチベーションを維持する<br>
+    将来やりたいことでモチベーションを維持する<br>
+    将来ほしい物でモチベーションを維持する
+  </p>
+  <p>
+    モチベーションのスイッチを知ると<br>
+    自分が落ち込んだ時や元気が欲しい時<br>
+    自分に何をしてあげたらいいのかわかるようになります
+  </p>
+  <p>
+    それは自分の気持ちを上げるための処方箋のようなものです
+  </p>
+  <p>
+    きっとこれからモチベーションが下がったり、迷ったりすることがあることでしょう<br>
+    ですが何も恐れることはありません
+  </p>
+  <p>
+    たとえ下がったり迷ったとしても<br>
+    何度でもモチベーションのスイッチを入れることができるからです
+  </p>
+  <p>
+    ここを見て、何度でも立ち上がり<br>
+    あなたの夢、理想を叶えて下さい
+  </p>
+  <div>
+    <div>
+      <%= link_to "ポジティブモチベーション",list_motivations_path(positive: true) %>
+    </div>
+    <%= @motivation.positives.each do |positive| %>
+    <div>
+      <%= positive.motivation_title %>
+    </div>
+    <div>
+      <%= positive.motivation_body %>
+    </div>
+    <% end %>
+  </div>
+  <div>
+    <div>
+      <%= link_to "ネガティブモチベーション",list_motivations_path(negative: true) %>
+    </div>
+    <%= @motivation.negatives.each do |negative| %>
+    <div>
+      <%= negative.motivation_title %>
+    </div>
+    <div>
+      <%= negative.motivation_body %>
+    </div>
+    <% end %>
+  </div>
+  <div>
+    <div>
+      <%= link_to "やりたいことリスト",list_motivations_path(to_do: true) %>
+    </div>
+    <%= @motivation.to_dos.each do |to_do| %>
+    <div>
+      <%= to_do.motivation_title %>
+    </div>
+    <div>
+      <%= to_do.motivation_body %>
+    </div>
+    <% end %>
+  </div>
+  <div>
+    <div>
+      <%= link_to "欲しいものリスト",list_motivations_path(want: true) %>
+    </div>
+    <%= @motivation.wants.each do |want| %>
+    <div>
+      <%= want.motivation_title %>
+    </div>
+    <div>
+      <%= want.motivation_body %>
+    </div>
+    <% end %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "新規作成", new_motivation_path %>
+  </div>
+<% end %>

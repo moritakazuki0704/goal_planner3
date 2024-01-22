@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
-  get 'dash_board' => 'users#dash_board', as: 'dash_board'
-  get 'withdrawal' => 'users#withdrawal', as: 'withdrawal'
-  delete 'users' => 'users#destroy',as: 'user_destroy'
-
-  resource :ideal,only: [:show,:create,:destroy] do
+  resource :user,only: [:new,:create,:destroy] do
+    collection do
+      get 'confirm'
+      get 'dash_board'
+      get 'withdrawal'
+    end
+  end
+  resource :ideal,only: [:show,:create] do
     collection do
       get 'keyword_new'
       get 'personality_new'
@@ -19,16 +22,25 @@ Rails.application.routes.draw do
       get 'relationship_new'
       get 'partner_new'
       get 'role_model_new'
-      get 'comfirm'
-    end
-  end
-  resource :mission,except: [:edit,:update] do
-    collection do
-      get 'new_detail'
       get 'confirm'
     end
   end
-  resource :motivation,except: [:destroy]
+  resources :commits,except: [:edit,:destroy] do
+    collection do
+      get 'confirm'
+    end
+  end
+  resources :missions,except: [:edit,:update,:destroy] do
+    collection do
+      get 'detail_new'
+      get 'confirm'
+    end
+  end
+  resources :motivations,except: [:edit,:update] do
+    collection do
+      get 'list'
+    end
+  end
   resources :scrap_books,except: [:new,:edit,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

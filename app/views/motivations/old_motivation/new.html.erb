@@ -1,0 +1,11 @@
+<% unless @user_motivation.present? %>
+  <div>
+    <h4>
+      あなたにとってのモチベーションを教えて下さい
+    </h4>
+    <%= render '_motivation_text.html.erb' %>
+  </div>
+  <%= render '_motivation_form.html.erb', motivation: @motivation %>
+<% else %>
+  <%= link_to "編集",edit_motivation_path %>
+<% end %>

@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <%= @session.commitment %>
+  </div>
+  <div>
+    <%= @session.purpose %>
+  </div>
+</div>
+
+<div>
+  <%= link_to '目標をやり直す', new_commit_path %>
+</div>
+<div>
+  <%= form_with model: @commit url: commits_path, method: :post %>
+    <%= f.submit '次に進む' %>
+  <% end %>
+</div>

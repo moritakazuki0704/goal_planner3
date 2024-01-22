@@ -33,7 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       t.string :planner_name,  null: false, default: "", unique: true
-
+      t.string :mission_statement
+      t.text :mission_detail
       t.timestamps null: false
     end
 

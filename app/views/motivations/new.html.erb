@@ -1,11 +1,22 @@
-<% unless @user_motivation.present? %>
-  <div>
-    <h4>
-      あなたにとってのモチベーションを教えて下さい
-    </h4>
-    <%= render '_motivation_text.html.erb' %>
-  </div>
-  <%= render '_motivation_form.html.erb', motivation: @motivation %>
-<% else %>
-  <%= link_to "編集",edit_motivation_path %>
-<% end %>
+<div>
+  <% if params[:positive] %>
+    <%= render %>
+  <% elsif params[:negative] %>
+    <%= render %>
+  <% elsif params[:to_do] %>
+    <%= render %>
+  <% elsif params[:want] %>
+    <%= render %>
+  <% end %>
+</div>
+<div>
+  <% if params[:positive] %>
+    <%= render %>
+  <% elsif params[:negative] %>
+    <%= render %>
+  <% elsif params[:to_do] %>
+    <%= render %>
+  <% elsif params[:want] %>
+    <%= render %>
+  <% end %>
+</div>

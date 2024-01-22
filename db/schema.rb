@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_18_053841) do
+ActiveRecord::Schema.define(version: 2024_01_22_044955) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2024_01_18_053841) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "commits", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "commitment"
+    t.text "purpose"
+    t.boolean "finish", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "ideals", force: :cascade do |t|
@@ -85,34 +94,16 @@ ActiveRecord::Schema.define(version: 2024_01_18_053841) do
 
   create_table "missions", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "mission_statement"
-    t.text "mission_detail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "motivations", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.text "positive_motivation_1"
-    t.text "positive_motivation_2"
-    t.text "positive_motivation_3"
-    t.text "positive_motivation_4"
-    t.text "positive_motivation_5"
-    t.text "negative_motivation_1"
-    t.text "negative_motivation_2"
-    t.text "negative_motivation_3"
-    t.text "negative_motivation_4"
-    t.text "negative_motivation_5"
-    t.text "to_do_motivation_1"
-    t.text "to_do_motivation_2"
-    t.text "to_do_motivation_3"
-    t.text "to_do_motivation_4"
-    t.text "to_do_motivation_5"
-    t.text "want_motivation_1"
-    t.text "want_motivation_2"
-    t.text "want_motivation_3"
-    t.text "want_motivation_4"
-    t.text "want_motivation_5"
+    t.integer "motivation_stetas", default: 0
+    t.string "positive_title"
+    t.text "positive_body"
+    t.text "positive_memory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -153,6 +144,8 @@ ActiveRecord::Schema.define(version: 2024_01_18_053841) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "planner_name", default: "", null: false
+    t.string "mission_statement"
+    t.text "mission_detail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

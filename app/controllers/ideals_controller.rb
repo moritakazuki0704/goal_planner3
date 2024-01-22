@@ -1,7 +1,9 @@
 class IdealsController < ApplicationController
 
+  before_action :ideal_new, except: [:create,:comfirm,:destroy,:show]
+  before_action :ideal_find, only: [:comfirm,:destroy,:show]
+
   def keyword_new
-    @ideal = Ideal.new
   end
 
   def personality_new
@@ -15,63 +17,54 @@ class IdealsController < ApplicationController
     session[:keyword_8] = ideal_params[:keyword_8]
     session[:keyword_9] = ideal_params[:keyword_9]
     session[:keyword_10] = ideal_params[:keyword_10]
-    @ideal = Ideal.new
   end
 
   def appearance_new
     session[:personality_1] = ideal_params[:personality_1]
     session[:personality_2] = ideal_params[:personality_2]
     session[:personality_3] = ideal_params[:personality_3]
-    @ideal = Ideal.new
   end
 
   def lifestyle_new
     session[:hair_make] = ideal_params[:hair_make]
     session[:body_make] = ideal_params[:body_make]
     session[:fashion_make] = ideal_params[:fashion_make]
-    @ideal = Ideal.new
   end
 
   def time_new
     session[:lifestyle_1] = ideal_params[:lifestyle_1]
     session[:lifestyle_2] = ideal_params[:lifestyle_2]
     session[:lifestyle_3] = ideal_params[:lifestyle_3]
-    @ideal = Ideal.new
   end
 
   def working_new
     session[:time_1] = ideal_params[:time_1]
     session[:time_2] = ideal_params[:time_2]
     session[:time_3] = ideal_params[:time_3]
-    @ideal = Ideal.new
   end
 
   def residence_new
     session[:working_1] = ideal_params[:working_1]
     session[:working_2] = ideal_params[:working_2]
     session[:working_3] = ideal_params[:working_3]
-    @ideal = Ideal.new
   end
 
   def relationship_new
     session[:residence_1] = ideal_params[:residence_1]
     session[:residence_2] = ideal_params[:residence_2]
     session[:residence_3] = ideal_params[:residence_3]
-    @ideal = Ideal.new
   end
 
   def partner_new
     session[:relationship_1] = ideal_params[:relationship_1]
     session[:relationship_2] = ideal_params[:relationship_2]
     session[:relationship_3] = ideal_params[:relationship_3]
-    @ideal = Ideal.new
   end
 
   def role_model_new
     session[:partner_1] = ideal_params[:partner_1]
     session[:partner_2] = ideal_params[:partner_2]
     session[:partner_3] = ideal_params[:partner_3]
-    @ideal = Ideal.new
   end
 
   def create
@@ -116,25 +109,30 @@ class IdealsController < ApplicationController
     )
     @ideal.user_id = current_user.id
     @ideal.save
-    redirect_to comfirm_ideal_path
+    redirect_to confirm_ideal_path
   end
 
-  def comfirm
-    @ideal = current_user.ideals
+  def confirm
   end
 
   def destroy
-    @ideal = current_user.ideals
     @ideal.destory
     redirect_to welcome_path
   end
 
   def show
-    @ideal = current_user.ideals
     @mission = current_user.missions
   end
 
   private
+
+  def ideal_new
+    @ideal = Ideal.new
+  end
+
+  def ideal_find
+    @ideal = current_user.ideals
+  end
 
   def ideal_params
     params.require(:ideal).permit(:keyword_1,:keyword_2,:keyword_3,:keyword_4,:keyword_5,:keyword_6,:keyword_7,:keyword_8,:keyword_9,:keyword_10,
