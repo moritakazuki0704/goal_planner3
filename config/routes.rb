@@ -39,8 +39,11 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :motivations,except: [:edit,:update]
-  get 'motivations/:stetas/list' => 'motivations#list', as: 'list_motivation'
+  resources :motivations,except: [:edit,:update] do
+    collection do
+      get 'list'
+    end
+  end
   resources :scrap_books,except: [:new,:edit,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

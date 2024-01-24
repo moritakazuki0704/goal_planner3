@@ -1,5 +1,8 @@
 class MotivationsController < ApplicationController
 
+  # テキストテンプレートとフォームテンプレートのレンダーリンクをアクションにまとめるかどうか考える
+  # まとめた場合、newアクションとlistアクションはbefore_actionで使用する
+
   def new
     @motivation = Motivation.new
   end
