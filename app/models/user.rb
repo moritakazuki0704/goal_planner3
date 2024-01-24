@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :ideal,dependent: :destroy
   has_one :motivation,dependent: :destroy
   has_many :commits,dependent: :destroy
+  has_many :missions,dependent: :destroy
   has_many :schedules,dependent: :destroy
   has_many :scrap_books,dependent: :destroy
 

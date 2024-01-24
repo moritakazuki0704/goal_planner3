@@ -1,2 +1,54 @@
-<h1>Commits#index</h1>
-<p>Find me in app/views/commits/index.html.erb</p>
+<div class="left-page">
+  <!--文言を入れる-->
+</div>
+<div class="right-page">
+
+<!--「進行中の目標」リンクをクリックした場合に表示する-->
+  <% if params[:activity] %>
+    <h3>
+      進行中の目標
+    </h3>
+    <div>
+      <% @commit_activity.each do |commit| %>
+        <%= link_to commit_path do %>
+          <%= commit.commitment %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "戻る",commit_path %>
+    </div>
+
+<!--「達成した目標」リンクをクリックした場合に表示する-->
+  <% elsif params[:finish] %>
+    <h3>
+      達成した目標
+    </h3>
+    <div>
+      <% @commit_finish.each do |commit| %>
+        <%= link_to commit_path do %>
+          <%= commit.commitment %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "戻る",commit_path %>
+    </div>
+  <% else %>
+
+<!--リンクに最初に来た際に表示する-->
+    <div>
+      <!--文言を入れる-->
+    </div>
+    <div>
+      <%= link_to '進行中の目標',commits_path(activity: "true") %>
+    </div>
+    <div>
+      <%= link_to '達成した目標',commits_path(finish: "true") %>
+    </div>
+    <div>
+      <%= link_to '新たに目標を定める',new_commit_path %>
+    </div>
+  <% end %>
+  
+</div>

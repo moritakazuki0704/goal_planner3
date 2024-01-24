@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   def comfirm
     session[:mission_statement] = user_params[:mission_statement]
     session[:mission_detail] = user_params[:mission_detail]
@@ -11,12 +11,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
+    user = User.new(
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail]
       )
-    @user.save
-    redirect_to 
+    user.save
+    redirect_to new_commit_path
   end
 
   def dash_board

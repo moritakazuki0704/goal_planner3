@@ -1,17 +1,21 @@
-<div>
+<div　class="left-page">
+  <!--文言を入れる-->
+</div>
+<div class="right-page">
   <div>
-    <%= @session.commitment %>
+    <div>
+      <%= @session.commitment %>
+    </div>
+    <div>
+      <%= @session.purpose %>
+    </div>
   </div>
   <div>
-    <%= @session.purpose %>
+    <%= link_to '目標をやり直す', new_commit_path, "data-confirm" =>"本当にもう一度考え直す？" %>
   </div>
-</div>
-
-<div>
-  <%= link_to '目標をやり直す', new_commit_path %>
-</div>
-<div>
-  <%= form_with model: @commit url: commits_path, method: :post %>
-    <%= f.submit '次に進む' %>
-  <% end %>
+  <div>
+    <%= form_with model: @commit url: commits_path, method: :post %>
+      <%= f.submit '次に進む', "data-confirm" =>"修正することができませんがこの目標いいですか" %>
+    <% end %>
+  </div>
 </div>

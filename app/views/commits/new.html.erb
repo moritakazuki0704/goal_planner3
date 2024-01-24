@@ -1,10 +1,16 @@
-<h1>あなたの叶えたい目標を教えて下さい</h1>
-<div>
-  <%= form_with model: @commit, url: confirm_commits_path, method: :get do |f| %>
-    <p>人生の指針</p>
-    <div><%= f.text_field :commmitment %></div>
-    <p>理由、詳細</p>
-    <div><%= f.text_area :purpose %></div>
-    <div><%= f.submit '次に進む' %></div>
-  <% end %>
+<div class="left-page">
+  <!--文言を入れる-->
+</div>
+
+<div class="right-page">
+  <h1>あなたの叶えたい目標を教えて下さい</h1>
+  <div>
+    <%= form_with model: @commit, url: confirm_commits_path, method: :get do |f| %>
+      <p>人生の指針</p>
+      <div><%= f.text_field :commmitment %></div>
+      <p>理由、詳細</p>
+      <div><%= f.text_area :purpose %></div>
+      <div><%= f.submit '次に進む' %></div>
+    <% end %>
+  </div>
 </div>

@@ -10,9 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class = "bookshelf-background">
     <% if current_user.missions.present? %>
-      <sideber>
+      <div class = "sideber">
         <ul>
           <li>
             <%= current_user.users.planner_name %>
@@ -20,6 +20,7 @@
           <li>
             <%= current_user.missions.mission_statement %>
           </li>
+          <hr>
           <li>
             <%= link_to "ダッシュボード", dash_board_path %>
           </li>
@@ -41,6 +42,7 @@
           <li>
             <%= link_to "モチベーション", motivation_path %>
           </li>
+          <hr>
           <li>
             <%= link_to "ログアウト", destroy_user_session_path,method: :delete %>
           </li>
@@ -48,7 +50,7 @@
             <%= link_to "退会",withdrawal_path %>
           </li>
         </ul>
-      </sideber>
+      </div>
     <% end %>
     <main>
       <%= yield %>

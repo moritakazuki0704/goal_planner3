@@ -1,17 +1,21 @@
-<div>
-  <%= @scrap_book.photo_title %>
-</div>
-<div>
-  <%= @scrap_book.photo %>
-</div>
-<div>
-  <%= @scrap_book.photo_comment %>
-</div>
-<div>
+<div class="left-page">
   <div>
-    <%= link_to "戻る",scrap_book_path %>
+    <%= @scrap_book.photo_title %>
   </div>
   <div>
+    <%= @scrap_book.photo %>
+  </div>
+</div>
+<div class="right-page">
+  <div>
+    <%= @scrap_book.photo_comment %>
+  </div>
+  <div>
+    <div>
+      <%= link_to "戻る",scrap_book_path %>
+    </div>
+    <div>
       <%= link_to "削除",scrap_book_path,method: :delete,"data-confirm" =>"削除して本当にいいですか？" %>
+    </div>
   </div>
 </div>

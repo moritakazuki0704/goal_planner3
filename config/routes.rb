@@ -10,18 +10,18 @@ Rails.application.routes.draw do
       get 'withdrawal'
     end
   end
-  resource :ideal,only: [:show,:create] do
+  resource :ideal,only: [:show,:create,:destroy] do
     collection do
-      get 'keyword_new'
-      get 'personality_new'
-      get 'appearance_new'
-      get 'lifestyle_new'
-      get 'time_new'
-      get 'working_new'
-      get 'residence_new'
-      get 'relationship_new'
-      get 'partner_new'
-      get 'role_model_new'
+      get 'step1_keyword'
+      get 'step2_personality'
+      get 'step3_appearance'
+      get 'step4_lifestyle'
+      get 'step5_time'
+      get 'step6_working'
+      get 'step7_residence'
+      get 'step8_relationship'
+      get 'step9_partner'
+      get 'step10_role_model'
       get 'confirm'
     end
   end
@@ -29,18 +29,18 @@ Rails.application.routes.draw do
     collection do
       get 'confirm'
     end
-  end
-  resources :missions,except: [:edit,:update,:destroy] do
-    collection do
-      get 'detail_new'
-      get 'confirm'
+    resources :missions,only: [:create,:destroy] do
+      member do
+        post 'download'
+      end
+      collection do
+        post 'batch_download'
+        delete 'bulk_deletion'
+      end
     end
   end
-  resources :motivations,except: [:edit,:update] do
-    collection do
-      get 'list'
-    end
-  end
+  resources :motivations,except: [:edit,:update]
+  get 'motivations/:stetas/list' => 'motivations#list', as: 'list_motivation'
   resources :scrap_books,except: [:new,:edit,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

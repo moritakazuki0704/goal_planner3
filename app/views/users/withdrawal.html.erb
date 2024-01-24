@@ -1,11 +1,13 @@
-<h1>本当に退会しますか？</h1>
-<h3>
-  全てのデータが削除されます<br>
-  退会する場合は、「退会する」をクリックしてください。
-</h3>
 <div>
-  <%= link_to "退会しない",welcome_path %>
-</div>
-<div>
-  <%= link_to "退会する",user_destroy_path,method: :delete,"data-confirm" =>"本当によろしいですか?" %>
+  <h1>本当に退会しますか？</h1>
+  <h3>
+    全てのデータが削除されます<br>
+    退会する場合は、「退会する」をクリックしてください。
+  </h3>
+  <div>
+    <%= link_to "退会しない",welcome_path %>
+  </div>
+  <div>
+    <%= link_to "退会する",user_destroy_path,method: :delete,"data-confirm" =>"本当によろしいですか?" %>
+  </div>
 </div>

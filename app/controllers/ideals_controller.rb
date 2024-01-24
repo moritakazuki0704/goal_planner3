@@ -3,10 +3,10 @@ class IdealsController < ApplicationController
   before_action :ideal_new, except: [:create,:comfirm,:destroy,:show]
   before_action :ideal_find, only: [:comfirm,:destroy,:show]
 
-  def keyword_new
+  def step1_keyword
   end
 
-  def personality_new
+  def step2_personality
     session[:keyword_1] = ideal_params[:keyword_1]
     session[:keyword_2] = ideal_params[:keyword_2]
     session[:keyword_3] = ideal_params[:keyword_3]
@@ -19,49 +19,49 @@ class IdealsController < ApplicationController
     session[:keyword_10] = ideal_params[:keyword_10]
   end
 
-  def appearance_new
+  def step3_appearance
     session[:personality_1] = ideal_params[:personality_1]
     session[:personality_2] = ideal_params[:personality_2]
     session[:personality_3] = ideal_params[:personality_3]
   end
 
-  def lifestyle_new
+  def step4_lifestyle
     session[:hair_make] = ideal_params[:hair_make]
     session[:body_make] = ideal_params[:body_make]
     session[:fashion_make] = ideal_params[:fashion_make]
   end
 
-  def time_new
+  def step5_time
     session[:lifestyle_1] = ideal_params[:lifestyle_1]
     session[:lifestyle_2] = ideal_params[:lifestyle_2]
     session[:lifestyle_3] = ideal_params[:lifestyle_3]
   end
 
-  def working_new
+  def step6_working
     session[:time_1] = ideal_params[:time_1]
     session[:time_2] = ideal_params[:time_2]
     session[:time_3] = ideal_params[:time_3]
   end
 
-  def residence_new
+  def step7_residence
     session[:working_1] = ideal_params[:working_1]
     session[:working_2] = ideal_params[:working_2]
     session[:working_3] = ideal_params[:working_3]
   end
 
-  def relationship_new
+  def step8_relationship
     session[:residence_1] = ideal_params[:residence_1]
     session[:residence_2] = ideal_params[:residence_2]
     session[:residence_3] = ideal_params[:residence_3]
   end
 
-  def partner_new
+  def step9_partner
     session[:relationship_1] = ideal_params[:relationship_1]
     session[:relationship_2] = ideal_params[:relationship_2]
     session[:relationship_3] = ideal_params[:relationship_3]
   end
 
-  def role_model_new
+  def step10_role_model
     session[:partner_1] = ideal_params[:partner_1]
     session[:partner_2] = ideal_params[:partner_2]
     session[:partner_3] = ideal_params[:partner_3]

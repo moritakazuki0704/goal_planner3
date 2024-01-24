@@ -48,7 +48,7 @@ class MotivationsController < ApplicationController
   private
 
   def motivation_params
-    params.require(:motivations).permit(:motivation_stetas,:motivation_title,:motivation_body,:motivation_memory)
+    params.require(:motivations).permit(:motivation_stetas,:motivation_title,:motivation,:motivation_memory)
   end
 
 end

@@ -15,17 +15,19 @@ class CommitsController < ApplicationController
       commitment: session[:commitment],
       purpose: session[:purpose]
       )
+    @commit.user_id = current_user.id
     @commit.save
-    redirect_to welcome_path
+    redirect_to commit_path(@commit.id)
   end
 
   def index
-    @commit = current_user.commits.where(finish: "false")
-    @commit_finish = current_user.commits.where(finish: "true")
+    @commit_activity = current_user.commits.activity
+    @commit_finish = current_user.commits.finish
   end
 
   def show
     @commit = Commit.find(params[:id])
+    @mission = Mission.new
   end
 
   def update

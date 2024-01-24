@@ -1,2 +1,53 @@
-<h1>Commits#show</h1>
-<p>Find me in app/views/commits/show.html.erb</p>
+<div class="left-page">
+  <p>
+    <!--文言を入れる-->
+    <!--どこかにfinishカラムのupdate用のフォームを作成する-->
+  </p>
+  <div>
+    <%= @commit.commitment %>
+  </div>
+  <div>
+    <%= @commit.purpose %>
+  </div>
+  <div>
+    <p>課題件数：<%= @commit.schedules.conut %></p>
+  </div>
+  <div>
+    <!--タブ表示機能を使って、日付なしと日付あり（完了予定）と日付あり（未来の予定）で分けて表示-->
+    <!--eachを使って全て表示、表示したタイトルにリンク、リンク先は予定詳細-->
+  </div>
+</div>
+
+<div class="right-page">
+  <p>
+    <!--文言を入れる-->
+  </p>
+  <div>
+  <%= form_with model: [@commit,@mission],url: commit_missions_path, method: :post do |f| %>
+    <%= f.text_field :memo %>
+    <%= f.submit "メモする"　%>
+  <% end %>
+  </div>
+  <div>
+    <p>メモ件数：<%= @commit.missions.conut %></p>
+  </div>
+  <% @commit.missions.each do |mission| %>
+    <div>
+      <div>
+        <%= mission.memo %>
+      </div>
+      <div>
+        <%= link_to "課題にする", single_commit_missions_path, method: :post %>
+      </div>
+      <div>
+        <%= link_to "削除する", commit_mission_path, method: :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "全て課題にする", all_commit_missions_path, method: :post %>
+  </div>
+  <div>
+    <%= link_to "メモを全て破棄する", all_destroy_commit_missions_path, method: :delete %>
+  </div>
+</div>
