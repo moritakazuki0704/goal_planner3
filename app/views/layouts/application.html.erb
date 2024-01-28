@@ -6,23 +6,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class = "bookshelf-background">
-    <% if current_user.missions.present? %>
+    <% if user_signed_in? %>
       <div class = "sideber">
         <ul>
           <li>
-            <%= current_user.users.planner_name %>
+            <%= current_user.planner_name %>
           </li>
           <li>
-            <%= current_user.missions.mission_statement %>
+            <%= current_user.mission_statement %>
           </li>
           <hr>
           <li>
-            <%= link_to "ダッシュボード", dash_board_path %>
+            <%= link_to "ダッシュボード", dash_board_user_path %>
           </li>
           <li>
             <%= link_to "カレンダー", root_path %>
@@ -31,7 +31,7 @@
             <%= link_to "本日の予定", root_path %>
           </li>
           <li>
-            <%= link_to "やるべきこと", mission_path %>
+            <%= link_to "やるべきこと", commits_path %>
           </li>
           <li>
             <%= link_to "私の理想", ideal_path %>
@@ -40,14 +40,14 @@
             <%= link_to "スクラップブック", scrap_books_path %>
           </li>
           <li>
-            <%= link_to "モチベーション", motivation_path %>
+            <%= link_to "モチベーション", motivations_path %>
           </li>
           <hr>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path,method: :delete %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
           <li>
-            <%= link_to "退会",withdrawal_path %>
+            <%= link_to "退会",withdrawal_user_path %>
           </li>
         </ul>
       </div>

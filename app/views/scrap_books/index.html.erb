@@ -10,11 +10,9 @@
 
 <div>
   <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
-    <h3>タイトル</h3>
-    <%= f.text.field :photo_title %>
-    <%= f.file.field :photo,accept: "image/*" %>
+    <%= f.file_field :photo,accept: "image/*" %>
     <h3>説明</h3>
-    <%= f.text.area :photo_comment %>
+    <%= f.text_area :comment %>
     <%= f.submit "保存" %>
   <% end %>
 </div>

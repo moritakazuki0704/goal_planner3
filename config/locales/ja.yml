@@ -1,9 +1,10 @@
 ja:
   enums:
-    schedule: # モデル名
-      schedule_status: # カラム名
-        goal: '目標' # enumの値
-        plan: '予定' # enumの値
+    commit: # モデル名
+      process_states: # カラム名
+        progress: '進行中' # enumの値
+        finish: '達成' # enumの値
+        memo: 'メモ' # enumの値
     plan: # モデル名
       priority_status: # カラム名
         emergency: '緊急' # enumの値
@@ -15,3 +16,9 @@ ja:
         progress: '進行中' # enumの値
         postpone: '先送り' # enumの値
         cancel: '削除' # enumの値
+    motivation: # モデル名
+      emotion_stetas: # カラム名
+        positive: 'ポジティブ' # enumの値
+        negative: 'ネガティブ' # enumの値
+        to_do: 'やりたいこと' # enumの値
+        want: '欲しいもの' # enumの値

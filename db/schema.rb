@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
     t.integer "user_id", null: false
     t.string "commitment"
     t.text "purpose"
-    t.boolean "finish", default: false
+    t.integer "progress_stetas", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "commit_id", null: false
     t.string "memo"
     t.datetime "created_at", precision: 6, null: false
@@ -102,9 +101,8 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
 
   create_table "motivations", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "stetas", default: 0
-    t.string "title"
-    t.text "body"
+    t.integer "emotion_stetas", default: 0
+    t.text "appetite"
     t.text "memory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -122,18 +120,17 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
 
   create_table "schedules", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "mission_id", null: false
+    t.integer "commit_id", null: false
     t.string "title"
     t.text "body"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "scrap_books", force: :cascade do |t|
     t.integer "user_id"
-    t.string "title"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

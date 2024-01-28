@@ -1,21 +1,21 @@
 <div>
   <% if params[:positive] %>
-    <%= render %>
+    <%= @text_template %>
     <div>
       <%= link_to "新規作成", new_motivation_path(positive: true) %>
     </div>
   <% elsif params[:negative] %>
-    <%= render %>
+    <%= @text_template %>
     <div>
       <%= link_to "新規作成", new_motivation_path(negative: true) %>
     </div>
   <% elsif params[:to_do] %>
-    <%= render %>
+    <%= @text_template %>
     <div>
       <%= link_to "新規作成", new_motivation_path(to_do: true) %>
     </div>
   <% elsif params[:want] %>
-    <%= render %>
+    <%= @text_template %>
     <div>
       <%= link_to "新規作成", new_motivation_path(to_do: true) %>
     </div>
@@ -25,11 +25,8 @@
   <%= @motivations.each do |motivation| %>
     <div>
       <%= link_to motivation_path do %>
-        <%= motivation.motivation_title %>
+        <%= motivation.appetite %>
       <% end %>
-    </div>
-    <div>
-      <%= motivation.motivation_body %>
     </div>
   <% end %>
 </div>

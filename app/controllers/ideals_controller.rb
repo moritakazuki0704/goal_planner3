@@ -116,12 +116,12 @@ class IdealsController < ApplicationController
   end
 
   def destroy
-    @ideal.destory
+    @ideal.destroy
     redirect_to welcome_path
   end
 
   def show
-    @mission = current_user.missions
+    @user = current_user
   end
 
   private
@@ -131,7 +131,7 @@ class IdealsController < ApplicationController
   end
 
   def ideal_find
-    @ideal = current_user.ideals
+    @ideal = Ideal.find()
   end
 
   def ideal_params

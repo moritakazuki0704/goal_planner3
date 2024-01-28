@@ -21,8 +21,9 @@ class CommitsController < ApplicationController
   end
 
   def index
-    @commit_activity = current_user.commits.activity
-    @commit_finish = current_user.commits.finish
+    user_commit = Commit.where(user_id: current_user)
+    @commit_activity = user_commit.activity
+    @commit_finish = user_commit.finish
   end
 
   def show

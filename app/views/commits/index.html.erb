@@ -2,53 +2,52 @@
   <!--文言を入れる-->
 </div>
 <div class="right-page">
-
-<!--「進行中の目標」リンクをクリックした場合に表示する-->
-  <% if params[:activity] %>
-    <h3>
-      進行中の目標
-    </h3>
-    <div>
-      <% @commit_activity.each do |commit| %>
-        <%= link_to commit_path do %>
-          <%= commit.commitment %>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="true">進行中の目標</a>
+      <a class="nav-item nav-link" id="nav-finish-tab" data-toggle="tab" href="#nav-finish" role="tab" aria-controls="nav-finish" aria-selected="false">達成した目標</a>
+      <a class="nav-item nav-link" id="nav-commit-tab" data-toggle="tab" href="#nav-commit" role="tab" aria-controls="nav-commit" aria-selected="false">新たに目標を定める</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          進行中の目標
+        </div>
+        <!--position:stickyを使用して、スクロール機能をつける-->
+        <% @commit_activity.each do |commit| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <%= link_to commit_path do %>
+                <%= commit.commitment %>
+              <% end %>
+            </li>
+          </ul>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div>
-      <%= link_to "戻る",commit_path %>
-    </div>
-
-<!--「達成した目標」リンクをクリックした場合に表示する-->
-  <% elsif params[:finish] %>
-    <h3>
-      達成した目標
-    </h3>
-    <div>
-      <% @commit_finish.each do |commit| %>
-        <%= link_to commit_path do %>
-          <%= commit.commitment %>
+    <div class="tab-pane fade" id="nav-finish" role="tabpanel" aria-labelledby="nav-finish-tab">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          達成した目標
+        </div>
+        <% @commit_finish.each do |commit| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <%= link_to commit_path do %>
+                <%= commit.commitment %>
+              <% end %>
+            </li>
+          </ul>
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div>
-      <%= link_to "戻る",commit_path %>
-    </div>
-  <% else %>
-
-<!--リンクに最初に来た際に表示する-->
-    <div>
+    <div class="tab-pane fade" id="nav-commit" role="tabpanel" aria-labelledby="nav-commit-tab">
       <!--文言を入れる-->
+      <div>
+        <%= link_to '新たに目標を定める',new_commit_path %>
+      </div>
     </div>
-    <div>
-      <%= link_to '進行中の目標',commits_path(activity: "true") %>
-    </div>
-    <div>
-      <%= link_to '達成した目標',commits_path(finish: "true") %>
-    </div>
-    <div>
-      <%= link_to '新たに目標を定める',new_commit_path %>
-    </div>
-  <% end %>
-  
+  </div>
 </div>

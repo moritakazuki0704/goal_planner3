@@ -1,22 +1,22 @@
 <div>
   <% if params[:positive] %>
-    <%= render %>
+    <%= render 'positive_text' %>
   <% elsif params[:negative] %>
-    <%= render %>
+    <%= render 'negative_text' %>
   <% elsif params[:to_do] %>
-    <%= render %>
+    <%= render 'to_do_text' %>
   <% elsif params[:want] %>
-    <%= render %>
+    <%= render 'want_text' %>
   <% end %>
 </div>
 <div>
   <% if params[:positive] %>
-    <%= render %>
+    <%= render 'positive_form', motivation: @motivation %>
   <% elsif params[:negative] %>
-    <%= render %>
+    <%= render 'negative_form', motivation: @motivation %>
   <% elsif params[:to_do] %>
-    <%= render %>
+    <%= render 'to_do_form', motivation: @motivation %>
   <% elsif params[:want] %>
-    <%= render %>
+    <%= render 'want_form', motivation: @motivation %>
   <% end %>
 </div>

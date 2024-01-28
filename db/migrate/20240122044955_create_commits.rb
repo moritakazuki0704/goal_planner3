@@ -4,7 +4,7 @@ class CreateCommits < ActiveRecord::Migration[6.1]
       t.integer :user_id, null: false
       t.string :commitment
       t.text :purpose
-      t.boolean :finish,default: "false"
+      t.integer :progress_stetas,default: "0"
 
       t.timestamps
     end

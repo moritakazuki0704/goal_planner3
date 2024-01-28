@@ -7,7 +7,7 @@
 </p>
 
 <ul>
-  <%= form_with model: @ideal,url: step2_personality_ideal_,method: :get do |f| %>
+  <%= form_with model: @ideal, url: step2_personality_ideal_path, method: :get do |f| %>
     <li>
       <%= f.text_field :keyword_1, autofocus: true %>
     </li>

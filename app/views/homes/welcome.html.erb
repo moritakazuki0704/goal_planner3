@@ -1,6 +1,6 @@
 <div class="bookshelf">
   <div class="spine">
-    <% if current_user.mission.present? %>
+    <% if current_user.commits.present? %>
       <%= render 'homes/wizard_welcomes/welcome' %>
     <% else %>
       <%= render 'homes/wizard_welcomes/introduction' %>

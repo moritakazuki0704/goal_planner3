@@ -1,5 +1,0 @@
-<% if @user_motivation.present? %>
-  <%= render '_motivation_form.html.erb', motivation: @motivation %>
-<% else %>
-  <%= link_to "新規作成", new_motivation_path %>
-<% end %>

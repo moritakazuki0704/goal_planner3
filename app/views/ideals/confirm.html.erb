@@ -1,8 +1,8 @@
-<%= render '_show.html.erb', ideal: @ideal %>
+<%= render 'show', ideal: @ideal %>
 
 <div>
   <%= link_to "やり直す",ideal_path,method: :delete %>
 </div>
 <div>
-  <%= link_to "次に進む",new_users_path %>
+  <%= link_to "次に進む",new_user_path %>
 </div>

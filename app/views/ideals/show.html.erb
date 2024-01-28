@@ -1,10 +1,14 @@
 <div>
   <div>
-    <%= @mission.mission_statement %>
+    <%= @user.mission_statement %>
   </div>
   <div>
-    <%= @mission.mission_detail %>
+    <%= @user.mission_detail %>
   </div>
 </div>
 
-<%= render '_show.html.erb', ideal: @ideal %>
+
+
+<%= render 'show', ideal: @ideal %>
+
+<div><%= link_to 'やり直す', ideal_path(@ideal.id),method: :delete %></div>
