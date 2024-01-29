@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,skip:[:passwords]
+  # root to: 'schedules#index'
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :schedules
   resources :motivations,except: [:edit,:update] do
     collection do
       get 'list'

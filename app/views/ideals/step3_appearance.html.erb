@@ -1,55 +1,93 @@
-<ol>
-<li>
-  <%= session[:keyword_1] %>
-</li>
-<li>
-  <%= session[:keyword_2] %>
-</li>
-<li>
-  <%= session[:keyword_3] %>
-</li>
-<li>
-  <%= session[:keyword_4] %>
-</li>
-<li>
-  <%= session[:keyword_5] %>
-</li>
-<li>
-  <%= session[:keyword_6] %>
-</li>
-<li>
-  <%= session[:keyword_7] %>
-</li>
-<li>
-  <%= session[:keyword_8] %>
-</li>
-<li>
-  <%= session[:keyword_9] %>
-</li>
-<li>
-  <%= session[:keyword_10] %>
-</li>
-</ol>
-
-<h1>あなたがなりたいと思う理想の姿を教えて下さい</h1>
-<p>
-  憧れる人<br>
-  尊敬する人
-</p>
-
-<p>
-  あなたの中にあるイメージをそのまま教えて下さい</br>
-  すでに体現している人がいるなら
-</p>
-<h3>その人も教えて下さい</h3>
-<div>
-  <%= form_with model: @ideal,url: step4_lifestyle_ideal_path, method: :get do |f| %>
-    <p>髪型、メイク</p>
-    <div><%= f.text_area :hair_make %></div>
-    <p>体型</p>
-    <div><%= f.text_area :body_make %></div>
-    <p>ファッション</p>
-    <div><%= f.text_area :fashion_make %></div>
-    <div><%= f.submit '次に進む' %></div>
-  <% end %>
+<div class = "left-page">
+  <p>
+    今のあなたのファッションや<br>
+    体型<br>
+    髪型やメイクはどうなっていますか<br>
+    <br>
+    きっと<br>
+    あなたが思い描く将来の姿には<br>
+    あなた自身がいることと思います<br>
+    <br>
+    その時<br>
+    どんな表情をしていますか<br>
+    髪の長さはどうですか<br>
+    髪型はどのようにセットしていますか<br>
+    <br>
+    メイクはどのようなメイクですか<br>
+    メイク道具は<br>
+    <br>
+    体型は標準ですか<br>
+    モデル体型ですか<br>
+    それとも筋肉質ですか<br>
+    <br>
+    持っている服装は<br>
+    着ている服装は<br>
+    <br>
+    アクセサリーはしていますか<br>
+    時計はしていますか<br>
+    <br>
+    思い描く未来は想像する未来のあなたの姿を教えて下さい<br>
+    理想のキーワード
+  </p>
+  <!--ここは少しレイアウトを考える-->
+  <ol>
+    <li>
+      <%= session[:keyword_1] %>
+    </li>
+    <li>
+      <%= session[:keyword_2] %>
+    </li>
+    <li>
+      <%= session[:keyword_3] %>
+    </li>
+    <li>
+      <%= session[:keyword_4] %>
+    </li>
+    <li>
+      <%= session[:keyword_5] %>
+    </li>
+    <li>
+      <%= session[:keyword_6] %>
+    </li>
+    <li>
+      <%= session[:keyword_7] %>
+    </li>
+    <li>
+      <%= session[:keyword_8] %>
+    </li>
+    <li>
+      <%= session[:keyword_9] %>
+    </li>
+    <li>
+      <%= session[:keyword_10] %>
+    </li>
+  </ol>
+  <p>
+    キーワードにもきっと現れていることと思います<br>
+    あなたの将来を教えて下さい
+  </p>
 </div>
+<div class = "righr-page">
+  <h1>あなたがなりたいと思う理想の姿を教えて下さい</h1>
+  <p>
+    憧れる人<br>
+    尊敬する人<br>
+    <br>
+    あなたの中にあるイメージをそのまま教えて下さい<br>
+    すでに体現している人がいるなら<br>
+    <br>
+    その人も教えて下さい
+  </p>
+  <div>
+    <%= form_with model: @ideal,url: step4_lifestyle_ideal_path, method: :get do |f| %>
+      <p>髪型、メイク</p>
+      <div><%= f.text_area :hair_make %></div>
+      <p>体型</p>
+      <div><%= f.text_area :body_make %></div>
+      <p>ファッション</p>
+      <div><%= f.text_area :fashion_make %></div>
+      <div><%= f.submit '次に進む' %></div>
+    <% end %>
+  </div>
+</div>
+

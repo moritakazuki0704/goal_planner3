@@ -131,7 +131,7 @@ class IdealsController < ApplicationController
   end
 
   def ideal_find
-    @ideal = Ideal.find()
+    @ideal = Ideal.find_by(user_id: current_user)
   end
 
   def ideal_params

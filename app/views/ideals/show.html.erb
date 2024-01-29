@@ -1,4 +1,4 @@
-<div>
+<div class = "left-page">
   <div>
     <%= @user.mission_statement %>
   </div>
@@ -7,8 +7,9 @@
   </div>
 </div>
 
-
-
-<%= render 'show', ideal: @ideal %>
+<div>
+  <%= render 'show', ideal: @ideal %>
 
 <div><%= link_to 'やり直す', ideal_path(@ideal.id),method: :delete %></div>
+</div>
+

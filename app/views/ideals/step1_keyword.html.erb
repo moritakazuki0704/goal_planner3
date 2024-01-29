@@ -1,45 +1,78 @@
-<h3>あなたの理想を示すキーワードを10個教えて下さい</h3>
-<br>
-<p>どんなものでも構いません<br>
-  性格、生き方、価値観、人生観<br>
-  <br>
-  ただ思いつくままに教えて下さい
-</p>
+<div class ="left-page">
+  <p>
+    理想を追求していくにあたって<br>
+    まずはなりたい自分というものを知りましょう<br>
+    <br>
+    あなたにとってのなりたい自分とはなんでしょう<br>
+    <br>
+    思い浮かぶ人がいますか<br>
+    思い浮かぶ行動がありますか<br>
+    <br>
+    憧れる立ち振る舞いはありますか<br>
+    憧れる生き方はありますか<br>
+    <br>
+    キーワードを基に理想を探してみましょう<br>
+    <br>
+    理想の性格<br>
+    理想の姿<br>
+    理想の生活<br>
+    理想の時間<br>
+    理想の働き方<br>
+    理想の住まい<br>
+    <br>
+    これから一つずつ聞いていきます<br>
+    深く考える必要はありません<br>
+    それほど難しいことでもありません<br>
+    <br>
+    だってそれはきっと<br>
+    あなたのなかにいるのだから
+  </p>
+</div>
 
-<ul>
-  <%= form_with model: @ideal, url: step2_personality_ideal_path, method: :get do |f| %>
-    <li>
-      <%= f.text_field :keyword_1, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_2, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_3, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_4, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_5, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_6, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_7, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_8, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_9, autofocus: true %>
-    </li>
-    <li>
-      <%= f.text_field :keyword_10, autofocus: true %>
-    </li>
-    <li>
-      <%= f.submit "次に進む" %>
-    </li>
-  <% end %>
-</ul>
+<div class = "right-page">
+  <h3>あなたの理想を示すキーワードを10個教えて下さい</h3>
+  <br>
+  <p>どんなものでも構いません<br>
+    性格、生き方、価値観、人生観<br>
+    <br>
+    ただ思いつくままに教えて下さい
+  </p>
+  <ul>
+    <%= form_with model: @ideal, url: step2_personality_ideal_path, method: :get do |f| %>
+      <li>
+        <%= f.text_field :keyword_1, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_2, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_3, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_4, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_5, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_6, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_7, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_8, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_9, autofocus: true %>
+      </li>
+      <li>
+        <%= f.text_field :keyword_10, autofocus: true %>
+      </li>
+      <li>
+        <%= f.submit "次に進む" %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
