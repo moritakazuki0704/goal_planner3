@@ -16,21 +16,114 @@
     </h6>
     <p><%= @schedule.body %></p>
   </div>
-  <div class="card" style="width: 18rem;">
+  <h5>やるべきことリスト</h5>
+  <div class="card text-center">
     <div class="card-header">
-      やるべきことリスト
+      <nav>
+        <div class="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-programme-tab" data-toggle="tab" href="#nav-programme" role="tab" aria-controls="nav-programme" aria-selected="true">全て</a>
+          <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">緊急</a>
+          <a class="nav-item nav-link" id="nav-important-tab" data-toggle="tab" href="#nav-important" role="tab" aria-controls="nav-important" aria-selected="false">重要</a>
+          <a class="nav-item nav-link" id="nav-mission-tab" data-toggle="tab" href="#nav-mission" role="tab" aria-controls="nav-mission" aria-selected="false">任務</a>
+          <a class="nav-item nav-link" id="nav-eliminate-tab" data-toggle="tab" href="#nav-eliminate" role="tab" aria-controls="nav-eliminate" aria-selected="false">辞める</a>
+        </div>
+      </nav>
     </div>
-    <ul class="list-group list-group-flush">
-      <%= @schedule.plans.each do |plan| %>
-      <!--やり方を考える-->
-      <!--planテーブルのステータスの変更＜一括変更＞-->
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-footer">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+    <div class="tab-content card-body" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-programme" role="tabpanel" aria-labelledby="nav-programme-tab">
+        <%= form_with model: [@schedule,@schedule.plans],url: all_update_schedule_plans_path, method: :patch do |f| %>
+          <% @schedule.plans.programme.each do |programme| %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div>
+                  <%= f.collection_select(:priority_status, @schedule.plans, 0..3, :priority_status ) %>
+                </div>
+                <div>
+                  <%= programme.task %>
+                </div>
+                <div class="form-check form-check-inline">
+                  <%= f.radio_button :progress_status, 0, class: "form-check-input"  %>
+                  <%= f.label :progress_status_unstarted, Plan.progress_status_i18n[:unstarted], class: "form-check-label" %>
+                </div>
+                <div class="form-check form-check-inline">
+                  <%= f.radio_button :progress_status, 1, class: "form-check-input"  %>
+                  <%= f.label :progress_status_finish, Plan.progress_status_i18n[:finish], class: "form-check-label" %>
+                </div>
+                <div class="form-check form-check-inline">
+                  <%= f.radio_button :progress_status, 2, class: "form-check-input"  %>
+                  <%= f.label :progress_status_process, Plan.progress_status_i18n[:process], class: "form-check-label" %>
+                </div>
+                <div class="form-check form-check-inline">
+                  <%= f.radio_button :progress_status, 3, class: "form-check-input"  %>
+                  <%= f.label :progress_status_postpone, Plan.progress_status_i18n[:postpone], class: "form-check-label" %>
+                </div>
+                <div class="form-check form-check-inline">
+                  <%= f.radio_button :progress_status, 4, class: "form-check-input"  %>
+                  <%= f.label :progress_status_deletion, Plan.progress_status_i18n[:deletion], class: "form-check-label" %>
+                </div>
+              </li>
+            </ul>
+          <% end %>
+          <div class="card-footer">
+            <%= f.submit "更新する" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
+        <% @schedule.plans.emergency.each do |emergency| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div>
+                <%= emergency.task %>
+              </div>
+              <div>
+                <%= emergency.progress_status_i18n %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-important" role="tabpanel" aria-labelledby="nav-important-tab">
+        <% @schedule.plans.important.each do |important| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div>
+                <%= important.task %>
+              </div>
+              <div>
+                <%= important.progress_status_i18n %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+        <% @schedule.plans.mission.each do |mission| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div>
+                <%= mission.task %>
+              </div>
+              <div>
+                <%= mission.progress_status_i18n %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-eliminate" role="tabpanel" aria-labelledby="nav-eliminate-tab">
+        <% @schedule.plans.eliminate.each do |eliminate| %>
+          <ul class="list-group list-group-flush">
+              <div>
+                <%= eliminate.task %>
+              </div>
+              <div>
+                <%= eliminate.progress_status_i18n %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -47,13 +140,13 @@
   <div>
     <p>提案件数：<%= @plan.missions.conut %></p>
   </div>
-  <% @schedule.plans.each do |plan| %>
+  <% @schedule.plans.memo.each do |plan| %>
     <div>
       <div>
         <%= plan.task %>
       </div>
       <div>
-        <%= link_to "やるべきことリストに保存する", schedule_plan_path, method: :post %>
+        <%= link_to "やるべきことリストに保存する", upload_schedule_plan_path, method: :patch %>
       </div>
       <div>
         <%= link_to "削除する", schedule_plan_path, method: :delete %>
@@ -61,9 +154,9 @@
     </div>
   <% end %>
   <div>
-    <%= link_to "全てやるべきことリストに保存する", all_update_schedule_plans_path, method: :post %>
+    <%= link_to "全てやるべきことリストに保存する", bulk_upload_schedule_plans_path, method: :patch %>
   </div>
   <div>
-    <%= link_to "メモを全て破棄する", all_destroy_schedule_plans_path, method: :delete %>
+    <%= link_to "メモを全て破棄する", bulk_destroy_schedule_plans_path, method: :delete %>
   </div>
 </div>

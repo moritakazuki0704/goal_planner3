@@ -8,9 +8,9 @@ class PlansController < ApplicationController
     redirect_to schedule_path(schedule)
   end
 
-  def update
+  def upload
     plan = Plan.find(params[:id])
-    plan.update(priority_status: 2)
+    plan.update(programme: "true")
     redirect_to schedule_path(params[:schedule_id])
   end
 
@@ -20,23 +20,30 @@ class PlansController < ApplicationController
     redirect_to schedule_path(params[:schedule_id])
   end
 
-  def all_update
+  def bulk_upload
     schedule = Schedule.find(params[:schedule_id])
-    plan = schedule.plans.where(priority_status: 0)
-    plan.update_all(priority_status: 2)
+    plan = schedule.plans.where(programme: "false")
+    plan.update_all(programme: "true")
     redirect_to schedule_path(schedule)
   end
 
-  def all_destroy
+  def bulk_destroy
     schedule = Schedule.find(params[:schedule_id])
-    plan = schedule.plans.where(priority_status: 0)
+    plan = schedule.plans.where(programme: "false")
     plan.destroy_all
+    redirect_to schedule_path(schedule)
+  end
+  
+  def all_update
+    schedule = Schedule.find(params[:schedule_id])
+    plan = schedule.plans.where(programme: "true")
+    plan.update_all(plan_params)
     redirect_to schedule_path(schedule)
   end
 
   private
 
   def plan_params
-    params.require(:plan).permit(:task,:priority_status,:progress_status)
+    params.require(:plan).permit(:task,:priority_status,:progress_status,:programme)
   end
 end
