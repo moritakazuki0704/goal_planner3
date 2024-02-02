@@ -1,9 +1,10 @@
 <div>
-  <h1>あなたの感情がポジティブに動いた瞬間を教えてください</h1>
+  <h1>あなたのがやりたいと思ったことを教えてください</h1>
 </div>
+<!--文言を入れる-->
 <div>
   <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
-    <%= f.hidden_field :emotion_stetas, :value => "3"  %>
+    <%= f.hidden_field :emotion_stetas, :value => "2"  %>
     <div><%= f.text_area :appetite %></div>
     <div>
       <p>それはどんな思い出がありますか</p>

@@ -1,0 +1,24 @@
+<!--スケジュールのnewページ-->
+<%= form_with model: @schedule,url: schedules_path, method: :post do |f| %>
+<div class="left-page">
+  <div>
+    <!--文言を入れる-->
+  </div>
+  <div>
+    <%= @user_commit.each do |commit| %>
+      <div class="card">
+        <div class="card-header">
+          <%= radio_button :commit_id, :id %>
+          <%= commit.commitment %>
+        </div>
+        <div class="card-body">
+          <%= commit.purpose %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="right-page">
+  
+</div>

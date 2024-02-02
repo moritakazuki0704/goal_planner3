@@ -1,4 +1,4 @@
-<div>
+<div class="book-spread">
   <% @scrap_books.each do |scrap_book| %>
     <div>
       <%= link_to scrap_book_path(scrap_book.id) do %>
@@ -6,16 +6,15 @@
       <% end %>
     </div>
   <% end %>
-</div>
-
-<div>
-  <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
-    <%= f.file_field :photo,accept: "image/*" %>
-    <h3>説明</h3>
-    <%= f.text_area :comment %>
-    <%= f.submit "保存" %>
-  <% end %>
-</div>
-<div>
-  <%= paginate @scrap_books %>
+  <div>
+    <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
+      <%= f.file_field :photo,accept: "image/*" %>
+      <h3>説明</h3>
+      <%= f.text_area :comment %>
+      <%= f.submit "保存" %>
+    <% end %>
+  </div>
+  <div>
+    <%= paginate @scrap_books %>
+  </div>
 </div>

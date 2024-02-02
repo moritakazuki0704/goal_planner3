@@ -2,13 +2,13 @@ class MissionsController < ApplicationController
 
   def create
     commit = Commit.find(params[:commit_id])
-    mission = current_user.missions.new(mission_param)
+    mission = Mission.new(mission_param)
     mission.commit_id = commit.id
     mission.save
     redirect_to commit_path(commit)
   end
 
-  def download
+  def upload
     mission = Mission.find(params[:id])
     
     # missionのデータをscheduleのテーブルに保存
@@ -31,7 +31,7 @@ class MissionsController < ApplicationController
     redirect_to commit_path(params[:commit_id])
   end
 
-  def batch_download
+  def bulk_upload
     commit = Commit.find(params[:commit_id])
     
     # 閲覧中のcommitが保持しているmissionのデータをscheduleのテーブルに保存
@@ -49,7 +49,7 @@ class MissionsController < ApplicationController
     redirect_to commit_path(params[:commit_id])
   end
 
-  def bulk_deletion
+  def bulk_destroy
     commit = Commit.find(params[:commit_id])
     mission = commit.missions
     mission.destroy_all

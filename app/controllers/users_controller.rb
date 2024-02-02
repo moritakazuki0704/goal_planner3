@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     redirect_to new_commit_path
   end
 
-  def dash_board
-  end
+  # def dash_board
+  # end
 
   def withdrawal
   end

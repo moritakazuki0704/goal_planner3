@@ -21,17 +21,18 @@
             <%= current_user.mission_statement %>
           </li>
           <hr>
+          <!--<li>-->
+          <!--  < link_to "ダッシュボード", dash_board_user_path %>-->
+          <!--</li>-->
           <li>
-            <%= link_to "ダッシュボード", dash_board_user_path %>
+            <%= link_to "カレンダー", schedules_path %>
           </li>
+          <!--余裕があれば、todayメソッドを使った、本日の予定のページを作成する-->
+          <!--<li>-->
+            <!--< link_to "本日の予定", root_path >-->
+          <!--</li>-->
           <li>
-            <%= link_to "カレンダー", root_path %>
-          </li>
-          <li>
-            <%= link_to "本日の予定", root_path %>
-          </li>
-          <li>
-            <%= link_to "やるべきこと", commits_path %>
+            <%= link_to "私の目標／課題", commits_path %>
           </li>
           <li>
             <%= link_to "私の理想", ideal_path %>

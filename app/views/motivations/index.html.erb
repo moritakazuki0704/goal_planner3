@@ -1,4 +1,4 @@
-<% if @user_motivation.present? %>
+<div class="left-page">
   <p>
     ポジティブなことでモチベーションを維持する<br>
     これだけは嫌と思うネガティブなことでモチベーションを維持する<br>
@@ -25,68 +25,81 @@
     ここを見て、何度でも立ち上がり<br>
     あなたの夢、理想を叶えて下さい
   </p>
-
-  <nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-positive-tab" data-toggle="tab" href="#nav-positive" role="tab" aria-controls="nav-positive" aria-selected="true">ポジティブ</a>
-    <a class="nav-item nav-link" id="nav-negative-tab" data-toggle="tab" href="#nav-negative" role="tab" aria-controls="nav-negative" aria-selected="false">ネガティブ</a>
-    <a class="nav-item nav-link" id="nav-to_do-tab" data-toggle="tab" href="#nav-to_do" role="tab" aria-controls="nav-to_do" aria-selected="false">やりたいこと</a>
-    <a class="nav-item nav-link" id="nav-want-tab" data-toggle="tab" href="#nav-want" role="tab" aria-controls="nav-want" aria-selected="false">やりたいこと</a>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-positive" role="tabpanel" aria-labelledby="nav-positive-tab">
-    <div>
-      <div>
-        <%= link_to "ポジティブモチベーション",list_motivations_path(positive: true) %>
-      </div>
-      <% @motivations.positives.each do |positive| %>
-      <div>
-        <%= positive.appetite %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="nav-negative" role="tabpanel" aria-labelledby="nav-negative-tab">
-    <div>
-      <div>
-        <%= link_to "ネガティブモチベーション",list_motivations_path(negative: true) %>
-      </div>
-      <% @motivations.negatives.each do |negative| %>
-      <div>
-        <%= negative.appetite %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="nav-to_do" role="tabpanel" aria-labelledby="nav-to_do-tab">
-    <div>
-      <div>
-        <%= link_to "やりたいことリスト",list_motivations_path(to_do: true) %>
-      </div>
-      <% @motivations.to_dos.each do |to_do| %>
-      <div>
-        <%= to_do.appetite %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="nav-want" role="tabpanel" aria-labelledby="nav-want-tab">
-    <div>
-      <div>
-        <%= link_to "欲しいものリスト",list_motivations_path(want: true) %>
-      </div>
-      <% @motivations.wants.each do |want| %>
-      <div>
-        <%= want.appetite %>
-      </div>
-      <% end %>
-    </div>
-  </div>
 </div>
 
-<% else %>
-  <div>
-    <%= link_to "新規作成", new_motivation_path(positive: true) %>
-  </div>
-<% end %>
+<div class="right-page">
+  <% if @user_motivation.present? %>
+  
+  <!--タブ表示機能-->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-positive-tab" data-toggle="tab" href="#nav-positive" role="tab" aria-controls="nav-positive" aria-selected="true">ポジティブ</a>
+        <a class="nav-item nav-link" id="nav-negative-tab" data-toggle="tab" href="#nav-negative" role="tab" aria-controls="nav-negative" aria-selected="false">ネガティブ</a>
+        <a class="nav-item nav-link" id="nav-to_do-tab" data-toggle="tab" href="#nav-to_do" role="tab" aria-controls="nav-to_do" aria-selected="false">やりたいこと</a>
+        <a class="nav-item nav-link" id="nav-want-tab" data-toggle="tab" href="#nav-want" role="tab" aria-controls="nav-want" aria-selected="false">やりたいこと</a>
+      </div>
+    </nav>
+    
+    <!--タブの中身-->
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-positive" role="tabpanel" aria-labelledby="nav-positive-tab">
+        <div>
+          <div>
+            <%= link_to "ポジティブモチベーション",list_motivations_path(positive: true) %>
+          </div>
+          <% @motivations.positives.each do |positive| %>
+          <div>
+            <%= positive.appetite %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-negative" role="tabpanel" aria-labelledby="nav-negative-tab">
+        <div>
+          <div>
+            <%= link_to "ネガティブモチベーション",list_motivations_path(negative: true) %>
+          </div>
+          <% @motivations.negatives.each do |negative| %>
+          <div>
+            <%= negative.appetite %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-to_do" role="tabpanel" aria-labelledby="nav-to_do-tab">
+        <div>
+          <div>
+            <%= link_to "やりたいことリスト",list_motivations_path(to_do: true) %>
+          </div>
+          <% @motivations.to_dos.each do |to_do| %>
+          <div>
+            <%= to_do.appetite %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-want" role="tabpanel" aria-labelledby="nav-want-tab">
+        <div>
+          <div>
+            <%= link_to "欲しいものリスト",list_motivations_path(want: true) %>
+          </div>
+          <% @motivations.wants.each do |want| %>
+          <div>
+            <%= want.appetite %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  
+  <% else %>
+
+<!--初めてモチベーションページに来たときに表示-->
+    <div>
+      <!--文言を入れる-->
+    </div>
+    <div>
+      <%= link_to "新規作成", new_motivation_path(positive: true) %>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users,skip:[:passwords]
-  # root to: 'schedules#index'
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
   resource :user,only: [:new,:create,:destroy] do
     collection do
       get 'confirm'
-      get 'dash_board'
+      # get 'dash_board'
       get 'withdrawal'
     end
   end
@@ -32,15 +31,25 @@ Rails.application.routes.draw do
     end
     resources :missions,only: [:create,:destroy] do
       member do
-        post 'download'
+        post 'upload'
       end
       collection do
-        post 'batch_download'
-        delete 'bulk_deletion'
+        post 'bulk_upload'
+        delete 'bulk_destroy'
       end
     end
   end
-  resources :schedules
+  resources :schedules do
+    resources :plans,only: [:create,:destroy] do
+      member do
+        post 'upload'
+      end
+      collection do
+        post 'bulk_upload'
+        delete 'bulk_destroy'
+      end
+    end
+  end
   resources :motivations,except: [:edit,:update] do
     collection do
       get 'list'

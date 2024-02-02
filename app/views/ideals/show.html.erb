@@ -1,15 +1,19 @@
-<div class = "left-page">
+<div class="left-page">
   <div>
     <%= @user.mission_statement %>
   </div>
   <div>
     <%= @user.mission_detail %>
   </div>
+  <!--commit_showを部分テンプレート入れるか、文言入れるか考える-->
 </div>
 
-<div>
-  <%= render 'show', ideal: @ideal %>
-
-<div><%= link_to 'やり直す', ideal_path(@ideal.id),method: :delete %></div>
+<div class="right-page">
+  <div>
+    <%= render 'show', ideal: @ideal %>
+  </div>
+  <div>
+    <%= link_to 'もう一度理想を考え直す', ideal_path, method: :delete %>
+  </div>
 </div>
 

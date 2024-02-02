@@ -1,9 +1,5 @@
-<div class="bookshelf">
-  <div class="spine">
-    <% if current_user.commits.present? %>
-      <%= render 'homes/wizard_welcomes/welcome' %>
-    <% else %>
-      <%= render 'homes/wizard_welcomes/introduction' %>
-    <% end %>
-  </div>
-</div>
+<% if current_user.commits.present? %>
+  <%= render 'homes/wizard_welcomes/welcome' %>
+<% else %>
+  <%= render 'homes/wizard_welcomes/introduction' %>
+<% end %>

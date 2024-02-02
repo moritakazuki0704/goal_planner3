@@ -1,4 +1,4 @@
-<div>
+<div class="left-page">
   <% if params[:positive] %>
     <%= render 'positive_text' %>
   <% elsif params[:negative] %>
@@ -9,7 +9,7 @@
     <%= render 'want_text' %>
   <% end %>
 </div>
-<div>
+<div class="right-page">
   <% if params[:positive] %>
     <%= render 'positive_form', motivation: @motivation %>
   <% elsif params[:negative] %>

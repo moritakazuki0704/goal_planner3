@@ -17,13 +17,12 @@ class CommitsController < ApplicationController
       )
     @commit.user_id = current_user.id
     @commit.save
-    redirect_to commit_path(@commit.id)
+    redirect_to welcome_path
   end
 
   def index
-    user_commit = Commit.where(user_id: current_user)
-    @commit_activity = user_commit.activity
-    @commit_finish = user_commit.finish
+    @commit_activity = current_user.commits.activity
+    @commit_finish = current_user.commits.finish
   end
 
   def show

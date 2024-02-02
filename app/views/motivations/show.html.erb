@@ -1,27 +1,27 @@
-<div>
+<div class="left-page">
   <% if @motivation.motivation.stetas(0) %>
-    <%= render %>
+    <%= render 'positive_text' %>
     <div>
       <%= link_to "新規作成", new_motivation_path(positive: true) %>
     </div>
   <% elsif @motivation.motivation.stetas(1) %>
-    <%= render %>
+    <%= render 'negative_text' %>
     <div>
       <%= link_to "新規作成", new_motivation_path(negative: true) %>
     </div>
   <% elsif @motivation.motivation.stetas(2) %>
-    <%= render %>
+    <%= render 'to_do_text' %>
     <div>
       <%= link_to "新規作成", new_motivation_path(to_do: true) %>
     </div>
   <% elsif @motivation.motivation.stetas(3) %>
-    <%= render %>
+    <%= render 'want_text' %>
     <div>
       <%= link_to "新規作成", new_motivation_path(want: true) %>
     </div>
   <% end %>
 </div>
-<div>
+<div class="right-page">
   <div>
     <%= @motivation.appetite %>
   </div>

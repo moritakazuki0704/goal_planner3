@@ -1,8 +1,21 @@
-<%= render 'show', ideal: @ideal %>
-
-<div>
-  <%= link_to "やり直す",ideal_path,method: :delete %>
+<div class="left-page">
+  <!--文言を入れる-->
 </div>
-<div>
-  <%= link_to "次に進む",new_user_path %>
+
+<div class="right-page">
+  <div>
+    <%= render 'show', ideal: @ideal %>
+  </div>
+  <div>
+    <%= link_to "やり直す",ideal_path,method: :delete %>
+  </div>
+  <% if current_user.users.mission_statement.present? %>
+    <div>
+      <%= link_to "次に進む",new_user_path %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "理想を決める",ideal_path %>
+    </div>
+  <% end %>
 </div>

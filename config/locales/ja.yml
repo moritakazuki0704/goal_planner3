@@ -4,18 +4,19 @@ ja:
       process_states: # カラム名
         progress: '進行中' # enumの値
         finish: '達成' # enumの値
-        memo: 'メモ' # enumの値
+        pending: '保留' # enumの値
     plan: # モデル名
       priority_status: # カラム名
+        proposal: '提案'  # enumの値
         emergency: '緊急' # enumの値
         important: '重要' # enumの値
         mission: '任務' # enumの値
+        eliminate: '排除' # enumの値
       progress_status: # カラム名
-        start: '未完了' # enumの値
+        unstarted: '未完了' # enumの値
         finish: '完了' # enumの値
         progress: '進行中' # enumの値
         postpone: '先送り' # enumの値
-        cancel: '削除' # enumの値
     motivation: # モデル名
       emotion_stetas: # カラム名
         positive: 'ポジティブ' # enumの値

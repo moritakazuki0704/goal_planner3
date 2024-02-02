@@ -37,7 +37,7 @@
         <%= mission.memo %>
       </div>
       <div>
-        <%= link_to "課題にする", single_commit_missions_path, method: :post %>
+        <%= link_to "課題にする", upload_commit_mission, method: :post %>
       </div>
       <div>
         <%= link_to "削除する", commit_mission_path, method: :delete %>
@@ -45,9 +45,9 @@
     </div>
   <% end %>
   <div>
-    <%= link_to "全て課題にする", all_commit_missions_path, method: :post %>
+    <%= link_to "全て課題にする", bulk_upload_commit_missions, method: :post %>
   </div>
   <div>
-    <%= link_to "メモを全て破棄する", all_destroy_commit_missions_path, method: :delete %>
+    <%= link_to "メモを全て破棄する", bulk_destroy_commit_missions, method: :delete %>
   </div>
 </div>

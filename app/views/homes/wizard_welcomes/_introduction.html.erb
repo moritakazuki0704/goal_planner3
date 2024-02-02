@@ -1,4 +1,4 @@
-<div>
+<div class="left-page">
   <p>
     この本はあなたの分身です。
   </p>
@@ -31,7 +31,7 @@
     なりたい姿に一歩でも近づけるように
   </p>
 </div>
-<div>
+<div class="right-page">
   <p>
     あなたのなりたい姿<br>
     目標を教えてください
@@ -63,7 +63,17 @@
   <p>
     はじめましょう
   </p>
-  <div>
-    <%= link_to "まずはあなたの理想を教えてください",step1_keyword_ideal_path %>
-  </div>
+  <% if current_user.ideals.present? %>
+    <div>
+      <%= link_to "まずはあなたの理想を教えてください",step1_keyword_ideal_path %>
+    </div>
+  <% elsif current_user.users.mission_statement.present? %>
+    <div>
+      <%= link_to "あなたの人生をかけて叶える目標を教えてください",new_user_path %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "あなたの目標を教えてください",new_commit_path %>
+    </div>
+  <% end %>
 </div>

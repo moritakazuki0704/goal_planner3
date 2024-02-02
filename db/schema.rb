@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
     t.integer "commit_id", null: false
     t.string "title"
     t.text "body"
-    t.datetime "start_at"
-    t.datetime "end_at"
+    t.datetime "start"
+    t.datetime "end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
