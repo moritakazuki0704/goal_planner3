@@ -17,6 +17,7 @@ ja:
         finish: '完了' # enumの値
         progress: '進行中' # enumの値
         postpone: '先送り' # enumの値
+        deletion: '削除' # enumの値
     motivation: # モデル名
       emotion_stetas: # カラム名
         positive: 'ポジティブ' # enumの値

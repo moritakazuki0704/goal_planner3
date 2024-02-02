@@ -40,13 +40,11 @@ Rails.application.routes.draw do
     end
   end
   resources :schedules do
-    resources :plans,only: [:create,:destroy] do
-      member do
-        post 'upload'
-      end
+    resources :plans,only: [:create,:update,:destroy] do
       collection do
-        post 'bulk_upload'
-        delete 'bulk_destroy'
+        post 'all_update'
+        delete 'all_destroy'
+        
       end
     end
   end

@@ -1,1 +1,3 @@
 <!--スケジュールのeditページ-->
+<%= form_with model: @schedule,url: schedule_path, method: :patch do |f| %>
+<%= render 'form',user_commit: @user_commit %>

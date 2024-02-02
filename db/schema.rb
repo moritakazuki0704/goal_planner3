@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
     t.string "task"
     t.integer "priority_status", default: 0
     t.integer "progress_status", default: 0
-    t.boolean "availability", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

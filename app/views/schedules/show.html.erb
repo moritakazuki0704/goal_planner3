@@ -1,1 +1,69 @@
 <!--スケジュールのshowページ-->
+<div class="left-page">
+  <h3>予定詳細</h3>
+  <div class="card">
+    <div class="card-header">
+      <%= @schedule.commit.commitment %>
+    </div>
+    <div class="card-body">
+      <%= @schedule.commit.purpose %>
+    </div>
+  </div>
+  <div>
+    <h5><%= @schedule.title %></h5>
+    <h6 class="mb-2 text-muted">
+      <%= @schedule.start.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= @schedule.end.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+    </h6>
+    <p><%= @schedule.body %></p>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      やるべきことリスト
+    </div>
+    <ul class="list-group list-group-flush">
+      <%= @schedule.plans.each do |plan| %>
+      <!--やり方を考える-->
+      <!--planテーブルのステータスの変更＜一括変更＞-->
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-footer">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+</div>
+<div class="right-page">
+  <p>
+    <!--文言を入れる-->
+  </p>
+  <div>
+  <%= form_with model: [@schedule,@plan],url: schedule_plans_path, method: :post do |f| %>
+    <%= f.text_field :task %>
+    <%= f.submit "提案する"　%>
+  <% end %>
+  </div>
+  <div>
+    <p>提案件数：<%= @plan.missions.conut %></p>
+  </div>
+  <% @schedule.plans.each do |plan| %>
+    <div>
+      <div>
+        <%= plan.task %>
+      </div>
+      <div>
+        <%= link_to "やるべきことリストに保存する", schedule_plan_path, method: :post %>
+      </div>
+      <div>
+        <%= link_to "削除する", schedule_plan_path, method: :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "全てやるべきことリストに保存する", all_update_schedule_plans_path, method: :post %>
+  </div>
+  <div>
+    <%= link_to "メモを全て破棄する", all_destroy_schedule_plans_path, method: :delete %>
+  </div>
+</div>

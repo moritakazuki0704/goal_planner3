@@ -23,6 +23,7 @@ class SchedulesController < ApplicationController
   end
 
   def edit
+    @user_commit = current_user.commits
   end
 
   def update
@@ -42,6 +43,6 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:title,:body,:start_time)
+    params.require(:schedule).permit(:title,:body,:start,:end)
   end
 end
