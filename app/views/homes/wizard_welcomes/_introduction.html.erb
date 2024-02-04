@@ -63,7 +63,7 @@
   <p>
     はじめましょう
   </p>
-  <% if current_user.ideals.present? %>
+  <% if current_user.ideal.present? %>
     <div>
       <%= link_to "まずはあなたの理想を教えてください",step1_keyword_ideal_path %>
     </div>

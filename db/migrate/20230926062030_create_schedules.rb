@@ -5,8 +5,8 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.integer :commit_id ,null: false
       t.string :title
       t.text :body
-      t.datetime :start
-      t.datetime :end
+      t.datetime :start_time
+      t.datetime :end_time
       t.timestamps
     end
   end

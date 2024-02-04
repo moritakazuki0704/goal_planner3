@@ -13,6 +13,14 @@ class User < ApplicationRecord
   validates_uniqueness_of :secret_word
   validates_presence_of :secret_word
 
+  validates :secret_word, presence: true, uniqueness: true
+  validates :planner_name, presence: true
+  with_options presence: true, on: :create_mission_statement do
+    validates :mission_statement
+    validates :mission_detail
+  end
+
+
   # nameを利用してログイン
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

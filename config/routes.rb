@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       collection do
         patch 'all_update'
         patch 'bulk_upload'
-        delele 'bulk_destroy'
+        delete 'bulk_destroy'
       end
     end
   end

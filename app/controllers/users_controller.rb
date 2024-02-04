@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail]
       )
-    user.save
+    user.save(context: :create_mission_statement)
     redirect_to new_commit_path
   end
 

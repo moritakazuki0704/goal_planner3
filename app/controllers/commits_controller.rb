@@ -21,25 +21,25 @@ class CommitsController < ApplicationController
   end
 
   def index
-    @commit_activity = current_user.commits.activity
-    @commit_finish = current_user.commits.finish
+    @commits = current_user.commits
   end
 
   def show
     @commit = Commit.find(params[:id])
+    
     @mission = Mission.new
   end
 
   def update
     @commit = Commit.find(params[:id])
-    @commit.update
+    @commit.update(commit_params)
     redirect_to commits_path
   end
 
   private
 
   def commit_params
-    params.require(:commit).permit(:commitment,:purpose)
+    params.require(:commit).permit(:commitment,:purpose,:progress_stetas)
   end
 
 end

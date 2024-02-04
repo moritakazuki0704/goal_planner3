@@ -10,7 +10,7 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.user_id = current_user.id
-    @schedule.save
+    @schedule.save(context: :create_schedule)
     redirect_to schedule_path(@schedule)
   end
 
@@ -43,6 +43,6 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:title,:body,:start,:end)
+    params.require(:schedule).permit(:commit_id,:title,:body,:start_time,:end_time)
   end
 end

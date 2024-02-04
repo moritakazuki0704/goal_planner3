@@ -1,20 +1,80 @@
 <div class="left-page">
   <p>
     <!--文言を入れる-->
-    <!--どこかにprogress_stetasカラムのupdate用のフォームを作成する-->
   </p>
-  <div>
-    <%= @commit.commitment %>
-  </div>
-  <div>
-    <%= @commit.purpose %>
+  <div class="card">
+    <div class="card-header">
+      <%= @schedule.commit.commitment %>
+    </div>
+    <div class="card-body">
+      <%= @schedule.commit.purpose %>
+    </div>
+    <div class="card-footer">
+      <%= form_with model: @schedule, url: commit_path, method: :patch do |f| %>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :progress_stetas, 0, class: "form-check-input"  %>
+          <%= f.label :progress_status_process, Plan.progress_status_i18n[:process], class: "form-check-label" %>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :progress_stetas, 1, class: "form-check-input"  %>
+          <%= f.label :progress_status_finish, Plan.progress_status_i18n[:finish], class: "form-check-label" %>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :progress_stetas, 2, class: "form-check-input"  %>
+          <%= f.label :progress_status_pending, Plan.progress_status_i18n[:pending], class: "form-check-label" %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div>
     <p>課題件数：<%= @commit.schedules.conut %></p>
   </div>
   <div>
-    <!--タブ表示機能を使って、日付なしと日付あり（完了予定）と日付あり（未来の予定）で分けて表示-->
-    <!--eachを使って全て表示、表示したタイトルにリンク、リンク先は予定詳細-->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">未設定</a>
+        <a class="nav-item nav-link" id="nav-completion-tab" data-toggle="tab" href="#nav-completion" role="tab" aria-controls="nav-completion" aria-selected="false">完了</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">未完了</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+        <p>未設定課題件数：<%= @commit.schedules.pending.conut %></p>
+        <%= @commit.schedules.pending.each do |pending| %>
+          <div>
+            <%= link_to schedule_path do %>
+              <h5><%= pending.title %></h5>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-completion" role="tabpanel" aria-labelledby="nav-completion-tab">
+        <p>完了課題件数：<%= @commit.schedules.completion.conut %></p>
+        <%= @commit.schedules.completion.each do |completion| %>
+          <div>
+            <%= link_to schedule_path do %>
+              <h5><%= completion.title %></h5>
+            <% end %>
+            <h6 class="mb-2 text-muted">
+              <%= completion.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= completion.end_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+            </h6>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-imperfect" role="tabpanel" aria-labelledby="nav-imperfect-tab">
+        <p>未完了課題件数：<%= @commit.schedules.imperfect.conut %></p>
+        <%= @commit.schedules.imperfect.each do |imperfect| %>
+          <div>
+            <%= link_to schedule_path do %>
+              <h5><%= imperfect.title %></h5>
+            <% end %>
+            <h6 class="mb-2 text-muted">
+              <%= imperfect.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= imperfect.end_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+            </h6>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

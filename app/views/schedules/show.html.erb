@@ -12,20 +12,21 @@
   <div>
     <h5><%= @schedule.title %></h5>
     <h6 class="mb-2 text-muted">
-      <%= @schedule.start.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= @schedule.end.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+      <%= @schedule.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= @schedule.end_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
     </h6>
     <p><%= @schedule.body %></p>
   </div>
-  <h5>やるべきことリスト</h5>
+  <h5>ToDoリスト</h5>
+  <p>リスト件数：<%= @schedule.plans.conut %></p>
   <div class="card text-center">
     <div class="card-header">
       <nav>
         <div class="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-programme-tab" data-toggle="tab" href="#nav-programme" role="tab" aria-controls="nav-programme" aria-selected="true">全て</a>
-          <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">緊急</a>
-          <a class="nav-item nav-link" id="nav-important-tab" data-toggle="tab" href="#nav-important" role="tab" aria-controls="nav-important" aria-selected="false">重要</a>
-          <a class="nav-item nav-link" id="nav-mission-tab" data-toggle="tab" href="#nav-mission" role="tab" aria-controls="nav-mission" aria-selected="false">任務</a>
-          <a class="nav-item nav-link" id="nav-eliminate-tab" data-toggle="tab" href="#nav-eliminate" role="tab" aria-controls="nav-eliminate" aria-selected="false">辞める</a>
+          <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">大事なこと</a>
+          <a class="nav-item nav-link" id="nav-important-tab" data-toggle="tab" href="#nav-important" role="tab" aria-controls="nav-important" aria-selected="false">重要なこと</a>
+          <a class="nav-item nav-link" id="nav-mission-tab" data-toggle="tab" href="#nav-mission" role="tab" aria-controls="nav-mission" aria-selected="false">やるべきこと</a>
+          <a class="nav-item nav-link" id="nav-eliminate-tab" data-toggle="tab" href="#nav-eliminate" role="tab" aria-controls="nav-eliminate" aria-selected="false">辞めること</a>
         </div>
       </nav>
     </div>
@@ -70,8 +71,10 @@
         <% end %>
       </div>
       <div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
+        <p>大事なこと件数：<%= @schedule.plans.emergency.conut %></p>
         <% @schedule.plans.emergency.each do |emergency| %>
           <ul class="list-group list-group-flush">
+            <!--文言入れるか考える。理由は緊急の意味-->
             <li class="list-group-item">
               <div>
                 <%= emergency.task %>
@@ -84,8 +87,10 @@
         <% end %>
       </div>
       <div class="tab-pane fade" id="nav-important" role="tabpanel" aria-labelledby="nav-important-tab">
+        <p>重要なこと件数：<%= @schedule.plans.important.conut %></p>
         <% @schedule.plans.important.each do |important| %>
           <ul class="list-group list-group-flush">
+            <!--文言入れるか考える。理由は重要の意味-->
             <li class="list-group-item">
               <div>
                 <%= important.task %>
@@ -98,8 +103,10 @@
         <% end %>
       </div>
       <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+        <p>やるべきこと件数：<%= @schedule.plans.mission.conut %></p>
         <% @schedule.plans.mission.each do |mission| %>
           <ul class="list-group list-group-flush">
+            <!--文言入れるか考える。理由は任務の意味-->
             <li class="list-group-item">
               <div>
                 <%= mission.task %>
@@ -112,8 +119,11 @@
         <% end %>
       </div>
       <div class="tab-pane fade" id="nav-eliminate" role="tabpanel" aria-labelledby="nav-eliminate-tab">
+        <p>辞めること：<%= @schedule.plans.eliminate.conut %></p>
         <% @schedule.plans.eliminate.each do |eliminate| %>
+        <!--文言入れるか考える。理由は削除の意味-->
           <ul class="list-group list-group-flush">
+            <li class="list-group-item">
               <div>
                 <%= eliminate.task %>
               </div>

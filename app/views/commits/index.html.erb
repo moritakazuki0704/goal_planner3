@@ -6,6 +6,7 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="true">進行中の目標</a>
       <a class="nav-item nav-link" id="nav-finish-tab" data-toggle="tab" href="#nav-finish" role="tab" aria-controls="nav-finish" aria-selected="false">達成した目標</a>
+      <a class="nav-item nav-link" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="false">保留した目標</a>
       <a class="nav-item nav-link" id="nav-commit-tab" data-toggle="tab" href="#nav-commit" role="tab" aria-controls="nav-commit" aria-selected="false">新たに目標を定める</a>
     </div>
   </nav>
@@ -16,7 +17,7 @@
           <p>進行中の目標</p>
         </div>
         <!--position:stickyを使用して、スクロール機能をつける-->
-        <% @commit_activity.each do |commit| %>
+        <% @commits.activity.each do |commit| %>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <%= link_to commit_path do %>
@@ -32,7 +33,23 @@
         <div class="card-header">
           <p>達成した目標</p>
         </div>
-        <% @commit_finish.each do |commit| %>
+        <% @commits.finish.each do |commit| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <%= link_to commit_path do %>
+                <%= commit.commitment %>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <p>保留した目標</p>
+        </div>
+        <% @commits.pending.each do |commit| %>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <%= link_to commit_path do %>
