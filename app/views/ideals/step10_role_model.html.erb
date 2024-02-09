@@ -1,57 +1,124 @@
-<ol>
-<li>
-  <%= session[:keyword_1] %>
-</li>
-<li>
-  <%= session[:keyword_2] %>
-</li>
-<li>
-  <%= session[:keyword_3] %>
-</li>
-<li>
-  <%= session[:keyword_4] %>
-</li>
-<li>
-  <%= session[:keyword_5] %>
-</li>
-<li>
-  <%= session[:keyword_6] %>
-</li>
-<li>
-  <%= session[:keyword_7] %>
-</li>
-<li>
-  <%= session[:keyword_8] %>
-</li>
-<li>
-  <%= session[:keyword_9] %>
-</li>
-<li>
-  <%= session[:keyword_10] %>
-</li>
-</ol>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
 
-<h1>あなたの理想のパートナー像・家族像・親友像を教えて下さい</h1>
-<p>
-  パートナーは夫婦像としてみるのでもいいです<br>
-  相棒のような存在でもいいです
-</p>
-<p>
-  あなたにとっての理想はきっと</br>
-  理想を想像、妄想<br>
-  いっぱい考えていれば
-</p>
-<p>
-  きっとその理想はあなたの手の届くところに寄ってきます
-</p>
-<div>
-  <%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
-    <p>パートナー像</p>
-    <div><%= f.text_area :partner_model %></div>
-    <p>家族像</p>
-    <div><%= f.text_area :family_model %></div>
-    <p>親友像</p>
-    <div><%= f.text_area :friend_model %></div>
-    <div><%= f.submit '次に進む' %></div>
-  <% end %>
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        きっと誰しも思ったことがあるでしょう
+      </p>
+      <p>
+        いいなぁ<br>
+        憧れるなぁ
+      </p>
+      <p>
+        この輪の中に入りたいなぁ
+      </p>
+      <p>
+        それは理想を叶えている姿です
+      </p>
+      <p>
+        あなたにとっての理想を叶えている人は
+      </p>
+      <p>
+        あなたの周り<br>
+        もしくはあなたの関わったことある人<br>
+        テレビや雑誌で見たことある人
+      </p>
+      <p>
+        理想を体現している人がいるのならば<br>
+        あなたがその人のことをよく知って<br>
+        その人の行動<br>
+        その人の考え方
+      </p>
+      <p>
+       それを真似すればいいだけです
+      </p>
+      <p>
+        何もわからない手探りの状態より<br>
+        簡単だと思いませんか
+      </p>
+      <p>
+        まずは話し方からでも<br>
+        歩き方でも<br>
+        箸の持ち方や<br>
+        一つの考え方でも
+      </p>
+      <p>
+        はじめの一歩はなんでもいい<br>
+        一歩ずつ歩んでいけばいいのですから
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">理想のキーワード</th>
+          </tr>
+        </thead>
+        <tbody class="form-group">
+          <tr>
+            <td><%= session[:keyword_1] %></th>
+            <td><%= session[:keyword_2] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_3] %></th>
+            <td><%= session[:keyword_4] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_5] %></th>
+            <td><%= session[:keyword_6] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_7] %></th>
+            <td><%= session[:keyword_8] %></td>
+          </tr>
+          <tr>
+            <td><%= session[:keyword_9] %></th>
+            <td><%= session[:keyword_10] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの理想のパートナー像<br>
+          あなたの理想の家族像<br>
+          あなたの理想の親友像を<br>
+          教えて下さい
+        </u>
+      </h5>
+      <p>
+        パートナーは夫婦像としてみるのでも構いません<br>
+        相棒のような存在でもいいでしょう
+      </p>
+      <p>
+        あなたにとっての理想はきっと<br>
+        理想を想像、妄想<br>
+        いっぱい考えていれば
+      </p>
+      <p>
+        きっとその理想はあなたの手の届くところに寄ってきます
+      </p>
+      <%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
+        <div class="form-group">
+          <%= f.label :partner_model %><br />
+          <%= f.text_area :partner_model,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :family_model %><br />
+          <%= f.text_area :family_model,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :friend_model %><br />
+          <%= f.text_area :friend_model,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>

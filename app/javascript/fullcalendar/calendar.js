@@ -32,9 +32,6 @@ document.addEventListener('turbolinks:load', function() {
         navLinks: true,
         events: '/schedules.json',
 
-
-
-
     });
     //カレンダー表示
     calendar.render();

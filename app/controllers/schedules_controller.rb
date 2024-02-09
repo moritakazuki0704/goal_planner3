@@ -4,18 +4,18 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
-    @user_commit = current_user.commits
+    @user_commit = current_user.commits.activity.order(created_at: :desc)
   end
 
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.user_id = current_user.id
     @schedule.save(context: :create_schedule)
-    redirect_to schedule_path(@schedule)
+    redirect_to schedule_path(@schedule.id)
   end
 
   def index
-    @schedules = current_user.schedules
+    @schedules = Schedule.where(user_id: current_user)
   end
 
   def show
@@ -23,12 +23,12 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    @user_commit = current_user.commits
+    @user_commit = Commit.where(user_id: current_user)
   end
 
   def update
     @schedule.update(schedule_params)
-    redirect_to schedule_path(@schedule)
+    redirect_to schedule_path(@schedule.id)
   end
 
   def destroy
@@ -43,6 +43,6 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:commit_id,:title,:body,:start_time,:end_time)
+    params.require(:schedule).permit(:commit_id,:title,:body,:start,:end)
   end
 end

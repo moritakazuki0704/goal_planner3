@@ -1,18 +1,27 @@
-<div class="left-page">
-  <div>
-    <%= @scrap_book.photo %>
-  </div>
-</div>
-<div class="right-page">
-  <div>
-    <%= @scrap_book.comment %>
-  </div>
-  <div>
-    <div>
-      <%= link_to "戻る",scrap_book_path %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <div>
+        <%= @scrap_book..get_photo(100,100) %>
+      </div>
     </div>
-    <div>
-      <%= link_to "削除",scrap_book_path,method: :delete,"data-confirm" =>"削除して本当にいいですか？" %>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <div class="cross-frame text-center font-weight-bold">
+        <%= @scrap_book.comment %>
+      </div>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= link_to "戻る",scrap_book_path %>
+        </div>
+        <div>
+          <%= link_to "削除",scrap_book_path,method: :delete,"data-confirm" =>"削除して本当にいいですか？" %>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>

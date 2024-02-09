@@ -11,51 +11,47 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class = "bookshelf-background">
-    <% if user_signed_in? %>
-      <div class = "sideber">
-        <ul>
-          <li>
-            <%= current_user.planner_name %>
-          </li>
-          <li>
-            <%= current_user.mission_statement %>
-          </li>
-          <hr>
-          <!--<li>-->
-          <!--  < link_to "ダッシュボード", dash_board_user_path %>-->
-          <!--</li>-->
-          <li>
-            <%= link_to "カレンダー", schedules_path %>
-          </li>
-          <!--余裕があれば、todayメソッドを使った、本日の予定のページを作成する-->
-          <!--<li>-->
-            <!--< link_to "本日の予定", root_path >-->
-          <!--</li>-->
-          <li>
-            <%= link_to "私の目標／課題", commits_path %>
-          </li>
-          <li>
-            <%= link_to "私の理想", ideal_path %>
-          </li>
-          <li>
-            <%= link_to "スクラップブック", scrap_books_path %>
-          </li>
-          <li>
-            <%= link_to "モチベーション", motivations_path %>
-          </li>
-          <hr>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-          <li>
-            <%= link_to "退会",withdrawal_user_path %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
-    <main>
-      <%= yield %>
-    </main>
+  <body class="container">
+    <div class="background-paper"></div>
+    <div clss="row no-gutters justify-content-center">
+      <% if user_signed_in? && current_user.commits.present? %>
+        <div class ="sidebar col">
+          <ul>
+            <li class="my-logo">
+              <%= current_user.planner_name %>
+            </li>
+            <li>
+              <%= current_user.mission_statement %>
+            </li>
+            <hr>
+            <li>
+              <%= link_to "カレンダー", schedules_path %>
+            </li>
+            <li>
+              <%= link_to "私の目標／課題", commits_path %>
+            </li>
+            <li>
+              <%= link_to "私の理想", ideal_path %>
+            </li>
+            <li>
+              <%= link_to "スクラップブック", scrap_books_path %>
+            </li>
+            <li>
+              <%= link_to "モチベーション", motivations_path %>
+            </li>
+            <hr>
+            <li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+              <%= link_to "退会",withdrawal_user_path %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+      <main class="col">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

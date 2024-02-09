@@ -1,32 +1,43 @@
-<div class="left-page">
-  <% if params[:positive] %>
-    <%= render 'positive_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(positive: true) %>
-    </div>
-  <% elsif params[:negative] %>
-    <%= render 'negative_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(negative: true) %>
-    </div>
-  <% elsif params[:to_do] %>
-    <%= render 'to_do_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(to_do: true) %>
-    </div>
-  <% elsif params[:want] %>
-    <%= render 'want_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(to_do: true) %>
-    </div>
-  <% end %>
-</div>
-<div class="right-page">
-  <%= @motivations.each do |motivation| %>
-    <div>
-      <%= link_to motivation_path do %>
-        <%= motivation.appetite %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <% if params[:positive] %>
+        <%= render 'motivation_text/positive' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(positive: true) %>
+        </div>
+      <% elsif params[:negative] %>
+        <%= render 'motivation_text/negative' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(negative: true) %>
+        </div>
+      <% elsif params[:to_do] %>
+        <%= render 'motivation_text/to_do' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(to_do: true) %>
+        </div>
+      <% elsif params[:want] %>
+        <%= render 'motivation_text/want' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(to_do: true) %>
+        </div>
       <% end %>
     </div>
-  <% end %>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <div class="position-static tab-room">
+        <%= @motivations.each do |motivation| %>
+          <div>
+            <%= link_to motivation_path do %>
+              <%= motivation.appetite %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
 </div>

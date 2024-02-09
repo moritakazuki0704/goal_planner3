@@ -1,20 +1,27 @@
-<div class="book-spread">
-  <% @scrap_books.each do |scrap_book| %>
-    <div>
-      <%= link_to scrap_book_path(scrap_book.id) do %>
-        <%= scrap_book.photo %>
-      <% end %>
-    </div>
-  <% end %>
-  <div>
-    <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
-      <%= f.file_field :photo,accept: "image/*" %>
-      <h3>説明</h3>
-      <%= f.text_area :comment %>
-      <%= f.submit "保存" %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+    <% @scrap_books.each do |scrap_book| %>
+      <div>
+        <%= link_to scrap_book_path(scrap_book.id) do %>
+          <%= scrap_book.get_photo(100,100) %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-  <div>
-    <%= paginate @scrap_books %>
+
+    <!--写真投稿フォーム-->
+    <div class="row">
+      <div class="col align-self-end">
+        <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
+          <%= f.file_field :photo,accept: "image/*" %>
+          <h3>説明</h3>
+          <%= f.text_area :comment %>
+        <%= f.submit "保存" %>
+      <% end %>
+      </div>
+    </div>
+    
+    <div>
+      <%= paginate @scrap_books %>
+    </div>
   </div>
 </div>

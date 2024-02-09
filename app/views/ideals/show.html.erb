@@ -1,19 +1,27 @@
-<div class="left-page">
-  <div>
-    <%= @user.mission_statement %>
-  </div>
-  <div>
-    <%= @user.mission_detail %>
-  </div>
-  <!--commit_showを部分テンプレート入れるか、文言入れるか考える-->
-</div>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
 
-<div class="right-page">
-  <div>
-    <%= render 'show', ideal: @ideal %>
-  </div>
-  <div>
-    <%= link_to 'もう一度理想を考え直す', ideal_path, method: :delete %>
-  </div>
-</div>
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          <%= @user.mission_statement %>
+        </u>
+      </h5>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= @user.mission_detail %>
+        </div>
+      </div>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <div>
+        <%= render 'show', ideal: @ideal %>
+      </div>
+      <div>
+        <%= link_to 'もう一度理想を考え直す', ideal_path, method: :delete %>
+      </div>
+    </div>
 

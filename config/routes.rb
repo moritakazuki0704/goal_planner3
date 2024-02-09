@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resource :user,only: [:new,:create,:destroy] do
     collection do
       get 'confirm'
-      # get 'dash_board'
       get 'withdrawal'
     end
   end

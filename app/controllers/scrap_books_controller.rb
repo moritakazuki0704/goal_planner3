@@ -6,9 +6,9 @@ class ScrapBooksController < ApplicationController
   end
 
   def create
-    @scrap_book = ScrapBook.new(scrap_book_params)
-    @scrap_book.user_id = current_user.id
-    @scrap_book.save
+    scrap_book = ScrapBook.new(scrap_book_params)
+    scrap_book.user_id = current_user.id
+    scrap_book.save
     redirect_to scrap_books_path
   end
 
@@ -17,8 +17,8 @@ class ScrapBooksController < ApplicationController
   end
 
   def destroy
-    @scrap_book =ScrapBook.find(params[:id])
-    @scrap_book.destroy
+    scrap_book =ScrapBook.find(params[:id])
+    scrap_book.destroy
     redirect_to scrap_books_path
   end
 

@@ -13,7 +13,11 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
-import "../fullcalendar/calendar"
+import '../stylesheets/mystyle.css';
+import '../stylesheets/background.css';
+import '../stylesheets/background-image.css';
+import '../stylesheets/button.css';
+import "../fullcalendar/calendar";
 
 Rails.start()
 Turbolinks.start()

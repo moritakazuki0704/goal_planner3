@@ -1,5 +1,12 @@
-<% if current_user.commits.present? %>
-  <%= render 'homes/wizard_welcomes/welcome' %>
-<% else %>
-  <%= render 'homes/wizard_welcomes/introduction' %>
-<% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+
+    <!--目標作成を行なっていない場合-->
+    <% if @commit.present? %>
+      <%= render 'homes/wizard_welcomes/welcome' %>
+    <% else %>
+
+      <%= render 'homes/wizard_welcomes/introduction' %>
+    <% end %>
+  </div>
+</div>

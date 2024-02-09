@@ -1,21 +1,50 @@
-<div class="left-page">
-  <!--文言を入れる-->
-</div>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
 
-<div class="right-page">
-  <div>
-    <%= render 'show', ideal: @ideal %>
-  </div>
-  <div>
-    <%= link_to "やり直す",ideal_path,method: :delete %>
-  </div>
-  <% if current_user.users.mission_statement.present? %>
-    <div>
-      <%= link_to "次に進む",new_user_path %>
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        あなたにとっての理想の将来を教えていただきました
+      </p>
+      <p>
+        最初に書いていただきました<br>
+        理想はあなたの<br>
+        生涯をかけた目標<br>
+        これから叶えていくための目標
+      </p>
+      <p>
+        それらを叶え続けるために必要な<br>
+        モチベーションであり<br>
+        思い続けてイメージし続けることによって<br>
+        現実にとって変わる<br>
+        これから得ていくものになります
+      </p>
+      <p>
+        叶えたい理想であり<br>
+        イメージできる理想である<br>
+        ということを改めて確認してください
+      </p>
     </div>
-  <% else %>
-    <div>
-      <%= link_to "理想を決める",ideal_path %>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <p class="alert alert-warning"><%= alert %></p>
+      <div>
+        <%= render 'show', ideal: @ideal %>
+      </div>
+      <div>
+        <%= link_to "やり直す",ideal_path,method: :delete %>
+      </div>
+      <% if !current_user.users.mission_statement.present? %>
+        <div>
+          <%= link_to "次に進む",new_user_path %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to "登録する",ideal_path %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+
+  </div>
 </div>

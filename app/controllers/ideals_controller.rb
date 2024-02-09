@@ -68,7 +68,7 @@ class IdealsController < ApplicationController
   end
 
   def create
-    @ideal = Ideal.new(
+    ideal = Ideal.new(
     keyword_1: session[:keyword_1],
     keyword_2: session[:keyword_2],
     keyword_3: session[:keyword_3],
@@ -107,9 +107,12 @@ class IdealsController < ApplicationController
     family_model: ideal_params[:family_model],
     friend_model: ideal_params[:friend_model]
     )
-    @ideal.user_id = current_user.id
-    @ideal.save
-    redirect_to confirm_ideal_path
+    ideal.user_id = current_user.id
+    if ideal.save
+      redirect_to confirm_ideal_path
+    else
+      render :confirm
+    end
   end
 
   def confirm
@@ -131,7 +134,7 @@ class IdealsController < ApplicationController
   end
 
   def ideal_find
-    @ideal = current_user.ideals
+    @ideal = Ideal.find_by(user_id: current_user)
   end
 
   def ideal_params

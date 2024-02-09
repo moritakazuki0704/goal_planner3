@@ -1,3 +1,6 @@
-<!--スケジュールのnewページ-->
-<%= form_with model: @schedule,url: schedules_path, method: :post do |f| %>
-<%= render 'form',user_commit: @user_commit %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+    <%= form_with model: @schedule,url: schedules_path, method: :post do |f| %>
+    <%= render 'form',user_commit: @user_commit %>
+  </div>
+</div>

@@ -2,6 +2,7 @@ class CommitsController < ApplicationController
 
   def new
     @commit = Commit.new
+    @ideal = Ideal.find_by(user_id: current_user)
   end
 
   def confirm
@@ -16,17 +17,20 @@ class CommitsController < ApplicationController
       purpose: session[:purpose]
       )
     @commit.user_id = current_user.id
-    @commit.save
-    redirect_to welcome_path
+    if @commit.save
+      redirect_to welcome_path
+    else
+      render :confirm
+    end
+
   end
 
   def index
-    @commits = current_user.commits
+    @commits = Commit.where(user_id: current_user)
   end
 
   def show
     @commit = Commit.find(params[:id])
-    
     @mission = Mission.new
   end
 

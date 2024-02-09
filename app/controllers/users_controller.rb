@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def comfirm
+  def confirm
     session[:mission_statement] = user_params[:mission_statement]
     session[:mission_detail] = user_params[:mission_detail]
     @user = User.new
@@ -15,12 +15,12 @@ class UsersController < ApplicationController
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail]
       )
-    user.save(context: :create_mission_statement)
-    redirect_to new_commit_path
+    if user.save(context: :create_mission_statement)
+      redirect_to new_commit_path
+    else
+      render :confirm
+    end
   end
-
-  # def dash_board
-  # end
 
   def withdrawal
   end

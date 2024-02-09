@@ -1,27 +1,125 @@
-<div class="left-page">
-  <!--文言を入れる-->
-</div>
-<div class="right-page">
-  <h1>あなたの人生の指針、叶えたいを教えて下さい</h1>
-  <p>
-    これまでの生き方<br>
-    これまでの考え方
-  </p>
-  <p>
-    どういう性格でどういう生き方をしてきたのか
-  </p>
-  <p>
-    そしてそれは</br>
-    どういう考えを持っていたのか
-  </p>
-  <h3>それはあなたの中にあります</h3>
-  <div>
-    <%= form_with model: @user, url: confirm_user_path, method: :get do |f| %>
-      <p>人生の指針</p>
-      <div><%= f.text_field :mission_statement %></div>
-      <p>理由、詳細</p>
-      <div><%= f.text_area :mission_detail %></div>
-      <div><%= f.submit '次に進む' %></div>
-    <% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <p>
+        ここまで理想の将来を教えていただきました
+      </p>
+      <p>
+        これであなたの目指したい将来がわかったことと思います
+      </p>
+      <p>
+        最後に教えていただきたいことがあります
+      </p>
+      <p>
+        それは人生における<br>
+        これだけは大切にしていることです
+      </p>
+      <p>
+        たとえ何があったとしても<br>
+        あなたの行動において<br>
+        これだけは何があっても守り通したいことです
+      </p>
+
+      <!--タブ表示機能-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-example_1-tab" data-toggle="tab" href="#nav-example_1" role="tab" aria-controls="nav-example_1" aria-selected="true">例1</a>
+          <a class="nav-item nav-link" id="nav-example_2-tab" data-toggle="tab" href="#nav-example_2" role="tab" aria-controls="nav-example_2" aria-selected="false">例2</a>
+          <a class="nav-item nav-link" id="nav-example_3-tab" data-toggle="tab" href="#nav-example_3" role="tab" aria-controls="nav-example_3" aria-selected="false">例3</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+        <!--例題１のタブ-->
+        <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+          <div class="cross-frame font-weight-bold">
+            <p>
+              人に優しく自分に厳しく<br>
+              周りに優しく対応することを心がけ<br>
+              自分に厳しく成長できることを行う
+            </p>
+          </div>
+        </div>
+
+          <!--例題2のタブ-->
+        <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
+          <div class="smart-content text-center font-weight-bold">
+            <p>
+              情けは人の為ならず<br>
+              人に尽くすことは<br>
+              周りに回って自分に返ってくるから、自分のためでもある
+            </p>
+          </div>
+        </div>
+
+        <!--理想の姿のタブ-->
+        <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
+          <div class="smart-content text-center font-weight-bold">
+            <p>
+              道理に向かう刃無し<br>
+              人として正しい行動が<br>
+              最も重要な基準である
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        この考え方は人生の生き方を表しています
+      </p>
+      <p>
+        あなたの人生の指針を<br>
+        あなたの人生の生き方を<br>
+        大切にしている考えを
+      </p>
+
+      <p>
+        そしてあなたが<br>
+        あなた自身と約束する守りたいことを
+      </p>
+      <p>
+        教えて下さい
+      </p>
+    </div>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          あなたの人生の指針<br>
+          叶えたいを教えて下さい
+        </u>
+      </h5>
+      <p>
+        これまでの生き方<br>
+        これまでの考え方
+      </p>
+      <p>
+        どういった性格で何を大事にしてきたのか
+      </p>
+      <p>
+        そしてそれは</br>
+        どういう考えを持っていたのか
+      </p>
+      <p>
+        それはあなたの中にあります
+      </p>
+      <%= form_with model: @user, url: confirm_user_path, method: :get do |f| %>
+        <div class="form-group">
+          <%= f.label :mission_statement %><br />
+          <%=  f.text_field :mission_statement,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :mission_detail %><br />
+          <%= f.text_area :mission_detail,class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>

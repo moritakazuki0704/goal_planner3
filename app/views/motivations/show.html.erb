@@ -1,34 +1,47 @@
-<div class="left-page">
-  <% if @motivation.motivation.stetas(0) %>
-    <%= render 'positive_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(positive: true) %>
+<div class="container-fluid">
+  <div class="row justify-content-center open-book my-4">
+
+    <!--左のページ-->
+    <div class="left-page col text-center m-5 p-5">
+      <% if @motivation.motivation.stetas(0) %>
+        <%= render 'positive_text' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(positive: true) %>
+        </div>
+      <% elsif @motivation.motivation.stetas(1) %>
+        <%= render 'negative_text' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(negative: true) %>
+        </div>
+      <% elsif @motivation.motivation.stetas(2) %>
+        <%= render 'to_do_text' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(to_do: true) %>
+        </div>
+      <% elsif @motivation.motivation.stetas(3) %>
+        <%= render 'want_text' %>
+        <div>
+          <%= link_to "新規作成", new_motivation_path(want: true) %>
+        </div>
+      <% end %>
     </div>
-  <% elsif @motivation.motivation.stetas(1) %>
-    <%= render 'negative_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(negative: true) %>
+
+    <!--右のページ-->
+    <div class="right-page col text-center m-5 p-5">
+      <h5 class="smart-frame">
+        <u>
+          <%= @motivation.appetite %>
+        </u>
+      </h5>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= @motivation.memory %>
+        </div>
+      </div>
+      <div>
+        <%= link_to "この記録を消す", motivation_path, method: :delete %>
+      </div>
     </div>
-  <% elsif @motivation.motivation.stetas(2) %>
-    <%= render 'to_do_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(to_do: true) %>
-    </div>
-  <% elsif @motivation.motivation.stetas(3) %>
-    <%= render 'want_text' %>
-    <div>
-      <%= link_to "新規作成", new_motivation_path(want: true) %>
-    </div>
-  <% end %>
-</div>
-<div class="right-page">
-  <div>
-    <%= @motivation.appetite %>
-  </div>
-  <div>
-    <%= @motivation.memory %>
-  </div>
-  <div>
-    <%= link_to "この記録を消す", motivation_path, method: :delete %>
+
   </div>
 </div>

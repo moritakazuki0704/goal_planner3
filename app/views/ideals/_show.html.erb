@@ -1,3 +1,4 @@
+
 <!--タブ表示機能-->
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -13,190 +14,246 @@
     <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">ロールモデル</a>
   </div>
 </nav>
+
 <!--タブ表示する内容-->
 <div class="tab-content" id="nav-tabContent">
+
+  <!--キーワードタブ-->
   <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
-    <div>
-      <div>
-        <h4>理想を示すキーワード</h4>
-      </div>
-      <div>
-        <ol>
-          <li>
-            <%= ideal.keyword_1 %>
-          </li>
-          <li>
-            <%= ideal.keyword_2 %>
-          </li>
-          <li>
-            <%= ideal.keyword_3 %>
-          </li>
-          <li>
-            <%= ideal.keyword_4 %>
-          </li>
-          <li>
-            <%= ideal.keyword_5 %>
-          </li>
-          <li>
-            <%= ideal.keyword_6 %>
-          </li>
-          <li>
-            <%= ideal.keyword_7 %>
-          </li>
-          <li>
-            <%= ideal.keyword_8 %>
-          </li>
-          <li>
-            <%= ideal.keyword_9 %>
-          </li>
-          <li>
-            <%= ideal.keyword_10 %>
-          </li>
-        </ol>
-      </div>
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th colspan="2" scope="col">理想を示すキーワード</th>
+        </tr>
+      </thead>
+      <tbody class="form-group">
+        <tr>
+          <td><%= ideal.keyword_1 %></th>
+          <td><%= ideal.keyword_2 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_3 %></th>
+          <td><%= ideal.keyword_4 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_5 %></th>
+          <td><%= ideal.keyword_6 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_7 %></th>
+          <td><%= ideal.keyword_8 %></td>
+        </tr>
+        <tr>
+          <td><%= ideal.keyword_9 %></th>
+          <td><%= ideal.keyword_10 %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <!--理想の性格のタブ-->
   <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想の性格</h3>
       </div>
-      <div>
-        <%= ideal.personality_1 %>
-      </div>
-      <div>
-        <%= ideal.personality_2 %>
-      </div>
-      <div>
-        <%= ideal.personality_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.personality_1.label.i18n %><br>
+          <%= ideal.personality_1 %>
+        </div>
+        <div>
+          <%= ideal.personality_2.label.i18n %><br>
+          <%= ideal.personality_2 %>
+        </div>
+        <div>
+          <%= ideal.personality_3.label.i18n %><br>
+          <%= ideal.personality_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想の姿のタブ-->
   <div class="tab-pane fade" id="nav-appearance" role="tabpanel" aria-labelledby="nav-appearance-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想の姿</h3>
       </div>
-      <div>
-        <%= ideal.hair_make %>
-      </div>
-      <div>
-        <%= ideal.body_make %>
-      </div>
-      <div>
-        <%= ideal.fashion_make %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.hair_make.label.i18n %><br>
+          <%= ideal.hair_make %>
+        </div>
+        <div>
+          <%= ideal.body_make.label.i18n %><br>
+          <%= ideal.body_make %>
+        </div>
+        <div>
+          <%= ideal.fashion_make.label.i18n %><br>
+          <%= ideal.fashion_make %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想のライフスタイルのタブ-->
   <div class="tab-pane fade" id="nav-lifestyle" role="tabpanel" aria-labelledby="nav-lifestyle-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想のライフスタイル</h3>
       </div>
-      <div>
-        <%= ideal.lifestyle_1 %>
-      </div>
-      <div>
-        <%= ideal.lifestyle_2 %>
-      </div>
-      <div>
-        <%= ideal.lifestyle_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.lifestyle_1.label.i18n %><br>
+          <%= ideal.lifestyle_1 %>
+        </div>
+        <div>
+          <%= ideal.lifestyle_2.label.i18n %><br>
+          <%= ideal.lifestyle_2 %>
+        </div>
+        <div>
+          <%= ideal.lifestyle_3.label.i18n %><br>
+          <%= ideal.lifestyle_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想の時間の使い方のタブ-->
   <div class="tab-pane fade" id="nav-time" role="tabpanel" aria-labelledby="nav-time-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想の時間</h3>
       </div>
-      <div>
-        <%= ideal.time_1 %>
-      </div>
-      <div>
-        <%= ideal.time_2 %>
-      </div>
-      <div>
-        <%= ideal.time_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.time_1.label.i18n %><br>
+          <%= ideal.time_1 %>
+        </div>
+        <div>
+          <%= ideal.time_2.label.i18n %><br>
+          <%= ideal.time_2 %>
+        </div>
+        <div>
+          <%= ideal.time_3.label.i18n %><br>
+          <%= ideal.time_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想の働き方のタブ-->
   <div class="tab-pane fade" id="nav-working" role="tabpanel" aria-labelledby="nav-working-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想の働き方</h3>
       </div>
-      <div>
-        <%= ideal.working_1 %>
-      </div>
-      <div>
-        <%= ideal.working_2 %>
-      </div>
-      <div>
-        <%= ideal.working_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.working_1.label.i18n %><br>
+          <%= ideal.working_1 %>
+        </div>
+        <div>
+          <%= ideal.working_2.label.i18n %><br>
+          <%= ideal.working_2 %>
+        </div>
+        <div>
+          <%= ideal.working_3.label.i18n %><br>
+          <%= ideal.working_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想の住まいのタブ-->
   <div class="tab-pane fade" id="nav-residence" role="tabpanel" aria-labelledby="nav-residence-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想の住まい</h3>
       </div>
-      <div>
-        <%= ideal.residence_1 %>
-      </div>
-      <div>
-        <%= ideal.residence_2 %>
-      </div>
-      <div>
-        <%= ideal.residence_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.residence_1.label.i18n %><br>
+          <%= ideal.residence_1 %>
+        </div>
+        <div>
+          <%= ideal.residence_2.label.i18n %><br>
+          <%= ideal.residence_2 %>
+        </div>
+        <div>
+          <%= ideal.residence_3.label.i18n %><br>
+          <%= ideal.residence_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想の人間関係のタブ-->
   <div class="tab-pane fade" id="nav-relationship" role="tabpanel" aria-labelledby="nav-relationship-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想の人間関係</h3>
       </div>
-      <div>
-        <%= ideal.relationship_1 %>
-      </div>
-      <div>
-        <%= ideal.relationship_2 %>
-      </div>
-      <div>
-        <%= ideal.relationship_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.relationship_1.label.i18n %><br>
+          <%= ideal.relationship_1 %>
+        </div>
+        <div>
+          <%= ideal.relationship_2.label.i18n %><br>
+          <%= ideal.relationship_2 %>
+        </div>
+        <div>
+          <%= ideal.relationship_3.label.i18n %><br>
+          <%= ideal.relationship_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想のパートナーのタブ-->
   <div class="tab-pane fade" id="nav-partner" role="tabpanel" aria-labelledby="nav-partner-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想のパートナー</h3>
       </div>
-      <div>
-        <%= ideal.partner_1 %>
-      </div>
-      <div>
-        <%= ideal.partner_2 %>
-      </div>
-      <div>
-        <%= ideal.partner_3 %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.partner_1.label.i18n %><br>
+          <%= ideal.partner_1 %>
+        </div>
+        <div>
+          <%= ideal.partner_2.label.i18n %><br>
+          <%= ideal.partner_2 %>
+        </div>
+        <div>
+          <%= ideal.partner_3.label.i18n %><br>
+          <%= ideal.partner_3 %>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--理想のロールモデルのタブ-->
   <div class="tab-pane fade" id="nav-role_model" role="tabpanel" aria-labelledby="nav-role_model-tab">
     <div>
-      <div>
+      <div class="smart-content text-center font-weight-bold">
         <h3>理想のロールモデル</h3>
       </div>
-      <div>
-        <%= ideal.partner_model %>
-      </div>
-      <div>
-        <%= ideal.family_model %>
-      </div>
-      <div>
-        <%= ideal.friend_model %>
+      <div class="cross-frame font-weight-bold">
+        <div>
+          <%= ideal.partner_model.label.i18n %><br>
+          <%= ideal.partner_model %>
+        </div>
+        <div>
+          <%= ideal.family_model.label.i18n %><br>
+          <%= ideal.family_model %>
+        </div>
+        <div>
+          <%= ideal.friend_model.label.i18n %><br>
+          <%= ideal.friend_model %>
+        </div>
       </div>
     </div>
   </div>

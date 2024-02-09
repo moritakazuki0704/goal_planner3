@@ -1,4 +1,5 @@
-<div class="left-page">
+<!--左のページ-->
+<div class="left-page col text-center m-5 p-5">
   <p>
     この本はあなたの分身です。
   </p>
@@ -12,11 +13,13 @@
   </p>
   <p>
     この本はきっとあなたにとって<br>
-    大きな大きな高い壁となって立ち塞がることでしょう
+    大きな大きな高い壁となって<br>
+    立ち塞がることでしょう
   </p>
   <p>
     でも恐れないで<br>
-    高い壁であると同時にあなた自身でもある
+    高い壁であると同時に<br>
+    あなた自身でもある
   </p>
   <p>
     迷った時<br>
@@ -31,7 +34,9 @@
     なりたい姿に一歩でも近づけるように
   </p>
 </div>
-<div class="right-page">
+
+<!--右のページ-->
+<div class="right-page col text-center m-5 p-5">
   <p>
     あなたのなりたい姿<br>
     目標を教えてください
@@ -48,8 +53,9 @@
     想像して
   </p>
   <p>
-    その時のあなたはどんな生き方をしていますか<br>
-    その時のあなたはどんな時間を過ごしていますか
+    その時のあなたは<br>
+    どんな生き方をしていますか<br>
+    どんな時間を過ごしていますか
   </p>
   <p>
     あなたの将来の理想を知って<br>
@@ -63,17 +69,24 @@
   <p>
     はじめましょう
   </p>
-  <% if current_user.ideal.present? %>
+
+  <!--理想のテーブルを作成していない場合-->
+  <% if !ideal.present? %>
     <div>
-      <%= link_to "まずはあなたの理想を教えてください",step1_keyword_ideal_path %>
+      <%= link_to "あなたの理想を教えてください",step1_keyword_ideal_path,class: "btn btn-lg btn-block btn-outline-primary" %>
     </div>
-  <% elsif current_user.users.mission_statement.present? %>
+
+  <!--ミッションステートメントを作成していない場合-->
+  <% elsif !current_user.mission_statement.present? %>
     <div>
-      <%= link_to "あなたの人生をかけて叶える目標を教えてください",new_user_path %>
+      <%= link_to "あなたの生涯の目標を教えてください",new_user_path,class: "btn btn-lg btn-block btn-outline-primary" %>
     </div>
   <% else %>
+
+<!--目標を作成していない場合-->
     <div>
-      <%= link_to "あなたの目標を教えてください",new_commit_path %>
+      <%= link_to "あなたの目標を教えてください",new_commit_path,class: "btn btn-lg btn-block btn-outline-primary" %>
     </div>
   <% end %>
+
 </div>

@@ -1,48 +1,49 @@
-<div class="left-page">
+<!--左のページ-->
+<div class="left-page col text-center m-5 p-5">
   <div>
-    <!--文言を入れる-->
+    <h5 class="smart-frame mb-5">
+      <u>
+        どの目標に対する予定か選んでください
+      </u>
+    </h5>
   </div>
   <div>
     <%= user_commit.each do |commit| %>
-      <div class="card">
-        <div class="card-header">
-          <%= radio_button :commit_id, commit.id %>
+      <div class="title-frame">
+        <span class="custom-control custom-radio custom-control-inline">
+          <%= radio_button :commit_id, commit.id, class: "custom-control-input" %>
           <%= commit.commitment %>
-        </div>
-        <div class="card-body">
+        </span>
+        <p>
           <%= commit.purpose %>
-        </div>
+        </p>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="right-page">
-  <div>
-    <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title, required: true %> 
-        <%# form_with で　required: trueを追加すると空白登録を回避してくれます %> 
+<!--右のページ-->
+<div class="right-page col text-center m-5 p-5">
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true,class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :start, "開始日" %>
-    <%= f.date_field :start %>
+    <%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
-  <div> 
-    <%= f.label :start, "開始時刻" %>
-    <%= f.f.time_select :start %>
-  </div>
-  <div>
+  <div class="form-group">
     <%= f.label :end, "終了日" %>
     <%= f.date_field :end %>
   </div>
-  <div> 
+  <div class="form-group">
     <%= f.label :end, "終了時間" %>
-    <%= f.f.time_select :end %>
+    <%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
-  <div>
-    <%= f.label :body, "本文"%>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body,class: "form-control" %>
   </div>
-    <%= f.submit "登録" %>
-  </div>      
+    <%= f.submit "登録",class: "btn btn-outline-primary" %>
+  </div>
 </div>
