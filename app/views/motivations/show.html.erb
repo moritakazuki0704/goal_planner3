@@ -4,24 +4,24 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <% if @motivation.motivation.stetas(0) %>
-        <%= render 'positive_text' %>
+        <%= render 'motivation_template/positive_text' %>
         <div>
-          <%= link_to "新規作成", new_motivation_path(positive: true) %>
+          <%= link_to "新規作成", positive_new_motivations_path %>
         </div>
       <% elsif @motivation.motivation.stetas(1) %>
-        <%= render 'negative_text' %>
+        <%= render 'motivation_template/negative_text' %>
         <div>
-          <%= link_to "新規作成", new_motivation_path(negative: true) %>
+          <%= link_to "新規作成", negative_new_motivations_path %>
         </div>
       <% elsif @motivation.motivation.stetas(2) %>
-        <%= render 'to_do_text' %>
+        <%= render 'motivation_template/to_do_text' %>
         <div>
-          <%= link_to "新規作成", new_motivation_path(to_do: true) %>
+          <%= link_to "新規作成", to_do_new_motivations_path %>
         </div>
       <% elsif @motivation.motivation.stetas(3) %>
-        <%= render 'want_text' %>
+        <%= render 'motivation_template/want_text' %>
         <div>
-          <%= link_to "新規作成", new_motivation_path(want: true) %>
+          <%= link_to "新規作成", want_new_motivations_path %>
         </div>
       <% end %>
     </div>

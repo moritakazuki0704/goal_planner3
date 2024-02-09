@@ -53,11 +53,14 @@
               <div>
                 <%= link_to "ポジティブモチベーション",list_motivations_path(positive: true) %>
               </div>
-                <% @motivations.positives.each do |positive| %>
-              <div>
-                <%= positive.appetite %>
-              </div>
+              <% @motivations.positives.each do |positive| %>
+                <div>
+                  <%= positive.appetite %>
+                </div>
               <% end %>
+              <div>
+                <%= link_to "ポジティブモチベーション作成", positive_new_motivations_path %>
+              </div>
             </div>
           </div>
 
@@ -67,11 +70,14 @@
               <div>
                 <%= link_to "ネガティブモチベーション",list_motivations_path(negative: true) %>
               </div>
-                <% @motivations.negatives.each do |negative| %>
-              <div>
-                <%= negative.appetite %>
-              </div>
+              <% @motivations.negatives.each do |negative| %>
+                <div>
+                  <%= negative.appetite %>
+                </div>
               <% end %>
+              <div>
+                <%= link_to "ネガティブモチベーション作成", negative_new_motivations_path %>
+              </div>
             </div>
           </div>
 
@@ -79,13 +85,16 @@
           <div class="tab-pane fade" id="nav-to_do" role="tabpanel" aria-labelledby="nav-to_do-tab">
             <div>
               <div>
-                <%= link_to "やりたいことリスト",list_motivations_path(to_do: true) %>
+                <%= link_to "したいことリスト",list_motivations_path(to_do: true) %>
               </div>
-                <% @motivations.to_dos.each do |to_do| %>
-              <div>
-                <%= to_do.appetite %>
-              </div>
+              <% @motivations.to_dos.each do |to_do| %>
+                <div>
+                  <%= to_do.appetite %>
+                </div>
               <% end %>
+              <div>
+                <%= link_to "したいことモチベーション作成", to_do_new_motivations_path %>
+              </div>
             </div>
           </div>
 
@@ -95,11 +104,14 @@
               <div>
                 <%= link_to "欲しいものリスト",list_motivations_path(want: true) %>
               </div>
-                <% @motivations.wants.each do |want| %>
-              <div>
-                <%= want.appetite %>
-              </div>
+              <% @motivations.wants.each do |want| %>
+                <div>
+                  <%= want.appetite %>
+                </div>
               <% end %>
+              <div>
+                <%= link_to "欲しいものモチベーション作成", want_new_motivations_path %>
+              </div>
             </div>
           </div>
         </div>
@@ -130,8 +142,19 @@
             必要な要素です
           </p>
         </div>
-        <div>
-          <%= link_to "新規作成", new_motivation_path(positive: true) %>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to "ポジティブモチベーション作成", positive_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "ネガティブモチベーション作成", negative_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "したいことモチベーション作成", to_do_new_motivations_path %>
+          </div>
+          <div>
+            <%= link_to "欲しいものモチベーション作成", want_new_motivations_path %>
+          </div>
         </div>
       <% end %>
     </div>

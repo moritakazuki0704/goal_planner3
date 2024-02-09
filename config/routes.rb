@@ -50,9 +50,13 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :motivations,except: [:edit,:update] do
+  resources :motivations,except: [:new,:edit,:update] do
     collection do
       get 'list'
+      get 'positive_new'
+      get 'negative_new'
+      get 'to_do_new'
+      get 'want_new'
     end
   end
   resources :scrap_books,except: [:new,:edit,:update]
