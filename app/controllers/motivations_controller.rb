@@ -18,8 +18,17 @@ class MotivationsController < ApplicationController
   def create
     motivation = Motivation.new(motivation_params)
     motivation.user_id = current_user.id
-    motivation.save
-    redirect_to motivation_path(motivation.id)
+    if motivation.save
+      redirect_to motivation_path(motivation.id)
+    elsif motivation.motivation.stetas(0)
+      render :positive_new
+    elsif motivation.motivation.stetas(1)
+      render :negative_new
+    elsif motivation.motivation.stetas(2)
+      render :to_do_new
+    elsif motivation.motivation.stetas(3)
+      render :want_new
+    end
   end
 
   def index

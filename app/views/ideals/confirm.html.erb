@@ -35,11 +35,13 @@
       <div>
         <%= link_to "やり直す",ideal_path,method: :delete %>
       </div>
+      <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
       <% if !current_user.users.mission_statement.present? %>
         <div>
           <%= link_to "次に進む",new_user_path %>
         </div>
       <% else %>
+      <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
         <div>
           <%= link_to "登録する",ideal_path %>
         </div>

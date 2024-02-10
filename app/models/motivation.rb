@@ -7,10 +7,13 @@ class Motivation < ApplicationRecord
   validates :appetite, uniqueness: { scope: :user }
   validates :memory, presence: true
 
+  # ポジティブモチベーションを表示
   scope :positives, -> {where(emotion_stetas: 0)}
+  # ネガティブモチベーションを表示
   scope :negatives, -> {where(emotion_stetas: 1)}
+  # したいことリストを表示
   scope :to_dos, -> {where(emotion_stetas: 2)}
+  # ほしい物リストを表示
   scope :wants, -> {where(emotion_stetas: 3)}
-
 
 end

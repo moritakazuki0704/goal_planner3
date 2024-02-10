@@ -11,6 +11,7 @@ class Schedule < ApplicationRecord
   validate :start_end_check
   validates :commit_id, presence: true
   validates :title, presence: true
+  # context: :create_scheduleをupdate、saveに引数として渡した場合のみバリデーションする
 	with_options presence: true, on: :create_schedule do
     validates :start
     validates :end

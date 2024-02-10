@@ -63,7 +63,7 @@
           <%= link_to "戻る",motivations_path %>
         </div>
         <div>
-          <%= link_to "この記録を消す", motivation_path, method: :delete %>
+          <%= link_to "この記録を消す", motivation_path(@motivation.id), method: :delete %>
         </div>
       </div>
     </div>

@@ -31,6 +31,7 @@
         ありふれた<br>
         普段の中にたくさんあります
       </p>
+      <p class="alert alert-warning"><%= alert %></p>
       <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
         <%= f.hidden_field :emotion_stetas, :value => "0"  %>
         <%= render 'motivation_template/form' %>

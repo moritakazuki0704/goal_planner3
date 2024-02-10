@@ -39,7 +39,7 @@
       <div class="position-static tab-room">
         <%= @motivations.each do |motivation| %>
           <div>
-            <%= link_to motivation_path do %>
+            <%= link_to motivation_path(motivation.id) do %>
               <%= motivation.appetite %>
             <% end %>
           </div>

@@ -10,8 +10,11 @@ class SchedulesController < ApplicationController
   def create
     schedule = Schedule.new(schedule_params)
     schedule.user_id = current_user.id
-    schedule.save(context: :create_schedule)
-    redirect_to schedule_path(schedule.id)
+    if schedule.save(context: :create_schedule)
+      redirect_to schedule_path(schedule.id)
+    else
+      render :new
+    end
   end
 
   def index
@@ -27,8 +30,11 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    @schedule.update(schedule_params)
-    redirect_to schedule_path(@schedule.id)
+    if @schedule.update(schedule_params,context: :create_schedule)
+      redirect_to schedule_path(@schedule.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

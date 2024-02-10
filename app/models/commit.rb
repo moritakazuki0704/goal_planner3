@@ -11,9 +11,11 @@ class Commit < ApplicationRecord
     validates :purpose
   end
 
-
+  # 進行中の目標を表示
   scope :activity, -> {where(progress_stetas: 0)}
+  # 完了した目標を表示
   scope :finish, -> {where(progress_stetas: 1)}
+  # 保留した目標を表示
   scope :pending, -> {where(progress_stetas: 2)}
 
 end

@@ -26,7 +26,7 @@ ja:
         id: 理想のID
         user_id: あなたのID
         keyword_1: １つ目のキーワード
-        keyword_2: ２つ目のキーワード　
+        keyword_2: ２つ目のキーワード
         keyword_3: ３つ目のキーワード
         keyword_4: ４つ目のキーワード
         keyword_5: ５つ目のキーワード
@@ -115,7 +115,7 @@ ja:
         finish: '完了' # enumの値
         progress: '進行中' # enumの値
         postpone: '先送り' # enumの値
-        deletion: '削除' # enumの値
+        withdraw: '辞める' # enumの値
     motivation: # モデル名
       emotion_stetas: # カラム名
         positive: 'ポジティブ' # enumの値

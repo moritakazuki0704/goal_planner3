@@ -40,7 +40,7 @@
 
           <!--全て表示するタブ-->
           <div class="tab-pane fade show active" id="nav-programme" role="tabpanel" aria-labelledby="nav-programme-tab">
-            <%= form_with model: [@schedule,@schedule.plans],url: all_update_schedule_plans_path, method: :patch do |f| %>
+            <%= form_with model: [@schedule,@plan],url: all_update_schedule_plans_path(@schedule.id), method: :patch do |f| %>
               <% @schedule.plans.programme.each do |programme| %>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -69,7 +69,7 @@
                       </div>
                       <div class="form-check form-check-inline">
                         <%= f.radio_button :progress_status, 4, class: "form-check-input"  %>
-                        <%= f.label :progress_status_deletion, Plan.progress_status_i18n[:deletion], class: "form-check-label" %>
+                        <%= f.label :progress_status_deletion, Plan.progress_status_i18n[:withdraw], class: "form-check-label" %>
                       </div>
                     </div>
                   </li>
@@ -94,7 +94,7 @@
                     <%= emergency.progress_status_i18n %>
                   </div>
                   <div>
-                    <%= link_to "削除する", schedule_plan_path, method: :delete %>
+                    <%= link_to "削除する", schedule_plan_path(emergency.id), method: :delete %>
                   </div>
                 </li>
               </ul>
@@ -114,7 +114,7 @@
                     <%= important.progress_status_i18n %>
                   </div>
                   <div>
-                    <%= link_to "削除する", schedule_plan_path, method: :delete %>
+                    <%= link_to "削除する", schedule_plan_path(important.id), method: :delete %>
                   </div>
                 </li>
               </ul>
@@ -134,7 +134,7 @@
                     <%= mission.progress_status_i18n %>
                   </div>
                   <div>
-                    <%= link_to "削除する", schedule_plan_path, method: :delete %>
+                    <%= link_to "削除する", schedule_plan_path(mission.id), method: :delete %>
                   </div>
                 </li>
               </ul>
@@ -154,13 +154,21 @@
                     <%= eliminate.progress_status_i18n %>
                   </div>
                   <div>
-                    <%= link_to "削除する", schedule_plan_path, method: :delete %>
+                    <%= link_to "削除する", schedule_plan_path(eliminate.id), method: :delete %>
                   </div>
                 </li>
               </ul>
             <% end %>
           </div>
 
+        </div>
+      </div>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= link_to "予定を編集する", edit_schedule_path(@schedule.id) %>
+        </div>
+        <div>
+          <%= link_to "カレンダーに戻る", schedules_path %>
         </div>
       </div>
     </div>
@@ -174,7 +182,7 @@
         </u>
       </h5>
       <div>
-      <%= form_with model: [@schedule,@plan],url: schedule_plans_path, method: :post do |f| %>
+      <%= form_with model: [@schedule,@plan],url: schedule_plans_path(@schedule.id), method: :post do |f| %>
         <%= f.text_field :task,class: "form-control" %>
         <%= f.submit "提案する",class: "btn btn-secondary btn-sm"　%>
       <% end %>
@@ -182,25 +190,29 @@
       <div>
         <p>提案件数：<%= @plan.missions.conut %></p>
       </div>
+      <p class="alert alert-warning"><%= alert %></p>
       <div class="position-static tab-room">
         <% @schedule.plans.memo.each do |plan| %>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <%= plan.task %>
               <span>
-                <%= link_to "登録する", upload_schedule_plan_path, method: :patch %>
-                <%= link_to "削除する", schedule_plan_path, method: :delete %>
+                <%= link_to "登録する", upload_schedule_plan_path(@schedule.id,plan.id), method: :patch %>
+                <%= link_to "削除する", schedule_plan_path(@schedule.id,plan.id), method: :delete %>
               </span>
             </li>
           </ul>
         <% end %>
       </div>
-      <div class="d-flex justify-content-around my-3">
-        <%= link_to "全てやるべきことリストに保存する", bulk_upload_schedule_plans_path, method: :patch %>
-      </div>
-      <div>
-        <%= link_to "メモを全て破棄する", bulk_destroy_schedule_plans_path, method: :delete %>
-      </div>
+
+      <% if @schedule.plans.present? %>
+        <div class="d-flex justify-content-around my-3">
+          <%= link_to "全てやるべきことリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch %>
+        </div>
+        <div>
+          <%= link_to "メモを全て破棄する", bulk_destroy_schedule_plans_path(@schedule.id), method: :delete %>
+        </div>
+      <% end %>
     </div>
 
   </div>

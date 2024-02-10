@@ -17,12 +17,19 @@ class CommitsController < ApplicationController
       purpose: session[:purpose]
       )
     commit.user_id = current_user.id
+
     if commit.save
-      redirect_to welcome_path
+      # ログインユーザーがcommitテーブルを持っている場合
+      if !current_user.commits.present?
+        redirect_to welcome_path
+      else
+        # ログインユーザーがcommitテーブルを持っていない場合
+        redirect_to commit_path(commit.id)
+      end
+
     else
       render :confirm
     end
-
   end
 
   def index

@@ -8,8 +8,11 @@ class ScrapBooksController < ApplicationController
   def create
     scrap_book = ScrapBook.new(scrap_book_params)
     scrap_book.user_id = current_user.id
-    scrap_book.save
-    redirect_to scrap_books_path
+    if scrap_book.save
+      redirect_to scrap_books_path
+    else
+      render :index
+    end
   end
 
   def show

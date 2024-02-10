@@ -24,20 +24,17 @@
 
 <!--右のページ-->
 <div class="right-page col text-center m-5 p-5">
+  <p class="alert alert-warning"><%= alert %></p>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, required: true,class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :start, "開始日" %>
+    <%= f.label :start %>
     <%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :end, "終了日" %>
-    <%= f.date_field :end %>
-  </div>
-  <div class="form-group">
-    <%= f.label :end, "終了時間" %>
+    <%= f.label :end %>
     <%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
   <div class="form-group">

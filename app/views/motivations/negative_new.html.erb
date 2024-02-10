@@ -27,6 +27,7 @@
         その時置かれている環境や状況<br>
         そして年齢とともに変わっていくでしょう
       </p>
+      <p class="alert alert-warning"><%= alert %></p>
       <%= form_with model: motivation,url: motivations_path, method: :post do |f| %>
         <%= f.hidden_field :emotion_stetas, :value => "1"  %>
         <%= render 'motivation_template/form' %>

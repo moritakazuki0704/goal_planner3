@@ -11,6 +11,7 @@
     <!--写真投稿フォーム-->
     <div class="row">
       <div class="col align-self-end">
+        <p class="alert alert-warning"><%= alert %></p>
         <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
           <%= f.file_field :photo,accept: "image/*" %>
           <h3>説明</h3>
@@ -19,7 +20,7 @@
       <% end %>
       </div>
     </div>
-    
+
     <div>
       <%= paginate @scrap_books %>
     </div>
