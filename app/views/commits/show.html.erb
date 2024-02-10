@@ -41,7 +41,7 @@
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
-  
+
         <!--未設定の課題のタブ-->
         <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
           <p class="fixed-top">未設定課題件数：<%= @commit.schedules.pending.conut %></p>
@@ -55,7 +55,7 @@
             </div>
           <% end %>
         </div>
-  
+
         <!--完了した課題のタブ-->
         <div class="tab-pane fade" id="nav-completion" role="tabpanel" aria-labelledby="nav-completion-tab">
           <p class="fixed-top">完了課題件数：<%= @commit.schedules.completion.conut %></p>
@@ -71,7 +71,7 @@
             </div>
           <% end %>
         </div>
-  
+
         <!--未完了の課題のタブ-->
         <div class="tab-pane fade" id="nav-imperfect" role="tabpanel" aria-labelledby="nav-imperfect-tab">
           <p class="fixed-top">未完了課題件数：<%= @commit.schedules.imperfect.conut %></p>

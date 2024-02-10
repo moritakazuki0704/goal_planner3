@@ -1,23 +1,23 @@
 class CommitsController < ApplicationController
 
+  before_action :commit_new, except: [:new,:confirm]
+
   def new
-    @commit = Commit.new
     @ideal = Ideal.find_by(user_id: current_user)
   end
 
   def confirm
     session[:commitment] = commit_params[:commmitment]
     session[:purpose] = commit_params[:purpose]
-    @commit = Commit.new
   end
 
   def create
-    @commit = Commit.new(
+    commit = Commit.new(
       commitment: session[:commitment],
       purpose: session[:purpose]
       )
-    @commit.user_id = current_user.id
-    if @commit.save
+    commit.user_id = current_user.id
+    if commit.save
       redirect_to welcome_path
     else
       render :confirm
@@ -35,12 +35,16 @@ class CommitsController < ApplicationController
   end
 
   def update
-    @commit = Commit.find(params[:id])
-    @commit.update(commit_params)
-    redirect_to commits_path
+    commit = Commit.find(params[:id])
+    commit.update(commit_params)
+    redirect_to commit_path(commit.id)
   end
 
   private
+
+  def commit_new
+    @commit = Commit.new
+  end
 
   def commit_params
     params.require(:commit).permit(:commitment,:purpose,:progress_stetas)

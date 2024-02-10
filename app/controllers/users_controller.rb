@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :user_new, only: [:new,:confirm]
+
   def new
     @user = User.new
   end
@@ -31,6 +33,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_new
+    @motivation = Motivation.new
+  end
 
   def user_params
     params.require(:user).permit(:mission_statement,:mission_detail)

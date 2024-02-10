@@ -8,7 +8,7 @@
     </h5>
   </div>
   <div>
-    <%= user_commit.each do |commit| %>
+    <%= commits.each do |commit| %>
       <div class="title-frame">
         <span class="custom-control custom-radio custom-control-inline">
           <%= radio_button :commit_id, commit.id, class: "custom-control-input" %>

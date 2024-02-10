@@ -1,7 +1,8 @@
 class MissionsController < ApplicationController
 
+  before_action :commit_find,only: [:create,:bulk_upload,:bulk_destroy]
+
   def create
-    commit = Commit.find(params[:commit_id])
     mission = Mission.new(mission_param)
     mission.commit_id = commit.id
     mission.save
@@ -32,7 +33,6 @@ class MissionsController < ApplicationController
   end
 
   def bulk_upload
-    commit = Commit.find(params[:commit_id])
 
     # 閲覧中のcommitが保持しているmissionのデータをscheduleのテーブルに保存
     commit.missions.each do |mission|
@@ -50,13 +50,16 @@ class MissionsController < ApplicationController
   end
 
   def bulk_destroy
-    commit = Commit.find(params[:commit_id])
     mission = commit.missions
     mission.destroy_all
     redirect_to commit_path(commit.id)
   end
 
   private
+
+  def commit_find
+    commit = Commit.find(params[:commit_id])
+  end
 
   def mission_params
     params.require(:mission).permit(:memo)

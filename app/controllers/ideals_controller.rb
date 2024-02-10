@@ -1,7 +1,7 @@
 class IdealsController < ApplicationController
 
-  before_action :ideal_new, except: [:create,:comfirm,:destroy,:show]
-  before_action :ideal_find, only: [:comfirm,:destroy,:show]
+  before_action :ideal_new, except: [:create,:confirm,:destroy,:show]
+  before_action :ideal_find, only: [:confirm,:destroy,:show]
 
   def step1_keyword
   end

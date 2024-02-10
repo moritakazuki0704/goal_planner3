@@ -1,7 +1,7 @@
 class MotivationsController < ApplicationController
 
   before_action :motivation_new, only: [:positive_new,:negative_new,:to_do_new,:want_new]
-  before_action :motivation_find, except: [:show,:destroy]
+  before_action :user_signed_motivation, except: [:show,:destroy]
 
   def positive_new
   end
@@ -19,18 +19,7 @@ class MotivationsController < ApplicationController
     motivation = Motivation.new(motivation_params)
     motivation.user_id = current_user.id
     motivation.save
-
-    # ユーザーが所持しているモチベーションステータスによってリンクを変更
-    if @user_motivation.where(motivation_stetas: 1).present?
-      redirect_to new_motivation_path(negative: true)
-    elsif @user_motivation.where(motivation_stetas: 2).present?
-      redirect_to new_motivation_path(to_do: true)
-    elsif @user_motivation.where(motivation_stetas: 3).present?
-      redirect_to new_motivation_path(want: true)
-    else
-      redirect_to list_motivations_path
-    end
-
+    redirect_to motivation_path(motivation.id)
   end
 
   def index
@@ -60,7 +49,7 @@ class MotivationsController < ApplicationController
   def destroy
     motivation = Motivation.find(params[:id])
     motivation.destroy
-    redirect_to list_motivations_path
+    redirect_to motivations_path
   end
 
   private
@@ -69,7 +58,7 @@ class MotivationsController < ApplicationController
     @motivation = Motivation.new
   end
 
-  def motivation_find
+  def user_signed_motivation
     @user_motivation = Motivation.where(user_id: current_user)
   end
 
