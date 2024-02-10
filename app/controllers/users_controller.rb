@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!,only: [:withdrawal,:destroy]
+  before_action :mission_statement_created_user!,except: [:withdrawal,:destroy]
   before_action :user_new, only: [:new,:confirm]
 
   def new
@@ -36,6 +38,13 @@ class UsersController < ApplicationController
 
   def user_new
     @motivation = Motivation.new
+  end
+
+  # ログインユーザーがuserテーブルのmission_statementのカラムを作成している場合のアクセス制限
+  def mission_statement_created_user!
+    if current_user.mission_statement.present?
+      redirect_to root_path
+    end
   end
 
   def user_params

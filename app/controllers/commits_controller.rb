@@ -1,5 +1,6 @@
 class CommitsController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!
   before_action :commit_new, except: [:new,:confirm]
 
   def new

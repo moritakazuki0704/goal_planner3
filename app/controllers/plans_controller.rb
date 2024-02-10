@@ -1,5 +1,7 @@
 class PlansController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!
+
   def create
     schedule = Schedule.find(params[:schedule_id])
     plan = Plan.new(plan_params)

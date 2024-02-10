@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!
   before_action :schedule_find, only: [:show,:edit,:update,:destroy]
 
   def new

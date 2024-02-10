@@ -1,5 +1,7 @@
 class IdealsController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!,only: [:show]
+  before_action :ideal_created_user!,except: [:show]
   before_action :ideal_new, except: [:create,:confirm,:destroy,:show]
   before_action :ideal_find, only: [:confirm,:destroy,:show]
 
@@ -135,6 +137,13 @@ class IdealsController < ApplicationController
 
   def ideal_find
     @ideal = Ideal.find_by(user_id: current_user)
+  end
+
+  # ログインユーザーがidealテーブルを作成している場合のアクセス制限
+  def ideal_created_user!
+    if current_user.ideal.present?
+      redirect_to root_path
+    end
   end
 
   def ideal_params

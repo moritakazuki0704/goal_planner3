@@ -120,7 +120,7 @@ ja:
       emotion_stetas: # カラム名
         positive: 'ポジティブ' # enumの値
         negative: 'ネガティブ' # enumの値
-        to_do: 'やりたいこと' # enumの値
+        to_do: 'したいこと' # enumの値
         want: '欲しいもの' # enumの値
   date:
     abbr_day_names:

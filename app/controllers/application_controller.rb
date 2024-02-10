@@ -15,7 +15,14 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
+  
+  # ログインユーザーがuserテーブルのmission_statementのカラムを作成していない場合のアクセス制限
+  def mission_statement_uncreated_user!
+    if !current_user.mission_statement.present?
+      redirect_to root_path
+    end
+  end
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:planner_name] )
   end

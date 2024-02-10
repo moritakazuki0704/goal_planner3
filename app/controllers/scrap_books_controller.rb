@@ -1,5 +1,7 @@
 class ScrapBooksController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!
+
   def index
     @scrap_books = current_user.scrap_books.order("RANDOM()").page(params[:page])
     @scrap_book = ScrapBook.new

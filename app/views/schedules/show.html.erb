@@ -205,9 +205,9 @@
         <% end %>
       </div>
 
-      <% if @schedule.plans.present? %>
+      <% if @schedule.plans.programme(false).present? %>
         <div class="d-flex justify-content-around my-3">
-          <%= link_to "全てやるべきことリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch %>
+          <%= link_to "全てToDoリストに保存する", bulk_upload_schedule_plans_path(@schedule.id), method: :patch %>
         </div>
         <div>
           <%= link_to "メモを全て破棄する", bulk_destroy_schedule_plans_path(@schedule.id), method: :delete %>

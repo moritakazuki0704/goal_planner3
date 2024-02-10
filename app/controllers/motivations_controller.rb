@@ -1,5 +1,6 @@
 class MotivationsController < ApplicationController
 
+  before_action :mission_statement_uncreated_user!
   before_action :motivation_new, only: [:positive_new,:negative_new,:to_do_new,:want_new]
   before_action :user_signed_motivation, except: [:show,:destroy]
 
