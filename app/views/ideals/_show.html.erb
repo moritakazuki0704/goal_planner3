@@ -2,16 +2,16 @@
 <!--タブ表示機能-->
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">1</a>
-    <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">2</a>
-    <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">3</a>
-    <a class="nav-item nav-link" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="false">4</a>
-    <a class="nav-item nav-link" id="nav-time-tab" data-toggle="tab" href="#nav-time" role="tab" aria-controls="nav-time" aria-selected="false">5</a>
-    <a class="nav-item nav-link" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="false">6</a>
-    <a class="nav-item nav-link" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="false">7</a>
-    <a class="nav-item nav-link" id="nav-relationship-tab" data-toggle="tab" href="#nav-relationship" role="tab" aria-controls="nav-relationship" aria-selected="false">8</a>
-    <a class="nav-item nav-link" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="false">9</a>
-    <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">10</a>
+    <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">キー</a>
+    <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">性格</a>
+    <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">外見</a>
+    <a class="nav-item nav-link" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="false">生き方</a>
+    <a class="nav-item nav-link" id="nav-time-tab" data-toggle="tab" href="#nav-time" role="tab" aria-controls="nav-time" aria-selected="false">時間</a>
+    <a class="nav-item nav-link" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="false">勤務</a>
+    <a class="nav-item nav-link" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="false">住居</a>
+    <a class="nav-item nav-link" id="nav-relationship-tab" data-toggle="tab" href="#nav-relationship" role="tab" aria-controls="nav-relationship" aria-selected="false">関係</a>
+    <a class="nav-item nav-link" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="false">相方</a>
+    <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">モデル</a>
   </div>
 </nav>
 
@@ -20,13 +20,11 @@
 
   <!--キーワードタブ-->
   <div class="tab-pane fade show active" id="nav-keyword" role="tabpanel" aria-labelledby="nav-keyword-tab">
+    <div class="smart-content text-center font-weight-bold">
+      <h3>理想を示すキーワード</h3>
+    </div>
     <table class="table">
-      <thead>
-        <tr>
-          <th colspan="2" scope="col">理想を示すキーワード</th>
-        </tr>
-      </thead>
-      <tbody class="form-group">
+      <tbody class="form-group cross-frame font-weight-bold">
         <tr>
           <td><%= ideal.keyword_1 %></th>
           <td><%= ideal.keyword_2 %></td>
@@ -54,9 +52,7 @@
   <!--理想の性格のタブ-->
   <div class="tab-pane fade" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
     <div>
-      <div class="smart-content text-center font-weight-bold">
-        <h3>理想の性格</h3>
-      </div>
+
       <div class="cross-frame font-weight-bold">
         <div>
           <p>１つ目の理想の性格</p>
