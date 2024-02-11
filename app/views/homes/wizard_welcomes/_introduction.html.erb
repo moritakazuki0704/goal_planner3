@@ -37,7 +37,6 @@
 
 <!--右のページ-->
 <div class="right-page col text-center m-5 p-5">
-  <p class="alert"><%= alert %></p>
   <p>
     あなたのなりたい姿<br>
     目標を教えてください
@@ -71,23 +70,19 @@
     はじめましょう
   </p>
 
-  <!--理想のテーブルを作成していない場合-->
-  <% if !current_user.ideal.present? %>
-    <div>
+  <div class="my-4">
+    <!--理想のテーブルを作成していない場合-->
+    <% if !current_user.ideal.present? %>
       <%= link_to "あなたの理想を教えてください",step1_keyword_ideal_path,class: "btn btn-lg btn-block btn-outline-primary" %>
-    </div>
 
-  <!--ミッションステートメントを作成していない場合-->
-  <% elsif !current_user.mission_statement.present? %>
-    <div>
+    <!--ミッションステートメントを作成していない場合-->
+    <% elsif !current_user.mission_statement.present? %>
       <%= link_to "あなたの生涯の目標を教えてください",new_user_path,class: "btn btn-lg btn-block btn-outline-primary" %>
-    </div>
 
-  <!--目標を作成していない場合-->
-  <% else %>
-    <div>
+    <!--目標を作成していない場合-->
+    <% else %>
       <%= link_to "あなたの目標を教えてください",new_commit_path,class: "btn btn-lg btn-block btn-outline-primary" %>
-    </div>
-  <% end %>
+    <% end %>
 
+  </div>
 </div>

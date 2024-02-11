@@ -10,33 +10,34 @@
       <%= form_with model: @user,url: user_registration_path do |f| %>
         <div class="cross-frame text-center font-weight-bold">
           <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="field form-group">
-              <%= f.label :planner_name,"手帳の名前" %><br />
-              <%= f.text_field :planner_name, autofocus: true,class: "form-control" %>
-            </div>
-            <div class="field form-group">
-              <%= f.label :secret_word,"手帳を開く鍵" %><br />
-              <%= f.text_field :secret_word, autofocus: true,class: "form-control" %>
-            </div>
-            <div class="field form-group">
-              <%= f.label :password,"パスワード" %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> 文字以上)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
-            </div>
-            <div class="field form-group">
-              <%= f.label :password_confirmation,"再確認用パスワード" %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
-            </div>
-            <div class="actions d-flex justify-content-around p-3">
-              <div>
-                <%= f.submit "登録する",class: "btn btn-success" %>
+          <div class="row">
+            <div class="col px-5 mx-5">
+              <div class="field form-group mt-3">
+                <%= f.label :planner_name %>
+                <%= f.text_field :planner_name, autofocus: true,class: "form-control" %>
               </div>
-              <div>
-                <%= link_to "前に戻る", root_path,class: "btn btn-info" %>
+              <div class="field form-group">
+                <%= f.label :secret_word %>
+                <%= f.text_field :secret_word, autofocus: true,class: "form-control" %>
+              </div>
+              <div class="field form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
+              </div>
+              <div class="field form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
               </div>
             </div>
+          </div>
+          <div class="actions d-flex justify-content-around p-3">
+            <div>
+              <%= f.submit "登録する",class: "btn btn-success" %>
+            </div>
+            <div>
+              <%= link_to "前に戻る", root_path,class: "btn btn-info" %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
