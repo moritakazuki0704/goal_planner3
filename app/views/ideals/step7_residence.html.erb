@@ -26,13 +26,7 @@
         知識と経験を学ぶ場所になり得ます
       </p>
       <p>
-        ここに住んでみたい<br>
-        こんな家に住みたい<br>
-        こんな部屋が欲しい
-      </p>
-      <p>
-        思い描いてみましょう<br>
-        もしくは将来を思い描いてみましょう<br>
+        将来を思い描いてみましょう<br>
         そしたらそこにはあなたの住んでいる場所があります
       </p>
       <table class="table">
@@ -64,10 +58,6 @@
           </tr>
         </tbody>
       </table>
-      <p>
-        理想を示すキーワードに住まいが入っていなくても<br>
-        あなたのキーワードが理想の住まいを教えてくれます
-      </p>
     </div>
 
     <!--右のページ-->
@@ -96,15 +86,15 @@
       <%= form_with model: @ideal,url: step8_relationship_ideal_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :residence_1 %><br />
-          <%= f.text_area :residence_1,class: "form-control" %>
+          <%= f.text_area :residence_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :residence_2 %><br />
-          <%= f.text_area :residence_2,class: "form-control" %>
+          <%= f.text_area :residence_2,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :residence_2 %><br />
-          <%= f.text_area :residence_2,class: "form-control" %>
+          <%= f.label :residence_3 %><br />
+          <%= f.text_area :residence_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
           <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

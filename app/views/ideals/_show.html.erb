@@ -2,16 +2,16 @@
 <!--タブ表示機能-->
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">キーワード</a>
-    <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">性格</a>
-    <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">スタイル</a>
-    <a class="nav-item nav-link" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="false">ライフスタイル</a>
-    <a class="nav-item nav-link" id="nav-time-tab" data-toggle="tab" href="#nav-time" role="tab" aria-controls="nav-time" aria-selected="false">時間の使い方</a>
-    <a class="nav-item nav-link" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="false">働き方</a>
-    <a class="nav-item nav-link" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="false">住まい</a>
-    <a class="nav-item nav-link" id="nav-relationship-tab" data-toggle="tab" href="#nav-relationship" role="tab" aria-controls="nav-relationship" aria-selected="false">人間関係</a>
-    <a class="nav-item nav-link" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="false">パートナー</a>
-    <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">ロールモデル</a>
+    <a class="nav-item nav-link active" id="nav-keyword-tab" data-toggle="tab" href="#nav-keyword" role="tab" aria-controls="nav-keyword" aria-selected="true">1</a>
+    <a class="nav-item nav-link" id="nav-personality-tab" data-toggle="tab" href="#nav-personality" role="tab" aria-controls="nav-personality" aria-selected="false">2</a>
+    <a class="nav-item nav-link" id="nav-appearance-tab" data-toggle="tab" href="#nav-appearance" role="tab" aria-controls="nav-appearance" aria-selected="false">3</a>
+    <a class="nav-item nav-link" id="nav-lifestyle-tab" data-toggle="tab" href="#nav-lifestyle" role="tab" aria-controls="nav-lifestyle" aria-selected="false">4</a>
+    <a class="nav-item nav-link" id="nav-time-tab" data-toggle="tab" href="#nav-time" role="tab" aria-controls="nav-time" aria-selected="false">5</a>
+    <a class="nav-item nav-link" id="nav-working-tab" data-toggle="tab" href="#nav-working" role="tab" aria-controls="nav-working" aria-selected="false">6</a>
+    <a class="nav-item nav-link" id="nav-residence-tab" data-toggle="tab" href="#nav-residence" role="tab" aria-controls="nav-residence" aria-selected="false">7</a>
+    <a class="nav-item nav-link" id="nav-relationship-tab" data-toggle="tab" href="#nav-relationship" role="tab" aria-controls="nav-relationship" aria-selected="false">8</a>
+    <a class="nav-item nav-link" id="nav-partner-tab" data-toggle="tab" href="#nav-partner" role="tab" aria-controls="nav-partner" aria-selected="false">9</a>
+    <a class="nav-item nav-link" id="nav-role_model-tab" data-toggle="tab" href="#nav-role_model" role="tab" aria-controls="nav-role_model" aria-selected="false">10</a>
   </div>
 </nav>
 
@@ -59,15 +59,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.personality_1.label.i18n %><br>
+          <p>１つ目の理想の性格</p>
           <%= ideal.personality_1 %>
         </div>
         <div>
-          <%= ideal.personality_2.label.i18n %><br>
+          <p>２つ目の理想の性格</p>
           <%= ideal.personality_2 %>
         </div>
         <div>
-          <%= ideal.personality_3.label.i18n %><br>
+          <p>３つ目の理想の性格</p>
           <%= ideal.personality_3 %>
         </div>
       </div>
@@ -82,15 +82,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.hair_make.label.i18n %><br>
+          <p>理想の髪型・メイク</p>
           <%= ideal.hair_make %>
         </div>
         <div>
-          <%= ideal.body_make.label.i18n %><br>
+          <p>理想の体型</p>
           <%= ideal.body_make %>
         </div>
         <div>
-          <%= ideal.fashion_make.label.i18n %><br>
+          <p>理想のファッション</p>
           <%= ideal.fashion_make %>
         </div>
       </div>
@@ -105,15 +105,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.lifestyle_1.label.i18n %><br>
+          <p>１つ目の理想のライフスタイル</p>
           <%= ideal.lifestyle_1 %>
         </div>
         <div>
-          <%= ideal.lifestyle_2.label.i18n %><br>
+          <p>２つ目の理想のライフスタイル</p>
           <%= ideal.lifestyle_2 %>
         </div>
         <div>
-          <%= ideal.lifestyle_3.label.i18n %><br>
+          <p>３つ目の理想のライフスタイル</p>
           <%= ideal.lifestyle_3 %>
         </div>
       </div>
@@ -128,15 +128,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.time_1.label.i18n %><br>
+          <p>１つ目の理想の時間の使い方</p>
           <%= ideal.time_1 %>
         </div>
         <div>
-          <%= ideal.time_2.label.i18n %><br>
+          <p>２つ目の理想の時間の使い方</p>
           <%= ideal.time_2 %>
         </div>
         <div>
-          <%= ideal.time_3.label.i18n %><br>
+          <p>３つ目の理想の時間の使い方</p>
           <%= ideal.time_3 %>
         </div>
       </div>
@@ -151,15 +151,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.working_1.label.i18n %><br>
+          <p>１つ目の理想の働き方</p>
           <%= ideal.working_1 %>
         </div>
         <div>
-          <%= ideal.working_2.label.i18n %><br>
+          <p>２つ目の理想の働き方</p>
           <%= ideal.working_2 %>
         </div>
         <div>
-          <%= ideal.working_3.label.i18n %><br>
+          <p>３つ目の理想の働き方</p>
           <%= ideal.working_3 %>
         </div>
       </div>
@@ -174,15 +174,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.residence_1.label.i18n %><br>
+          <p>１つ目の理想の住まい</p>
           <%= ideal.residence_1 %>
         </div>
         <div>
-          <%= ideal.residence_2.label.i18n %><br>
+          <p>２つ目の理想の住まい</p>
           <%= ideal.residence_2 %>
         </div>
         <div>
-          <%= ideal.residence_3.label.i18n %><br>
+          <p>３つ目の理想の住まい</p>
           <%= ideal.residence_3 %>
         </div>
       </div>
@@ -197,15 +197,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.relationship_1.label.i18n %><br>
+          <p>１つ目の理想の人間関係</p>
           <%= ideal.relationship_1 %>
         </div>
         <div>
-          <%= ideal.relationship_2.label.i18n %><br>
+          <p>２つ目の理想の人間関係</p>
           <%= ideal.relationship_2 %>
         </div>
         <div>
-          <%= ideal.relationship_3.label.i18n %><br>
+          <p>３つ目の理想の人間関係</p>
           <%= ideal.relationship_3 %>
         </div>
       </div>
@@ -220,15 +220,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.partner_1.label.i18n %><br>
+          <p>１つ目の理想のパートナー</p>
           <%= ideal.partner_1 %>
         </div>
         <div>
-          <%= ideal.partner_2.label.i18n %><br>
+          <p>２つ目の理想のパートナー</p>
           <%= ideal.partner_2 %>
         </div>
         <div>
-          <%= ideal.partner_3.label.i18n %><br>
+          <p>３つ目の理想のパートナー</p>
           <%= ideal.partner_3 %>
         </div>
       </div>
@@ -243,15 +243,15 @@
       </div>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= ideal.partner_model.label.i18n %><br>
+          <p>理想のパートナー像</p>
           <%= ideal.partner_model %>
         </div>
         <div>
-          <%= ideal.family_model.label.i18n %><br>
+          <p>理想の家族像</p>
           <%= ideal.family_model %>
         </div>
         <div>
-          <%= ideal.friend_model.label.i18n %><br>
+          <p>理想の友達像</p>
           <%= ideal.friend_model %>
         </div>
       </div>

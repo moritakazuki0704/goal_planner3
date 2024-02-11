@@ -37,6 +37,7 @@
 
 <!--右のページ-->
 <div class="right-page col text-center m-5 p-5">
+  <p class="alert"><%= alert %></p>
   <p>
     あなたのなりたい姿<br>
     目標を教えてください
@@ -71,7 +72,7 @@
   </p>
 
   <!--理想のテーブルを作成していない場合-->
-  <% if !ideal.present? %>
+  <% if !current_user.ideal.present? %>
     <div>
       <%= link_to "あなたの理想を教えてください",step1_keyword_ideal_path,class: "btn btn-lg btn-block btn-outline-primary" %>
     </div>

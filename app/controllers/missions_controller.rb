@@ -1,7 +1,5 @@
 class MissionsController < ApplicationController
 
-  before_action :mission_statement_uncreated_user!
-
   def create
     commit = Commit.find(params[:commit_id])
     mission = Mission.new(mission_param)

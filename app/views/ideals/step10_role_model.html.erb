@@ -11,18 +11,7 @@
         憧れるなぁ
       </p>
       <p>
-        この輪の中に入りたいなぁ
-      </p>
-      <p>
         それは理想を叶えている姿です
-      </p>
-      <p>
-        あなたにとっての理想を叶えている人は
-      </p>
-      <p>
-        あなたの周り<br>
-        もしくはあなたの関わったことある人<br>
-        テレビや雑誌で見たことある人
       </p>
       <p>
         理想を体現している人がいるのならば<br>
@@ -104,15 +93,15 @@
       <%= form_with model: @ideal,url: ideal_path, method: :post do |f| %>
         <div class="form-group">
           <%= f.label :partner_model %><br />
-          <%= f.text_area :partner_model,class: "form-control" %>
+          <%= f.text_area :partner_model,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :family_model %><br />
-          <%= f.text_area :family_model,class: "form-control" %>
+          <%= f.text_area :family_model,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :friend_model %><br />
-          <%= f.text_area :friend_model,class: "form-control" %>
+          <%= f.text_area :friend_model,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
           <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

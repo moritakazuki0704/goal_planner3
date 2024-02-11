@@ -1,6 +1,7 @@
 {
   "name": "goal-planner3",
   "private": true,
+  "license": "UNLICENSED",
   "dependencies": {
     "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",

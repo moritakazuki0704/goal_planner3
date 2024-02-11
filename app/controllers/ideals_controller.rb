@@ -1,7 +1,6 @@
 class IdealsController < ApplicationController
 
-  before_action :mission_statement_uncreated_user!,only: [:show]
-  before_action :ideal_created_user!,except: [:show]
+  before_action :ideal_created_user!,only: [:show]
   before_action :ideal_new, except: [:create,:confirm,:destroy,:show]
   before_action :ideal_find, only: [:confirm,:destroy,:show]
 
@@ -110,11 +109,8 @@ class IdealsController < ApplicationController
     friend_model: ideal_params[:friend_model]
     )
     ideal.user_id = current_user.id
-    if ideal.save
-      redirect_to confirm_ideal_path
-    else
-      render :confirm
-    end
+    ideal.save
+    redirect_to confirm_ideal_path
   end
 
   def confirm
@@ -139,10 +135,10 @@ class IdealsController < ApplicationController
     @ideal = Ideal.find_by(user_id: current_user)
   end
 
-  # ログインユーザーがidealテーブルを作成している場合のアクセス制限
+  # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
   def ideal_created_user!
     if current_user.ideal.present?
-      redirect_to root_path
+      redirect_to welcome_path
     end
   end
 

@@ -22,12 +22,10 @@
         無理なものは無理なのですから
       </p>
       <p>
-        ですが<br>
         いい事ももちろんあります
       </p>
       <p>
         仕事の成果を褒められた<br>
-        好きなことが仕事になった、仕事が好きになった<br>
         やりがいを感じた<br>
         自身の成長を感じた
       </p>
@@ -38,13 +36,6 @@
       <p>
         辞めること、逃げることは恥ではありません<br>
         より良い場所がきっとあなたには待っています
-      </p>
-      <p>
-        あなたが求めているもの<br>
-        あなたを求めているもの
-      </p>
-      <p>
-        それが必ずあるのですから
       </p>
       <table class="table">
         <thead>
@@ -94,20 +85,28 @@
         嬉しく感じることを
       </p>
       <p>
+        あなたが求めているもの<br>
+        あなたを求めているもの
+      </p>
+      <p>
+        それが必ずあるのですから
+      </p>
+      <p>
         詳しく教えて下さい
       </p>
+
       <%= form_with model: @ideal,url: step7_residence_ideal_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :working_1 %><br />
-          <%= f.text_area :working_1,autofocus: true,class: "form-control" %>
+          <%= f.text_area :working_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :working_2 %><br />
-          <%= f.text_area :working_2,autofocus: true,class: "form-control" %>
+          <%= f.text_area :working_2,rows: "3",autofocus: true,class: "form-control" %>
           </div>
         <div class="form-group">
           <%= f.label :working_3 %><br />
-          <%= f.text_area :working_3,autofocus: true,class: "form-control" %>
+          <%= f.text_area :working_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
           <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

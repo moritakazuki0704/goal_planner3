@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :mission_statement_uncreated_user!,only: [:withdrawal,:destroy]
+  before_action :ideal_created_user!
   before_action :mission_statement_created_user!,except: [:withdrawal,:destroy]
   before_action :user_new, only: [:new,:confirm]
 
@@ -43,7 +43,14 @@ class UsersController < ApplicationController
   # ログインユーザーがuserテーブルのmission_statementのカラムを作成している場合のアクセス制限
   def mission_statement_created_user!
     if current_user.mission_statement.present?
-      redirect_to root_path
+      redirect_to welcome_path
+    end
+  end
+
+    # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
+  def ideal_created_user!
+    if current_user.ideal.present?
+      redirect_to welcome_path
     end
   end
 

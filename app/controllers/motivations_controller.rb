@@ -1,5 +1,6 @@
 class MotivationsController < ApplicationController
 
+  before_action :ideal_created_user!
   before_action :mission_statement_uncreated_user!
   before_action :motivation_new, only: [:positive_new,:negative_new,:to_do_new,:want_new]
   before_action :user_signed_motivation, except: [:show,:destroy]
@@ -70,6 +71,20 @@ class MotivationsController < ApplicationController
 
   def user_signed_motivation
     @user_motivation = Motivation.where(user_id: current_user)
+  end
+
+    # ログインユーザーがuserテーブルのmission_statementのカラムを作成していない場合のアクセス制限
+  def mission_statement_uncreated_user!
+    if !current_user.mission_statement.present?
+      redirect_to welcome_path
+    end
+  end
+
+    # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
+  def ideal_created_user!
+    if current_user.ideal.present?
+      redirect_to welcome_path
+    end
   end
 
   def motivation_params

@@ -14,20 +14,12 @@
       <p>
         さらに言葉の意味はかなり広く<br>
         「衣食住」だけでなく<br>
-        「人生観・価値観・習慣などを含めた個人の生き方」<br>
+        人生観・価値観・習慣などを含めた
+        個人の生き方<br>
         という意味で使われているそうです
       </p>
       <p>
         何を大切にするかによってライフスタイルはわかります
-      </p>
-      <p>
-        仕事  趣味  健康
-      </p>
-      <p>
-        好きを仕事に  好きに囲まれ
-      </p>
-      <p>
-        好きな時間を過ごす
       </p>
       <p>
         難しく考える必要はどこにもありません<br>
@@ -62,9 +54,6 @@
           </tr>
         </tbody>
       </table>
-      <p>
-        理想を叶えた生活を思い浮かべてみて下さい
-      </p>
     </div>
 
     <!--右のページ-->
@@ -89,15 +78,15 @@
       <%= form_with model: @ideal,url: step5_time_ideal_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :lifestyle_1 %><br />
-          <%= f.text_area :lifestyle_1,class: "form-control" %>
+          <%= f.text_area :lifestyle_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :lifestyle_2 %><br />
-          <%= f.text_area :lifestyle_2,class: "form-control" %>
+          <%= f.text_area :lifestyle_2,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :lifestyle_3 %><br />
-          <%= f.text_area :lifestyle_3,class: "form-control" %>
+          <%= f.text_area :lifestyle_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
           <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

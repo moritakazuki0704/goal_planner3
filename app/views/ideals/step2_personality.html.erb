@@ -80,21 +80,21 @@
       <%= form_with model: @ideal,url: step3_appearance_ideal_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :personality_1 %><br />
-          <%= f.text_area :personality_1,autofocus: true,class: "form-control" %>
+          <%= f.text_area :personality_1,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :personality_2 %><br />
-          <%= f.text_area :personality_2,autofocus: true,class: "form-control" %>
+          <%= f.text_area :personality_2,rows: "3",autofocus: true,class: "form-control" %>
           </div>
         <div class="form-group">
           <%= f.label :personality_3 %><br />
-          <%= f.text_area :personality_3,autofocus: true,class: "form-control" %>
+          <%= f.text_area :personality_3,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
           <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
         </div>
       <% end %>
     </div>
-    
+
   </div>
 </div>

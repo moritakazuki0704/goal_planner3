@@ -8,7 +8,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-
 import "jquery";
 import "popper.js";
 import "bootstrap";
@@ -16,9 +15,10 @@ import "../stylesheets/application";
 import '../stylesheets/mystyle.css';
 import '../stylesheets/background.css';
 import '../stylesheets/background-image.css';
-import '../stylesheets/button.css';
 import "../fullcalendar/calendar";
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+

@@ -4,37 +4,24 @@
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
       <p>
-        今のあなたのファッションや<br>
-        体型<br>
-        髪型やメイクはどうなっていますか
-      </p>
-      <p>
         きっと<br>
         あなたが思い描く将来の姿には<br>
         あなた自身がいることと思います
       </p>
       <p>
-        その時<br>
         どんな表情をしていますか<br>
-        髪の長さはどうですか<br>
-        髪型はどのようにセットしていますか
+        髪の長さやセットはどのようなものですか
       </p>
       <p>
         メイクはどのようなメイクですか<br>
-        メイク道具は
       </p>
       <p>
         体型は標準ですか<br>
-        モデル体型ですか<br>
-        それとも筋肉質ですか
+        それともモデル体型、もしくは筋肉質ですか
       </p>
       <p>
         持っている服装は<br>
-        着ている服装は
-      </p>
-      <p>
-        アクセサリーはしていますか<br>
-        時計はしていますか
+        着ている服装やアクセサリーはしていますか
       </p>
       <p>
         思い描く未来は想像する未来のあなたの姿を教えて下さい
@@ -92,15 +79,15 @@
       <%= form_with model: @ideal,url: step4_lifestyle_ideal_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :hair_make %><br />
-          <%= f.text_area :hair_make,class: "form-control" %>
+          <%= f.text_area :hair_make,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :body_make %><br />
-          <%= f.text_area :body_make,class: "form-control" %>
+          <%= f.text_area :body_make,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :fashion_make %><br />
-          <%= f.text_area :fashion_make,class: "form-control" %>
+          <%= f.text_area :fashion_make,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
           <%= f.submit '次に進む',class: "btn btn-outline-primary" %>

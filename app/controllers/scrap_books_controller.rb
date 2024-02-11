@@ -1,5 +1,6 @@
 class ScrapBooksController < ApplicationController
 
+  before_action :ideal_created_user!
   before_action :mission_statement_uncreated_user!
 
   def index
@@ -28,6 +29,20 @@ class ScrapBooksController < ApplicationController
   end
 
   private
+
+    # ログインユーザーがuserテーブルのmission_statementのカラムを作成していない場合のアクセス制限
+  def mission_statement_uncreated_user!
+    if !current_user.mission_statement.present?
+      redirect_to welcome_path
+    end
+  end
+
+    # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
+  def ideal_created_user!
+    if current_user.ideal.present?
+      redirect_to welcome_path
+    end
+  end
 
   def scrap_book_params
     params.require(:scrap_book).permit(:comment,:photo)

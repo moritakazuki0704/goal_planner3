@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resource :ideal,only: [:show,:create,:destroy] do
+
     collection do
       get 'step1_keyword'
       get 'step2_personality'
