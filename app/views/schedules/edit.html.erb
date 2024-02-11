@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row justify-content-center open-book my-4">
+  <div class="row justify-content-center open-book my-4 py-3">
     <%= form_with model: @schedule,url: schedule_path(@schedule.id), method: :patch do |f| %>
     <%= render 'form',commit: @commits %>
   </div>
