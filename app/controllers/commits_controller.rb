@@ -1,14 +1,15 @@
 class CommitsController < ApplicationController
 
   before_action :not_design_your_ideal_life!
-  before_action :commit_new, except: [:new,:confirm]
 
   def new
+    @commit = Commit.new
   end
 
   def confirm
     session[:commitment] = commit_params[:commitment]
     session[:purpose] = commit_params[:purpose]
+    @commit = Commit.new
   end
 
   def create
@@ -48,10 +49,6 @@ class CommitsController < ApplicationController
   end
 
   private
-
-  def commit_new
-    @commit = Commit.new
-  end
 
     # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
   def not_design_your_ideal_life!
