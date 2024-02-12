@@ -31,7 +31,7 @@
         その時には新たに目標を立ててください
       </p>
       <div class="danger-title-frame">
-        <span>書き直す、削除することはできません</span>
+        <span>修正、削除はできません</span>
         <p>
           間違いないことを<br>
           改めて確認してください
@@ -44,19 +44,19 @@
       <p class="alert alert-warning"><%= alert %></p>
       <h5 class="smart-frame">
         <u>
-          <%= @session.commitment %>
+          <%= session[:commitment] %>
         </u>
       </h5>
       <div class="cross-frame font-weight-bold">
         <div>
-          <%= @session.purpose %>
+          <%= session[:purpose] %>
         </div>
       </div>
       <div>
         <%= link_to '目標を設定し直す', new_commit_path %>
       </div>
       <div>
-        <%= form_with model: @commit url: commits_path, method: :post %>
+        <%= form_with model: @commit, url: commits_path, method: :post do |f| %>
           <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか" %>
         <% end %>
       </div>
