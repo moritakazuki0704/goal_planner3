@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row justify-content-center open-book my-4 py-3">
     <% @scrap_books.each do |scrap_book| %>
-      <div>
+      <div class="photo-room">
         <%= link_to scrap_book_path(scrap_book.id) do %>
-          <%= scrap_book.get_photo(100,100) %>
+          <%= image_tag scrap_book.photo, class: "img-thumbnail" %>
         <% end %>
       </div>
     <% end %>
@@ -11,7 +11,6 @@
     <!--写真投稿フォーム-->
     <div class="row">
       <div class="col align-self-end">
-        <p class="alert alert-warning"><%= alert %></p>
         <%= form_with model: @scrap_book, url: scrap_books_path, method: :post do |f| %>
           <%= f.file_field :photo,accept: "image/*" %>
           <h3>説明</h3>

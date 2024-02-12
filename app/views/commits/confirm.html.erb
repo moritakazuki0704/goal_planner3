@@ -31,7 +31,7 @@
         その時には新たに目標を立ててください
       </p>
       <div class="danger-title-frame">
-        <span>修正、削除はできません</span>
+        <span>書き直す、削除はできません</span>
         <p>
           間違いないことを<br>
           改めて確認してください
@@ -41,7 +41,8 @@
 
     <!--右のページ-->
     <div class="right-page col text-center m-5 p-5">
-      <p class="alert alert-warning"><%= alert %></p>
+      <!--commitmentとpurposeが入力されている場合-->
+      <% if session[:commitment].present? && session[:purpose].present? %>
       <h5 class="smart-frame">
         <u>
           <%= session[:commitment] %>
@@ -52,14 +53,47 @@
           <%= session[:purpose] %>
         </div>
       </div>
-      <div>
-        <%= link_to '目標を設定し直す', new_commit_path %>
+      <div class="d-flex justify-content-around my-3">
+        <div>
+          <%= form_with model: @commit, url: commits_path, method: :post do |f| %>
+            <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+        </div>
       </div>
-      <div>
-        <%= form_with model: @commit, url: commits_path, method: :post do |f| %>
-          <%= f.submit 'この目標を叶える', "data-confirm" =>"修正することができませんがこの目標いいですか" %>
-        <% end %>
-      </div>
+
+      <!--commitmentとpurposeのどちらか、もしくは両方に空欄があった場合-->
+      <% else %>
+        <h5 class="smart-frame bg-warning">
+          <u>
+            目標の作成に失敗しました
+          </u>
+        </h5>
+        <p>
+          教えていただいた内容に空欄があったみたいです。
+        </p>
+        <p>
+          これから叶えていく目標は<br>
+          あなた自身が見つけていくものです<br>
+          深く考える必要はありません
+        </p>
+        <p>
+          ちょっとした気持ち、感情が動いた時<br>
+          それはすでにあなたの中にあります
+        </p>
+        <p>
+          あとはそれを<br>
+          言葉にして形にするだけです
+        </p>
+        <div class="d-flex justify-content-around my-3">
+          <div>
+            <%= link_to '目標を設定し直す', welcome_path, class: "btn btn-info" %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
 
   </div>

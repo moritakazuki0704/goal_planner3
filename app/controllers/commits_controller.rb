@@ -19,18 +19,17 @@ class CommitsController < ApplicationController
       )
     commit.user_id = current_user.id
 
-    if commit.save
-      # ログインユーザーがcommitテーブルを持っている場合
-      if !current_user.commits.present?
-        redirect_to welcome_path
-      else
-        # ログインユーザーがcommitテーブルを持っていない場合
-        redirect_to commit_path(commit.id)
-      end
+    # 初回にcommitテーブルを作成した場合
+    if !current_user.commits.present?
+      commit.save
+      redirect_to commit_path(commit.id)
 
+    # commitテーブルをすでに持っている場合
     else
-      render :confirm
+      commit.save
+      redirect_to welcome_path
     end
+
   end
 
   def index
@@ -50,7 +49,7 @@ class CommitsController < ApplicationController
 
   private
 
-    # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
+  # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
   def not_design_your_ideal_life!
     if !current_user.ideal.present? && !current_user.mission_statement.present?
       redirect_to welcome_path

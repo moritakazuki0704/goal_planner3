@@ -14,14 +14,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(
+    current_user.update(
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail],
       )
-      redirect_to new_commit_path
-    else
-      render :confirm
-    end
+    redirect_to new_commit_path
   end
 
   def withdrawal
