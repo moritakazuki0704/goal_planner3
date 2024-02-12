@@ -1,7 +1,6 @@
 class SchedulesController < ApplicationController
 
-  before_action :ideal_created_user!
-  before_action :mission_statement_uncreated_user!
+  before_action :not_design_your_ideal_life!
   before_action :schedule_find, only: [:show,:edit,:update,:destroy]
 
   def new
@@ -50,16 +49,9 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
   end
 
-    # ログインユーザーがuserテーブルのmission_statementのカラムを作成していない場合のアクセス制限
-  def mission_statement_uncreated_user!
-    if !current_user.mission_statement.present?
-      redirect_to welcome_path
-    end
-  end
-
-    # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
-  def ideal_created_user!
-    if current_user.ideal.present?
+    # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
+  def not_design_your_ideal_life!
+    if !current_user.ideal.present? && !current_user.mission_statement.present?
       redirect_to welcome_path
     end
   end

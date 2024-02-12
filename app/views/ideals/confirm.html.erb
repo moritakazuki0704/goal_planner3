@@ -52,13 +52,13 @@
           <%= render 'show', ideal: @ideal %>
         </div>
         <div class="d-flex justify-content-around my-3">
-          <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
+          <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
           <% if !current_user.mission_statement.present? %>
             <div>
               <%= link_to "次に進む",new_user_path, class: "btn btn-primary" %>
             </div>
           <% else %>
-          <!--ログインユーザーがミッションステートメントのカラムを持っていない場合-->
+          <!--ログインユーザーがミッションステートメントのカラムを持っている場合-->
             <div>
               <%= link_to "登録する",ideal_path, class: "btn btn-primary" %>
             </div>

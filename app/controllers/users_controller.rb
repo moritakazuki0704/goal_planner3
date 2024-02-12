@@ -1,25 +1,24 @@
 class UsersController < ApplicationController
 
-  before_action :ideal_created_user!
+  before_action :ideal_life_uncreated_user!
   before_action :mission_statement_created_user!,except: [:withdrawal,:destroy]
-  before_action :user_new, only: [:new,:confirm]
 
   def new
-    @user = User.new
+    @user = current_user
   end
 
   def confirm
     session[:mission_statement] = user_params[:mission_statement]
     session[:mission_detail] = user_params[:mission_detail]
-    @user = User.new
+    @user = current_user
   end
 
-  def create
-    user = User.new(
+  def update
+    if current_user.update(
       mission_statement: session[:mission_statement],
-      mission_detail: session[:mission_detail]
+      mission_detail: session[:mission_detail],
+      context: :create_mission_statement
       )
-    if user.save(context: :create_mission_statement)
       redirect_to new_commit_path
     else
       render :confirm
@@ -36,20 +35,9 @@ class UsersController < ApplicationController
 
   private
 
-  def user_new
-    @motivation = Motivation.new
-  end
-
-  # ログインユーザーがuserテーブルのmission_statementのカラムを作成している場合のアクセス制限
-  def mission_statement_created_user!
-    if current_user.mission_statement.present?
-      redirect_to welcome_path
-    end
-  end
-
-    # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
-  def ideal_created_user!
-    if current_user.ideal.present?
+    # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
+  def ideal_life_uncreated_user!
+    if !current_user.ideal.present? && !current_user.mission_statement_present?
       redirect_to welcome_path
     end
   end

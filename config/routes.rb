@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'welcome' => 'homes#welcome', as: 'welcome'
 
-  resource :user,only: [:new,:create,:destroy] do
+  resource :user,only: [:new,:update,:destroy] do
     collection do
       get 'confirm'
       get 'withdrawal'

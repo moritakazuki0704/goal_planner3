@@ -1,6 +1,6 @@
 class IdealsController < ApplicationController
 
-  before_action :ideal_created_user!,only: [:show]
+  before_action :ideal_uncreated_user!,only: [:show]
   before_action :ideal_new, except: [:create,:confirm,:destroy,:show]
   before_action :ideal_find, only: [:confirm,:destroy,:show]
 
@@ -136,8 +136,8 @@ class IdealsController < ApplicationController
   end
 
   # ログインユーザーがidealテーブルを作成していない場合のアクセス制限
-  def ideal_created_user!
-    if current_user.ideal.present?
+  def ideal_uncreated_user!
+    if !current_user.ideal.present?
       redirect_to welcome_path
     end
   end
