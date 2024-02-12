@@ -13,7 +13,7 @@ class ScrapBooksController < ApplicationController
     if scrap_book.save
       redirect_to scrap_books_path
     else
-      render :index
+      redirect_to scrap_books_path(error: true)
     end
   end
 
@@ -31,7 +31,7 @@ class ScrapBooksController < ApplicationController
 
   # ログインユーザーがidealテーブルとmission_statementのカラムを作成していない場合のアクセス制限
   def not_design_your_ideal_life!
-    if !current_user.ideal.present? && !current_user.mission_statement.present?
+    if !current_user.ideal.present? && !current_user.mission_statementpresent?
       redirect_to welcome_path
     end
   end

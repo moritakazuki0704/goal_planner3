@@ -15,6 +15,7 @@ import "../stylesheets/application";
 import '../stylesheets/mystyle.css';
 import '../stylesheets/background.css';
 import '../stylesheets/background-image.css';
+import '../stylesheets/kaminari.css';
 import "../fullcalendar/calendar";
 
 
