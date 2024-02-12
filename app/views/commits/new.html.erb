@@ -3,9 +3,6 @@
 
     <!--左のページ-->
     <div class="left-page col text-center m-5 p-5">
-      <div>
-        <%= render 'ideal/show', ideal: @ideal %>
-      </div>
       <p>
         最後に決めるのは<br>
         理想の将来です
@@ -27,7 +24,8 @@
     <div class="right-page col text-center m-5 p-5">
       <h5 class="smart-frame mb-5">
         <u>
-          あなたの叶えたい目標を教えて下さい
+          あなたの叶えたい目標を<br>
+          教えて下さい
         </u>
       </h5>
       <%= form_with model: @commit, url: confirm_commits_path, method: :get do |f| %>

@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     if current_user.update(
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail],
-      context: :create_mission_statement
       )
       redirect_to new_commit_path
     else

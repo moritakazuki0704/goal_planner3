@@ -4,11 +4,10 @@ class CommitsController < ApplicationController
   before_action :commit_new, except: [:new,:confirm]
 
   def new
-    @ideal = Ideal.find_by(user_id: current_user)
   end
 
   def confirm
-    session[:commitment] = commit_params[:commmitment]
+    session[:commitment] = commit_params[:commitment]
     session[:purpose] = commit_params[:purpose]
   end
 
