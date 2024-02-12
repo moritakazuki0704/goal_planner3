@@ -54,6 +54,6 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:task,:priority_status,:progress_status,:programme)
+    params.require(:plan).permit(:challenge,:priority_status,:progress_status,:programme)
   end
 end

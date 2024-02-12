@@ -2,7 +2,6 @@
 import { Calendar} from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
 
 //<div id='calendar'></div>のidからオブジェクトを定義してカレンダーを作っていきます。
 document.addEventListener('turbolinks:load', function() {
@@ -11,7 +10,7 @@ document.addEventListener('turbolinks:load', function() {
     // //カレンダーの中身を設定
     if (calendarEl) {
         var calendar = new Calendar(calendarEl, {
-            plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin ],
+            plugins: [ dayGridPlugin, interactionPlugin ],
             initialView: 'dayGridMonth',
 
             //細かな表示設定
@@ -21,7 +20,7 @@ document.addEventListener('turbolinks:load', function() {
             headerToolbar: {
               start: 'prev,next',
               center: 'title',
-              end: 'today,dayGridMonth,timeGridDay'
+              end: 'today'
             },
             expandRows: true,
             stickyHeaderDates: true,

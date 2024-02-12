@@ -5,7 +5,7 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
-    @commits = current_user.commits.activity.order(created_at: :desc)
+    @problems = current_user.problems.activity.order(created_at: :desc)
   end
 
   def create
@@ -27,7 +27,7 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    @commits = current_user.commits.activity.order(created_at: :desc)
+    @problems = current_user.problems.activity.order(created_at: :desc)
   end
 
   def update
@@ -57,6 +57,6 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:commit_id,:title,:body,:start,:end)
+    params.require(:schedule).permit(:title,:body,:start,:end)
   end
 end

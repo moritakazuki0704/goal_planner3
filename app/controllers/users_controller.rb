@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       mission_statement: session[:mission_statement],
       mission_detail: session[:mission_detail],
       )
-    redirect_to new_commit_path
+    redirect_to new_problem_path
   end
 
   def withdrawal

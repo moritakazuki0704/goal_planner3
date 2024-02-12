@@ -9,7 +9,7 @@ ja:
     models:
       user: あなたの情報
       ideal: 理想の情報
-      commit: 目標の情報
+      problem: 目標の情報
       mission: 任務の情報
       schedule: 予定の情報
       plan: 計画の情報
@@ -64,7 +64,7 @@ ja:
         partner_model: 理想のパートナー像
         family_model: 理想の家族像
         friend_model: 理想の友達像
-      commit:
+      problem:
         id: 目標のID
         user_id: あなたのID
         commitment: 叶えたい目標
@@ -72,16 +72,16 @@ ja:
         progress_stetas: 進行ステータス
       mission:
         id: 任務のID
-        commit_id: 目標のID
+        problem_id: 目標のID
         memo: 任務のメモ
       schedule:
         id: 予定のID
         user_id: あなたのID
-        commit_id: 目標のID
+        problem_id: 目標のID
         title: 予定タイトル
         body: 予定の詳細
-        start: 開始時刻
-        end: 終了時刻
+        start_time: 開始時刻
+        finish_time: 終了時刻
       plan:
         id: 計画のID
         schedule_id: 予定のID
@@ -101,7 +101,7 @@ ja:
         appetite: モチベーションの詳細
         memory: モチベーションの思い出
   enums:
-    commit: # モデル名
+    problem: # モデル名
       process_states: # カラム名
         progress: '進行中' # enumの値
         finish: '達成' # enumの値

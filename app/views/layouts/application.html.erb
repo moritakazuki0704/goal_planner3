@@ -14,7 +14,7 @@
   <body class="container">
     <div class="background-paper"></div>
     <div clss="row no-gutters justify-content-center">
-      <% if user_signed_in? && current_user.commits.present? %>
+      <% if user_signed_in? && current_user.problems.present? %>
         <div class ="sidebar col">
           <ul>
             <li class="my-logo">
@@ -28,7 +28,7 @@
               <%= link_to "カレンダー", schedules_path %>
             </li>
             <li>
-              <%= link_to "私の目標／課題", commits_path %>
+              <%= link_to "私の目標／課題", problems_path %>
             </li>
             <li>
               <%= link_to "私の理想", ideal_path %>

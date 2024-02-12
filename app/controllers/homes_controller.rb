@@ -4,7 +4,7 @@ class HomesController < ApplicationController
   end
 
   def welcome
-    @commit = Commit.where(user_id: current_user)
+    @problem = Problem.where(user_id: current_user)
     @ideal = Ideal.where(user_id: current_user)
   end
 

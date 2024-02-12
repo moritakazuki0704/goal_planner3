@@ -10,12 +10,12 @@
       </h5>
       <div class="card">
         <div class="card-header">
-          <%= @schedule.commit.commitment %>
+          <%= @schedule.problem.commitment %>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= @schedule.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted">
-            <%= @schedule.start.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= @schedule.end.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+            <%= @schedule.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= @schedule.finish_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
           </h6>
           <p class="card-text">
             <%= @schedule.body %>
@@ -48,7 +48,7 @@
                       <%= f.collection_select(:priority_status, @schedule.plans, 0..3, :priority_status ) %>
                     </div>
                     <div>
-                      <%= programme.task %>
+                      <%= programme.challenge %>
                     </div>
                     <div>
                       <div class="form-check form-check-inline">
@@ -88,7 +88,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <div>
-                    <%= emergency.task %>
+                    <%= emergency.challenge %>
                   </div>
                   <div>
                     <%= emergency.progress_status_i18n %>
@@ -108,7 +108,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <div>
-                    <%= important.task %>
+                    <%= important.challenge %>
                   </div>
                   <div>
                     <%= important.progress_status_i18n %>
@@ -128,7 +128,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <div>
-                    <%= mission.task %>
+                    <%= mission.challenge %>
                   </div>
                   <div>
                     <%= mission.progress_status_i18n %>
@@ -148,7 +148,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <div>
-                    <%= eliminate.task %>
+                    <%= eliminate.challenge %>
                   </div>
                   <div>
                     <%= eliminate.progress_status_i18n %>
@@ -183,7 +183,7 @@
       </h5>
       <div>
       <%= form_with model: [@schedule,@plan],url: schedule_plans_path(@schedule.id), method: :post do |f| %>
-        <%= f.text_field :task,class: "form-control" %>
+        <%= f.text_field :challenge,class: "form-control" %>
         <%= f.submit "提案する",class: "btn btn-secondary btn-sm"　%>
       <% end %>
       </div>
@@ -195,7 +195,7 @@
         <% @schedule.plans.memo.each do |plan| %>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              <%= plan.task %>
+              <%= plan.challenge %>
               <span>
                 <%= link_to "登録する", upload_schedule_plan_path(@schedule.id,plan.id), method: :patch %>
                 <%= link_to "削除する", schedule_plan_path(@schedule.id,plan.id), method: :delete %>

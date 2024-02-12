@@ -8,14 +8,14 @@
     </h5>
   </div>
   <div>
-    <%= commits.each do |commit| %>
+    <%= problems.each do |problem| %>
       <div class="title-frame">
         <span class="custom-control custom-radio custom-control-inline">
-          <%= radio_button :commit_id, commit.id, class: "custom-control-input" %>
-          <%= commit.commitment %>
+          <%= radio_button :problem_id, problem.id, class: "custom-control-input" %>
+          <%= problem.commitment %>
         </span>
         <p>
-          <%= commit.purpose %>
+          <%= problem.purpose %>
         </p>
       </div>
     <% end %>
@@ -30,12 +30,12 @@
     <%= f.text_field :title, required: true,class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :start %>
-    <%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :end %>
-    <%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
+    <%= f.label :finish_time %>
+    <%= f.datetime_select :finish_time, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :body %>

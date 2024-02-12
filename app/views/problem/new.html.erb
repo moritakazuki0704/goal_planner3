@@ -34,7 +34,7 @@
           教えて下さい
         </u>
       </h5>
-      <%= form_with model: @commit, url: confirm_commits_path, method: :get do |f| %>
+      <%= form_with model: @problem, url: confirm_problems_path, method: :get do |f| %>
         <div class="form-group">
           <%= f.label :commitment %><br />
           <%= f.text_field :commitment,autofocus: true,class: "form-control" %>
@@ -44,7 +44,7 @@
           <%= f.text_area :purpose,rows: "3",autofocus: true,class: "form-control" %>
         </div>
         <div>
-          <%= f.submit '次に進む',class: "btn btn-outline-primary" %>
+          <%= f.submit "次に進む",class: "btn btn-outline-primary" %>
         </div>
       <% end %>
     </div>

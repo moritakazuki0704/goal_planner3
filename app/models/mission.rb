@@ -1,5 +1,5 @@
 class Mission < ApplicationRecord
-  belongs_to :commit
+  belongs_to :problem
 
   validates :memo, presence: true
 

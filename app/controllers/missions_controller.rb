@@ -1,68 +1,68 @@
 class MissionsController < ApplicationController
 
   def create
-    commit = Commit.find(params[:commit_id])
+    problem = Problem.find(params[:problem_id])
     mission = Mission.new(mission_param)
-    mission.commit_id = commit.id
+    mission.problem_id = problem.id
     if mission.save
-      redirect_to commit_path(commit.id)
+      redirect_to problem_path(problem.id)
     else
-      render template: 'commit/show'
+      render template: 'problem/show'
     end
   end
 
   # 単一のmissionテーブルをscheduleに保存する
   def upload
-    commit = Commit.find(params[:commit_id])
+    problem = Problem.find(params[:problem_id])
     mission = Mission.find(params[:id])
 
     # missionのデータをscheduleのテーブルに保存
     schedule = Schedule.new
     schedule.user_id = current_user.id
-    schedule.commit_id = mission.commit_id
+    schedule.problem_id = mission.problem_id
     schedule.title = mission.memo
     schedule.save
 
     # 保存が終わったmissionのデータを削除
     mission.destroy
 
-    redirect_to commit_path(commit.id)
+    redirect_to problem_path(problem.id)
 
   end
 
   # 単一のmissionテーブルを削除する
   def destroy
-    commit = Commit.find(params[:commit_id])
+    problem = Problem.find(params[:problem_id])
     mission = Mission.find(params[:id])
     mission.destroy
-    redirect_to commit_path(commit.id)
+    redirect_to problem_path(problem.id)
   end
 
   # 複数のmissionテーブルをscheduleに保存する
   def bulk_upload
-    commit = Commit.find(params[:commit_id])
+    problem = Problem.find(params[:problem_id])
 
-    # 閲覧中のcommitが保持しているmissionのデータをscheduleのテーブルに保存
-    commit.missions.each do |mission|
+    # 閲覧中のproblemが保持しているmissionのデータをscheduleのテーブルに保存
+    problem.missions.each do |mission|
       schedule = Schedule.new
       schedule.user_id = current_user.id
-      schedule.commit_id = mission.commit_id
+      schedule.problem_id = mission.problem_id
       schedule.title = mission.memo
       schedule.save
     end
 
-    # 閲覧中のcommitが保持しているmissionのデータを全て削除
-    commit.missions.destroy_all
+    # 閲覧中のproblemが保持しているmissionのデータを全て削除
+    problem.missions.destroy_all
 
-    redirect_to commit_path(commit.id)
+    redirect_to problem_path(problem.id)
   end
 
   # 複数のmissionテーブルを削除する
   def bulk_destroy
-    commit = Commit.find(params[:commit_id])
-    mission = commit.missions
+    problem = Problem.find(params[:problem_id])
+    mission = problem.missions
     mission.destroy_all
-    redirect_to commit_path(commit.id)
+    redirect_to problem_path(problem.id)
   end
 
   private

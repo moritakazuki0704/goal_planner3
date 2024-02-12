@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CommitTest < ActiveSupport::TestCase
+class ProblemControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

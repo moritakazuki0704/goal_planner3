@@ -5,13 +5,13 @@
     <div class="left-page col text-center m-5 p-5">
       <div class="card">
         <div class="card-header">
-          <%= @commit.commitment %>
+          <%= @problem.commitment %>
         </div>
         <div class="card-body">
-          <%= @commit.purpose %>
+          <%= @problem.purpose %>
         </div>
         <div class="card-footer d-flex justify-content-around">
-          <%= form_with model: @commit, url: commit_path(@commit.id), method: :patch do |f| %>
+          <%= form_with model: @problem, url: problem_path(@problem.id), method: :patch do |f| %>
             <div class="form-check form-check-inline">
               <%= f.radio_button :progress_stetas, 0, class: "form-check-input"  %>
               <%= f.label :progress_status_process, Plan.progress_status_i18n[:process], class: "form-check-label" %>
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div>
-        <p>課題件数：<%= @commit.schedules.conut %></p>
+        <p>課題件数：<%= @problem.schedules.conut %></p>
       </div>
 
     <!--タブ表示機能-->
@@ -47,10 +47,10 @@
 
         <!--未設定の課題のタブ-->
         <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
-          <p class="fixed-top">未設定課題件数：<%= @commit.schedules.pending.conut %></p>
+          <p class="fixed-top">未設定課題件数：<%= @problem.schedules.pending.conut %></p>
           <p>詳細内容と日付が未入力な予定</p>
           <p>タイトルをクリックして詳細を設定してください</p>
-          <%= @commit.schedules.pending.each do |pending| %>
+          <%= @problem.schedules.pending.each do |pending| %>
             <div>
               <%= link_to edit_schedule_path(pending.id) do %>
                 <h5><%= pending.title %></h5>
@@ -61,15 +61,15 @@
 
         <!--完了した課題のタブ-->
         <div class="tab-pane fade" id="nav-completion" role="tabpanel" aria-labelledby="nav-completion-tab">
-          <p class="fixed-top">完了課題件数：<%= @commit.schedules.completion.conut %></p>
+          <p class="fixed-top">完了課題件数：<%= @problem.schedules.completion.conut %></p>
           <p>終わった予定</p>
-          <%= @commit.schedules.completion.each do |completion| %>
+          <%= @problem.schedules.completion.each do |completion| %>
             <div>
               <%= link_to schedule_path do %>
                 <h5><%= completion.title %></h5>
               <% end %>
               <h6 class="mb-2 text-muted">
-                <%= completion.start.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= completion.end.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+                <%= completion.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= completion.finish_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
               </h6>
             </div>
           <% end %>
@@ -77,15 +77,15 @@
 
         <!--未完了の課題のタブ-->
         <div class="tab-pane fade" id="nav-imperfect" role="tabpanel" aria-labelledby="nav-imperfect-tab">
-          <p class="fixed-top">未完了課題件数：<%= @commit.schedules.imperfect.conut %></p>
+          <p class="fixed-top">未完了課題件数：<%= @problem.schedules.imperfect.conut %></p>
           <p>将来の予定</p>
-          <%= @commit.schedules.imperfect.each do |imperfect| %>
+          <%= @problem.schedules.imperfect.each do |imperfect| %>
             <div>
               <%= link_to schedule_path do %>
                 <h5><%= imperfect.title %></h5>
               <% end %>
               <h6 class="mb-2 text-muted">
-                <%= imperfect.start.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= imperfect.end.strftime("%Y年%-m月%-d日 %-H時%M分") %>
+                <%= imperfect.start_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>　〜　<%= imperfect.finish_time.strftime("%Y年%-m月%-d日 %-H時%M分") %>
               </h6>
             </div>
           <% end %>
@@ -95,7 +95,7 @@
     </div>
     <div class="d-flex justify-content-around my-3">
       <div>
-        <%= link_to "戻る",commits_path %>
+        <%= link_to "戻る",problems_path %>
       </div>
     </div>
   </div>
@@ -111,35 +111,35 @@
       </h5>
       <p class="alert alert-warning"><%= alert %></p>
       <div class="form-inline">
-        <%= form_with model: [@commit,@mission],url: commit_missions_path(@commit.id), method: :post do |f| %>
+        <%= form_with model: [@problem,@mission],url: problem_missions_path(@problem.id), method: :post do |f| %>
           <%= f.text_field :memo,class: "form-control" %>
           <%= f.submit "メモする",class: "btn btn-secondary btn-sm" %>
         <% end %>
       </div>
       <div>
-        <p>メモ件数：<%= @commit.missions.conut %></p>
+        <p>メモ件数：<%= @problem.missions.conut %></p>
       </div>
       <div class="position-static tab-room">
-        <% @commit.missions.each do |mission| %>
+        <% @problem.missions.each do |mission| %>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <%= mission.memo %>
               <span>
-                <%= link_to "課題にする", upload_commit_mission_path(@commit.id,mission.id), method: :post %>
-                <%= link_to "削除する", commit_mission_path(@commit.id,mission.id) method: :delete %>
+                <%= link_to "課題にする", upload_problem_mission_path(@problem.id,mission.id), method: :post %>
+                <%= link_to "削除する", problem_mission_path(@problem.id,mission.id) method: :delete %>
               </span>
             </li>
           </ul>
         <% end %>
       </div>
 
-      <% if @commit.missions.present? %>
+      <% if @problem.missions.present? %>
         <div class="d-flex justify-content-around my-3">
           <div>
-            <%= link_to "全て課題にする", bulk_upload_commit_missions_path(@commit.id), method: :post %>
+            <%= link_to "全て課題にする", bulk_upload_problem_missions_path(@problem.id), method: :post %>
           </div>
           <div>
-            <%= link_to "メモを全て破棄する", bulk_destroy_commit_missions_path(@commit.id), method: :delete %>
+            <%= link_to "メモを全て破棄する", bulk_destroy_problem_missions_path(@problem.id), method: :delete %>
           </div>
         </div>
       <% end %>

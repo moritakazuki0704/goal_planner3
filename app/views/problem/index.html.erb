@@ -24,7 +24,7 @@
         一つの軌跡
       </p>
       <div>
-        <%= link_to '新たに目標を定める',new_commit_path %>
+        <%= link_to '新たに目標を定める',new_problem_path %>
       </div>
     </div>
 
@@ -54,10 +54,10 @@
                 <p>進行中の目標</p>
               </div>
               <!--position:stickyを使用して、スクロール機能をつける-->
-              <% @commits.activity.each do |activity| %>
+              <% @problems.activity.each do |activity| %>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <%= link_to commit_path(activity.id) do %>
+                    <%= link_to problem_path(activity.id) do %>
                       <%= activity.commitment %>
                     <% end %>
                   </li>
@@ -72,10 +72,10 @@
               <div class="card-header">
                 <p>達成した目標</p>
               </div>
-              <% @commits.finish.each do |finish| %>
+              <% @problems.finish.each do |finish| %>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <%= link_to commit_path(finish.id) do %>
+                    <%= link_to problem_path(finish.id) do %>
                       <%= finish.commitment %>
                     <% end %>
                   </li>
@@ -90,10 +90,10 @@
               <div class="card-header">
                 <p>保留した目標</p>
               </div>
-              <% @commits.pending.each do |pending| %>
+              <% @problems.pending.each do |pending| %>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <%= link_to commit_path(pending.id) do %>
+                    <%= link_to problem_path(pending.id) do %>
                       <%= pending.commitment %>
                     <% end %>
                   </li>

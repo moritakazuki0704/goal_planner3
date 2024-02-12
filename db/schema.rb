@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_23_220152) do
+ActiveRecord::Schema.define(version: 2024_02_12_213146) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,15 +38,6 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "commits", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "commitment"
-    t.text "purpose"
-    t.integer "progress_stetas", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "ideals", force: :cascade do |t|
@@ -110,10 +101,19 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
 
   create_table "plans", force: :cascade do |t|
     t.integer "schedule_id", null: false
-    t.string "task"
+    t.string "challenge"
     t.integer "priority_status", default: 0
     t.integer "progress_status", default: 0
     t.boolean "programme", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "commitment"
+    t.text "purpose"
+    t.integer "progress_stetas", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 2024_01_23_220152) do
     t.integer "commit_id", null: false
     t.string "title"
     t.text "body"
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "start_time"
+    t.datetime "finish_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
