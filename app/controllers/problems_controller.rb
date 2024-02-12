@@ -1,5 +1,6 @@
-class ProblemController < ApplicationController
-    before_action :not_design_your_ideal_life!
+class ProblemsController < ApplicationController
+
+  before_action :not_design_your_ideal_life!
 
   def new
     @problem = Problem.new
