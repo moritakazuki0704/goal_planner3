@@ -15,13 +15,14 @@ class ProblemsController < ApplicationController
   def create
     problem = Problem.new(
       commitment: session[:commitment],
-      purpose: session[:purpose]
+      purpose: session[:purpose],
+      progress_stetas: params[:progress_stetas]
       )
     problem.user_id = current_user.id
 
     # 初回にproblemテーブルを作成した場合
     if !current_user.problems.present?
-      problem.save
+      problem.save!
       redirect_to problem_path(problem.id)
 
     # problemテーブルをすでに持っている場合
@@ -57,6 +58,8 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:commitment,:purpose,:progress_stetas)
+    params.require(:problem).permit(:commitment,:purpose,:progress_stetas).tap do |v|
+      v[:progress_stetas] = v[:progress_stetas].to_i
+    end
   end
 end

@@ -11,11 +11,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container">
+  <body class="container-fluid">
     <div class="background-paper"></div>
-    <div clss="row no-gutters justify-content-center">
+    <div class="row no-gutters justify-content-center">
       <% if user_signed_in? && current_user.problems.present? %>
-        <div class ="sidebar col">
+        <div class ="sidebar col-1">
           <ul>
             <li class="my-logo">
               <%= current_user.planner_name %>
@@ -49,7 +49,7 @@
           </ul>
         </div>
       <% end %>
-      <main class="col">
+      <main class="col-9">
         <%= yield %>
       </main>
     </div>
